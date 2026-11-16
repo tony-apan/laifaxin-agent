@@ -14,7 +14,7 @@
 npx skills add https://agent.laifa.xin -g -y
 ```
 
-它会自动发现本站的 Skill、校验完整性、安装到 `~/.agents/skills/laifaxin` 并链接到你当前宿主的 skills 目录，不要再手工下载或解压。若 npx 从 npm 拉取 skills 包超时，先运行 `npm config set registry https://registry.npmmirror.com` 再重试，或改走下面的备选手工安装。下文 `$LFX` 指：
+它会自动发现本站的 Skill、校验完整性、安装到 `~/.agents/skills/laifaxin` 并链接到你当前宿主的 skills 目录，不要再手工下载或解压。若 npx 从 npm 拉取 skills 包超时，先运行 `npm config set registry https://registry.npmmirror.com` 再重试，或改走下面的备选手工安装。若访问本站返回 **403（error code 1010）**，是客户端未携带正常 User-Agent 被站点防护拦截：改用 skills CLI、curl 或带浏览器标识的客户端重试，不要反复裸请求；仍不行时改走下文的 GitHub 镜像。下文 `$LFX` 指：
 
 ```bash
 LFX="$HOME/.agents/skills/laifaxin/scripts/laifaxin.py"
