@@ -38,7 +38,7 @@
 仓库结构：
 
 - `laifaxin/` — Skill 本体：`SKILL.md`、Python 客户端 `scripts/laifaxin.py`（纯标准库、零依赖，Python 3.10+）、接口目录与契约快照 `references/`
-- `site/` — 接入站站点源；推送到 main 后由 GitHub Actions 自动部署到 Cloudflare Pages
+- `site/` — 接入站站点源；推送到 main 后由 EdgeOne Pages 自动部署上线（GitHub Actions 仍同步部署 Cloudflare Pages 作回滚热备）
 
 手动安装（无 Node.js 环境时的备选）：当前版本 v6.1.28，从[接入站](https://agent.laifa.xin/releases/laifaxin-v6.1.28.zip)或 [GitHub Release](https://github.com/tony-apan/laifaxin-agent/releases) 下载 zip，解压到 Agent 的 skills 目录。SHA256：`00faebdc95599b56bfd76d57f425f4c867654609b148c3ef76e6743ef08b8e9f`（两处字节一致）。
 
