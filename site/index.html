@@ -7,45 +7,45 @@
 <meta name="description" content="把一句话发给你的 AI 助手，它就能在来发信里搜客户、管联系人、处理邮件。不用学新软件，不用记命令。">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:#0f172a; background:#fff; line-height:1.7; -webkit-font-smoothing:antialiased; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:#221d18; background:#fbf8f2; line-height:1.7; -webkit-font-smoothing:antialiased; }
   .wrap { max-width:1020px; margin:0 auto; padding:0 28px; }
-  .topbar { display:flex; justify-content:space-between; align-items:baseline; padding:26px 0 22px; border-bottom:1px solid #e5e7eb; }
+  .topbar { display:flex; justify-content:space-between; align-items:baseline; padding:26px 0 22px; border-bottom:1px solid #e7dfd0; }
   .brand { font-size:19px; font-weight:700; letter-spacing:.02em; }
-  .brand small { font-weight:400; color:#64748b; font-size:13px; margin-left:10px; letter-spacing:.14em; }
-  .topbar a { color:#475569; text-decoration:none; font-size:14px; }
-  .topbar a:hover { color:#0f172a; }
-  .hero { padding:84px 0 72px; border-bottom:1px solid #e5e7eb; }
-  .eyebrow { font-size:13px; letter-spacing:.32em; color:#94a3b8; margin-bottom:26px; }
+  .brand small { font-weight:400; color:#8a8175; font-size:13px; margin-left:10px; letter-spacing:.14em; }
+  .topbar a { color:#6b6357; text-decoration:none; font-size:14px; }
+  .topbar a:hover { color:#a02c18; }
+  .hero { padding:84px 0 72px; border-bottom:1px solid #e7dfd0; }
+  .eyebrow { font-size:13px; letter-spacing:.32em; color:#b09a72; margin-bottom:26px; }
   h1 { font-size:52px; line-height:1.18; font-weight:700; letter-spacing:-.01em; max-width:720px; }
-  .hero .sub { font-size:19px; color:#475569; max-width:620px; margin-top:24px; line-height:1.75; }
+  .hero .sub { font-size:19px; color:#5c554c; max-width:620px; margin-top:24px; line-height:1.75; }
   .prompt-wrap { margin-top:44px; max-width:720px; }
-  .prompt-label { font-size:13px; color:#64748b; margin-bottom:10px; }
-  .prompt-box { border:1px solid #0f172a; padding:20px 22px; font-size:16.5px; line-height:1.65; word-break:break-all; background:#fff; }
+  .prompt-label { font-size:13px; color:#8a8175; margin-bottom:10px; }
+  .prompt-box { border:1px solid #221d18; padding:20px 22px; font-size:16.5px; line-height:1.65; word-break:break-all; background:#fffdf9; }
   .copy-row { display:flex; align-items:center; gap:16px; margin-top:18px; }
-  .btn { appearance:none; border:1px solid #0f172a; background:#0f172a; color:#fff; font-size:15px; font-weight:600; letter-spacing:.06em; padding:13px 34px; cursor:pointer; border-radius:2px; transition:background .15s,color .15s; }
-  .btn:hover { background:#fff; color:#0f172a; }
+  .btn { appearance:none; border:1px solid #a02c18; background:#a02c18; color:#fff; font-size:15px; font-weight:600; letter-spacing:.06em; padding:13px 34px; cursor:pointer; border-radius:2px; transition:background .15s; }
+  .btn:hover { background:#8a2412; }
   .copied { color:#15803d; font-size:14px; display:none; }
-  .support { font-size:13.5px; color:#94a3b8; margin-top:16px; }
-  .trust-line { font-size:14px; color:#334155; margin-top:26px; padding-left:14px; border-left:2px solid #0f172a; max-width:640px; }
-  .facts { display:grid; grid-template-columns:repeat(4,1fr); gap:36px; padding:40px 0; border-bottom:1px solid #e5e7eb; }
-  .fact .k { font-size:12.5px; letter-spacing:.22em; color:#94a3b8; display:block; margin-bottom:8px; }
+  .support { font-size:13.5px; color:#a79c8c; margin-top:16px; }
+  .trust-line { font-size:14px; color:#4a4238; margin-top:26px; padding-left:14px; border-left:2px solid #a02c18; max-width:640px; }
+  .facts { display:grid; grid-template-columns:repeat(4,1fr); gap:36px; padding:40px 0; border-bottom:1px solid #e7dfd0; }
+  .fact .k { font-size:12.5px; letter-spacing:.22em; color:#b09a72; display:block; margin-bottom:8px; }
   .fact .v { font-size:15px; font-weight:600; line-height:1.55; }
-  .fact .v small { display:block; font-weight:400; color:#64748b; font-size:13.5px; margin-top:2px; }
-  section { padding:68px 0; border-bottom:1px solid #e5e7eb; }
-  .sec-title { font-size:13px; letter-spacing:.32em; color:#94a3b8; margin-bottom:40px; }
+  .fact .v small { display:block; font-weight:400; color:#8a8175; font-size:13.5px; margin-top:2px; }
+  section { padding:68px 0; border-bottom:1px solid #e7dfd0; }
+  .sec-title { font-size:13px; letter-spacing:.32em; color:#b09a72; margin-bottom:40px; }
   .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:44px; }
-  .step .num { font-size:44px; font-weight:200; color:#cbd5e1; line-height:1; display:block; margin-bottom:18px; }
+  .step .num { font-size:44px; font-weight:200; color:#dcc9a8; line-height:1; display:block; margin-bottom:18px; }
   .step h3 { font-size:18px; font-weight:600; margin-bottom:8px; }
-  .step p { font-size:15px; color:#475569; }
+  .step p { font-size:15px; color:#5c554c; }
   .feats { display:grid; grid-template-columns:1fr 1fr; column-gap:64px; }
-  .feat { display:flex; gap:22px; padding:22px 0; border-top:1px solid #eef2f7; }
+  .feat { display:flex; gap:22px; padding:22px 0; border-top:1px solid #efe7d7; }
   .feat:first-child, .feat:nth-child(2) { border-top:none; padding-top:0; }
   .feat h3 { font-size:16.5px; font-weight:600; white-space:nowrap; min-width:76px; }
-  .feat p { font-size:15px; color:#475569; }
-  .security { font-size:14px; color:#64748b; max-width:720px; }
-  footer { padding:34px 0 44px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:13.5px; color:#94a3b8; }
-  footer a { color:#64748b; text-decoration:none; }
-  footer a:hover { color:#0f172a; }
+  .feat p { font-size:15px; color:#5c554c; }
+  .security { font-size:14px; color:#6b6357; max-width:720px; }
+  footer { padding:34px 0 44px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:13.5px; color:#a79c8c; }
+  footer a { color:#8a8175; text-decoration:none; }
+  footer a:hover { color:#a02c18; }
   @media (max-width:760px) {
     h1 { font-size:36px; }
     .hero { padding:56px 0 48px; }
@@ -53,7 +53,7 @@
     .steps { grid-template-columns:1fr; gap:34px; }
     .facts { grid-template-columns:1fr 1fr; gap:26px; }
     .feats { grid-template-columns:1fr; }
-    .feat:nth-child(2) { border-top:1px solid #eef2f7; padding-top:22px; }
+    .feat:nth-child(2) { border-top:1px solid #efe7d7; padding-top:22px; }
   }
 </style>
 </head>
