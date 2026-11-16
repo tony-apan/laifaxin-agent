@@ -4,7 +4,7 @@
 
 ## 快速开始（AI Agent）
 
-全程只访问两个站点：`agent.laifa.xin`（安装）和 `api.laifaxin.com`（授权与业务接口）。不要让用户把密码、验证码或凭据粘贴到聊天里。运行环境需要 Python 3.10+ 跑业务脚本；没有脚本/网络能力的宿主只能提供业务建议，不要声称已连接。
+业务操作只访问两个站点：`agent.laifa.xin`（安装）和 `api.laifaxin.com`（授权与业务接口）；只有两个例外——本站不可达时按备选步骤走 GitHub 镜像下载安装包，授权确认与账号管理在来发信网页端 `web.laifaxin.com` 完成。不要让用户把密码、验证码或凭据粘贴到聊天里。运行环境需要 Python 3.10+ 跑业务脚本；没有脚本/网络能力的宿主只能提供业务建议，不要声称已连接。
 
 ### 第 1 步 — 安装 Skill（首选：一行命令）
 
@@ -14,7 +14,7 @@
 npx skills add https://agent.laifa.xin -g -y
 ```
 
-它会自动发现本站的 Skill、校验完整性、安装到 `~/.agents/skills/laifaxin` 并链接到你当前宿主的 skills 目录，不要再手工下载或解压。若 npx 从 npm 拉取 skills 包超时，先运行 `npm config set registry https://registry.npmmirror.com` 再重试，或改走下面的备选手工安装。若访问本站返回 **403（error code 1010）**，是客户端未携带正常 User-Agent 被站点防护拦截：改用 skills CLI、curl 或带浏览器标识的客户端重试，不要反复裸请求；仍不行时改走下文的 GitHub 镜像。下文 `$LFX` 指：
+它会自动发现本站的 Skill、校验完整性、安装到 `~/.agents/skills/laifaxin` 并链接到你当前宿主的 skills 目录，不要再手工下载或解压。若 npx 从 npm 拉取 skills 包超时，先运行 `npm config set registry https://registry.npmmirror.com` 再重试，或改走下面的备选手工安装。若访问本站失败（超时、连接错误或 403），不要反复重试，改走下文备选步骤里的 GitHub 镜像。下文 `$LFX` 指：
 
 ```bash
 LFX="$HOME/.agents/skills/laifaxin/scripts/laifaxin.py"
@@ -46,7 +46,7 @@ rm -rf "$TMPDIR"
 LFX="$SKILLS_DIR/laifaxin/scripts/laifaxin.py"
 ```
 
-校验失败立即停止，不要继续安装。macOS 无 `sha256sum` 时用 `shasum -a 256 -c -`。本站不可达时可用 GitHub 镜像（字节与校验和一致）：`https://github.com/tony-apan/laifaxin-agent/releases`
+校验失败立即停止，不要继续安装。macOS 无 `sha256sum` 时用 `shasum -a 256 -c -`。本站不可达时可用 GitHub 镜像（链接直达 zip；下载后必须按上文给出的 SHA256 校验，校验不过不要安装）：`https://raw.githubusercontent.com/tony-apan/laifaxin-agent/main/site/releases/laifaxin-v6.1.28.zip`；镜像也不可达时停下来向用户说明，不要从其他来源找安装包。
 
 ### 第 2 步 — 配置连接
 
