@@ -2,7 +2,7 @@
 
 让 AI 助手替你操作来发信。把一句话发给你的 AI 助手，它就能在你的来发信账号里搜客户、管联系人、处理邮件。你只管交代工作，看结果。
 
-接入站：https://agent.laifa.xin
+接入站：[agent.laifa.xin](https://agent.laifa.xin) ｜ 当前版本：**v6.1.28**
 
 ## 接入
 
@@ -12,7 +12,9 @@
 请阅读 https://agent.laifa.xin/doc/skill-setup.md 文档，按照步骤为我安装并配置来发信 Skill。
 ```
 
-支持 Codex、Claude Code、Cursor、WorkBuddy 等主流 AI 助手。安装走接入站完成，不依赖 GitHub 的访问速度；本仓库是源文件与备用镜像。
+支持 Codex、Claude Code、Cursor、WorkBuddy 等主流 AI 助手。一行安装需要 Node.js 环境；没有 Node.js 时可用手动安装（见下方「技术资料」）。
+
+本仓库是本 Skill 的唯一真源：接入站由本仓库自动部署，安装全程走接入站完成，不依赖 GitHub 的访问速度。
 
 ## 使用方式
 
@@ -31,19 +33,30 @@
 
 ## 安全
 
-授权经来发信官方网页完成（`api.laifaxin.com/authorize`），AI 助手不接触你的账号密码。授权凭据只保存在你自己的电脑上（`~/.config/laifaxin-skill/`，权限 600），30 天有效，每个账号最多 10 个；可随时在来发信网页端「个人设置 → 安全设置 → 已授权应用」中撤销。发送、群发等写操作只在你明确交代时执行。
+- 授权经来发信官方网页完成（`api.laifaxin.com/authorize`），AI 助手不接触你的账号密码。
+- 授权凭据只保存在你自己的电脑上（`~/.config/laifaxin-skill/`，权限 600），30 天有效，每个账号最多 10 个。
+- 可随时在来发信网页端「个人设置 → 安全设置 → 已授权应用」中撤销。
+- 发送、群发等写操作，只在你明确交代时执行。
 
 ## 技术资料
 
-仓库结构：
+**仓库结构**
 
 - `laifaxin/` — Skill 本体：`SKILL.md`、Python 客户端 `scripts/laifaxin.py`（纯标准库、零依赖，Python 3.10+）、接口目录与契约快照 `references/`
-- `site/` — 接入站站点源；推送到 main 后由 EdgeOne Pages 自动部署上线（GitHub Actions 仍同步部署 Cloudflare Pages 作回滚热备）
+- `site/` — 接入站站点源（含安装文档与双协议发现索引 `.well-known/`）
+- `.github/workflows/` — 部署流水线
 
-手动安装（无 Node.js 环境时的备选）：当前版本 v6.1.28，从[接入站](https://agent.laifa.xin/releases/laifaxin-v6.1.28.zip)或 [GitHub Release](https://github.com/tony-apan/laifaxin-agent/releases) 下载 zip，解压到 Agent 的 skills 目录。SHA256：`00faebdc95599b56bfd76d57f425f4c867654609b148c3ef76e6743ef08b8e9f`（两处字节一致）。
+**手动安装**（无 Node.js 环境时的备选）
+
+当前版本 v6.1.28，从[接入站](https://agent.laifa.xin/releases/laifaxin-v6.1.28.zip)或 [GitHub Release](https://github.com/tony-apan/laifaxin-agent/releases) 下载 zip，解压到 Agent 的 skills 目录。SHA256：`00faebdc95599b56bfd76d57f425f4c867654609b148c3ef76e6743ef08b8e9f`（两处字节一致）。
+
+**版本与更新**
+
+- 更新方式：重新运行一行安装命令即可升级到最新版；已用 skills CLI 安装的也可通过它自带的更新命令升级。
+- 部署管线：推送到 main 后，EdgeOne Pages 自动部署接入站为正式面；GitHub Actions 同步部署 Cloudflare Pages 作回滚热备。
 
 安装文档全文：https://agent.laifa.xin/doc/skill-setup.md （仓库内副本在 `site/doc/skill-setup.md`）。
 
 ## 反馈
 
-使用问题请提 Issue，或到来发信网页端联系客服。
+使用问题请提 Issue，或到来发信[网页端](https://web.laifaxin.com)联系客服（邮箱 help@zhijixinxi.com）。
