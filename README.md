@@ -42,7 +42,7 @@
 
 手动安装（无 Node.js 环境时的备选）：当前版本 v6.1.28，从[接入站](https://agent.laifa.xin/releases/laifaxin-v6.1.28.zip)或 [GitHub Release](https://github.com/tony-apan/laifaxin-agent/releases) 下载 zip，解压到 Agent 的 skills 目录。SHA256：`00faebdc95599b56bfd76d57f425f4c867654609b148c3ef76e6743ef08b8e9f`（两处字节一致）。
 
-安装文档全文：https://agent.laifa.xin/doc/skill-setup.md（仓库内副本在 `site/doc/skill-setup.md`）。
+安装文档全文：https://agent.laifa.xin/doc/skill-setup.md （仓库内副本在 `site/doc/skill-setup.md`）。
 
 ## 反馈
 
