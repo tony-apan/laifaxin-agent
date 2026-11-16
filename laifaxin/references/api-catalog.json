@@ -1,0 +1,6164 @@
+{
+  "format": 1,
+  "webVersion": "6.1.28",
+  "source": "Existing Web API call sites and shared contracts; request examples are TypeScript, not JSON.",
+  "endpoints": [
+    {
+      "path": "/account/bank-info",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/partner.ts",
+          "line": 63,
+          "name": "getBankInfo",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "BankInfo"
+        }
+      ]
+    },
+    {
+      "path": "/account/current",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/account.ts",
+          "line": 6,
+          "name": "getAccountCurrent",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "AccountCurrent"
+        }
+      ]
+    },
+    {
+      "path": "/account/id-info",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/personal.ts",
+          "line": 145,
+          "name": "getIdentityInfo",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "IdentityInfo"
+        }
+      ]
+    },
+    {
+      "path": "/account/id-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/personal.ts",
+          "line": 147,
+          "name": "saveIdentityInfo",
+          "transport": "postEnvelope",
+          "request": "{ ...identitySchema.parse(value), type: 'user' }",
+          "responseType": "void"
+        }
+      ]
+    },
+    {
+      "path": "/account/info",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/personal.ts",
+          "line": 6,
+          "name": "getPersonalInfo",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "PersonalInfo"
+        }
+      ]
+    },
+    {
+      "path": "/account/info-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/personal.ts",
+          "line": 7,
+          "name": "saveProfile",
+          "transport": "postEnvelope",
+          "request": "{...patch}",
+          "responseType": "void"
+        },
+        {
+          "file": "apps/web/src/api/personal.ts",
+          "line": 50,
+          "name": "savePersonalInfo",
+          "transport": "postEnvelope",
+          "request": "value",
+          "responseType": "void"
+        }
+      ]
+    },
+    {
+      "path": "/account/logout",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/personal.ts",
+          "line": 8,
+          "name": "logout",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/account/password-change",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/personal.ts",
+          "line": 62,
+          "name": "changePassword",
+          "transport": "postEnvelope",
+          "request": "passwordChangeSchema.parse(value)",
+          "responseType": "void"
+        }
+      ]
+    },
+    {
+      "path": "/account/permissions",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/permissions.ts",
+          "line": 14,
+          "name": "getMyPermissions",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/account/renew-captcha",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/personal.ts",
+          "line": 56,
+          "name": "sendRenewCode",
+          "transport": "postEnvelope",
+          "request": "value",
+          "responseType": "void"
+        }
+      ]
+    },
+    {
+      "path": "/account/renew-email",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/personal.ts",
+          "line": 58,
+          "name": "renewEmail",
+          "transport": "postEnvelope",
+          "request": "emailRenewSchema.parse(value)",
+          "responseType": "void"
+        }
+      ]
+    },
+    {
+      "path": "/account/renew-phone",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/personal.ts",
+          "line": 60,
+          "name": "renewPhone",
+          "transport": "postEnvelope",
+          "request": "phoneRenewSchema.parse(value)",
+          "responseType": "void"
+        }
+      ]
+    },
+    {
+      "path": "/account/save-config",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/workspace.ts",
+          "line": 15,
+          "name": "saveCurrentOrg",
+          "transport": "postEnvelope",
+          "request": "{ orgId }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/account/verify-captcha",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/personal.ts",
+          "line": 52,
+          "name": "sendVerification",
+          "transport": "postEnvelope",
+          "request": "{ type, action }",
+          "responseType": "void"
+        }
+      ]
+    },
+    {
+      "path": "/account/verify-code",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/personal.ts",
+          "line": 54,
+          "name": "verifyIdentity",
+          "transport": "postEnvelope",
+          "request": "{ type, captcha: codeSchema.parse(captcha) }",
+          "responseType": "void"
+        }
+      ]
+    },
+    {
+      "path": "/account/wechat-official-check",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/personal.ts",
+          "line": 78,
+          "name": "checkBindingQr",
+          "transport": "postEnvelope",
+          "request": "{ scene_id }",
+          "responseType": "{ status?: string; success?: boolean } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/account/wechat-official-qrcode",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/personal.ts",
+          "line": 72,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "{\n    type: 'binding',\n  }",
+          "responseType": "Omit<BindingQr, 'issuedAt'>"
+        }
+      ]
+    },
+    {
+      "path": "/account/wechat-unbind",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/personal.ts",
+          "line": 63,
+          "name": "unbindWechat",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "void"
+        }
+      ]
+    },
+    {
+      "path": "/account/wechat-web-state",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/personal.ts",
+          "line": 83,
+          "name": "getWechatSync",
+          "transport": "postEnvelope",
+          "request": "{\n    type: 'sync',\n    url,\n  }",
+          "responseType": "{ appid: string; state: string; redirectUrl: string }"
+        }
+      ]
+    },
+    {
+      "path": "/benefits/refine-auto-charge",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/refine.ts",
+          "line": 214,
+          "name": "setRefineAutoCharge",
+          "transport": "postEnvelope",
+          "request": "{ status }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/benefits/refine-data",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/refine.ts",
+          "line": 210,
+          "name": "getRefineBenefits",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "RefineBenefits"
+        }
+      ]
+    },
+    {
+      "path": "/clouds/google-search/data-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/clouds.ts",
+          "line": 284,
+          "name": "deleteCloudData",
+          "transport": "postEnvelopeFull",
+          "request": "batchBody(scope, q)",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/clouds/google-search/data-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/clouds.ts",
+          "line": 238,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "Record<string, unknown> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/clouds/google-search/data-tags",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/clouds.ts",
+          "line": 310,
+          "name": "tagCloudData",
+          "transport": "postEnvelopeFull",
+          "request": "{\n    ...batchBody(scope, q),\n    tagAction,\n    tagValues,\n  }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/clues/company-save-count",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 579,
+          "name": "getSaveTaskCounts",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "SaveTaskCounts"
+        }
+      ]
+    },
+    {
+      "path": "/clues/company-save-download",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 591,
+          "name": "downloadSaveTask",
+          "transport": "postEnvelope",
+          "request": "{ saveId }",
+          "responseType": "{ url?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/clues/company-save-end",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 589,
+          "name": "endSaveTask",
+          "transport": "postEnvelope",
+          "request": "{ saveId }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/clues/company-save-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 548,
+          "name": "listSaveTasks",
+          "transport": "postEnvelope",
+          "request": "q",
+          "responseType": "PageResult<SaveTask>"
+        }
+      ]
+    },
+    {
+      "path": "/clues/company-save-rename",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 583,
+          "name": "renameSaveTask",
+          "transport": "postEnvelope",
+          "request": "{ saveId, name }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/clues/company-save-start",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 585,
+          "name": "startSaveTask",
+          "transport": "postEnvelope",
+          "request": "{ saveId }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/clues/company-save-stop",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 587,
+          "name": "stopSaveTask",
+          "transport": "postEnvelope",
+          "request": "{ saveId }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/clues/domain-email-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/company-detail.ts",
+          "line": 27,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "{ ...query }",
+          "responseType": "PageResult<CompanyEmail> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/clues/domain-email-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/company-detail.ts",
+          "line": 39,
+          "name": "unlockCompanyEmail",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/clues/domain-rating-create",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/company-detail.ts",
+          "line": 56,
+          "name": "createCompanyRating",
+          "transport": "postEnvelope",
+          "request": "{\n    domain,\n    productId,\n  }",
+          "responseType": "{ taskId?: string } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/clues/domain-rating-info",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/company-detail.ts",
+          "line": 53,
+          "name": "getCompanyRating",
+          "transport": "postEnvelope",
+          "request": "{ domain, productId }",
+          "responseType": "CompanyRating | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/clues/domain-save-create",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 222,
+          "name": "saveContacts",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "{ id?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/clues/rating-result-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/rating.ts",
+          "line": 208,
+          "name": "listRatingResults",
+          "transport": "postEnvelope",
+          "request": "{\n    ...rest,\n    filters: [],\n    logic: 'and',\n    keyword: '',\n    filter: { scoreLevels },\n  }",
+          "responseType": "PageResult<RatingResultRow>"
+        }
+      ]
+    },
+    {
+      "path": "/clues/rating-result-rating-again",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/rating.ts",
+          "line": 309,
+          "name": "createRating",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "{ taskId?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/clues/rating-result-save-black",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/rating.ts",
+          "line": 322,
+          "name": "blacklistRatingResults",
+          "transport": "postEnvelope",
+          "request": "{\n    ...rest,\n    filter: { scoreLevels },\n  }",
+          "responseType": "{ backendId?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/clues/rating-result-save-contacts",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 222,
+          "name": "saveContacts",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "{ id?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/clues/rating-task-abort",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/rating.ts",
+          "line": 158,
+          "name": "controlRatingTask",
+          "transport": "postEnvelope",
+          "request": "{ taskId }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/clues/rating-task-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/rating.ts",
+          "line": 153,
+          "name": "deleteRatingTasks",
+          "transport": "postEnvelope",
+          "request": "{ taskIds }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/clues/rating-task-info",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/rating.ts",
+          "line": 143,
+          "name": "task",
+          "transport": "postEnvelope",
+          "request": "{ taskId }",
+          "responseType": "RatingTask"
+        }
+      ]
+    },
+    {
+      "path": "/clues/rating-task-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/rating.ts",
+          "line": 140,
+          "name": "listRatingTasks",
+          "transport": "postEnvelope",
+          "request": "q",
+          "responseType": "PageResult<RatingTask>"
+        }
+      ]
+    },
+    {
+      "path": "/clues/rating-task-rename",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/rating.ts",
+          "line": 150,
+          "name": "renameRatingTask",
+          "transport": "postEnvelope",
+          "request": "{ id, name }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/clues/rating-task-start",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/rating.ts",
+          "line": 158,
+          "name": "controlRatingTask",
+          "transport": "postEnvelope",
+          "request": "{ taskId }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/clues/rating-task-stop",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/rating.ts",
+          "line": 158,
+          "name": "controlRatingTask",
+          "transport": "postEnvelope",
+          "request": "{ taskId }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/black/domain-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/blacklist.ts",
+          "line": 142,
+          "name": "saveBlack",
+          "transport": "postEnvelope",
+          "request": "{\n    _id: v.id,\n    domain: v.domain,\n    types: v.types,\n    comment: v.comment,\n  }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/black/domains-count",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/blacklist.ts",
+          "line": 125,
+          "name": "blackCounts",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "Partial<BlackCounts> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/black/domains-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/blacklist.ts",
+          "line": 159,
+          "name": "deleteBlacks",
+          "transport": "postEnvelope",
+          "request": "scopeBody(scope)",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/black/domains-export",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/blacklist.ts",
+          "line": 165,
+          "name": "exportBlacks",
+          "transport": "postEnvelope",
+          "request": "{\n    ...scopeBody(scope),\n    exportType: 'csv',\n    fieldType,\n  }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/black/domains-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/blacklist.ts",
+          "line": 101,
+          "name": "listBlacks",
+          "transport": "postEnvelope",
+          "request": "{\n      current: q.current,\n      pageSize: q.pageSize,\n      filter: wireFilter(q.filter),\n      sort: q.sort,\n      // 小写化放在请求层,不回写输入框 —— 老项目 setState 时就转,用户打大写会看到字母变小写\n      keyword: q.keyword.trim().toLowerCase(),\n    }",
+          "responseType": "{ current?: number; total?: number; list?: Record<string, unknown>[] } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/black/domains-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/blacklist.ts",
+          "line": 134,
+          "name": "addBlacks",
+          "transport": "postEnvelope",
+          "request": "{\n    domains: v.domains,\n    types: v.types,\n    comment: v.comment,\n  }",
+          "responseType": "{ saved?: number } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/black/domains-update",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/blacklist.ts",
+          "line": 151,
+          "name": "updateBlacks",
+          "transport": "postEnvelope",
+          "request": "{\n    ...scopeBody(scope),\n    types: v.types,\n    ...(v.comment === undefined ? {} : { comment: v.comment }),\n  }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/companies-black",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 171,
+          "name": "blacklistCompanies",
+          "transport": "postEnvelope",
+          "request": "p",
+          "responseType": "{ backendId?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/companies-export",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/crm-export.ts",
+          "line": 36,
+          "name": "exportCompanies",
+          "transport": "postEnvelope",
+          "request": "{\n    ...params,\n    fieldType,\n    exportType: EXPORT_FORMAT,\n  }",
+          "responseType": "{ id?: string } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/companies/delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 161,
+          "name": "deleteCompanies",
+          "transport": "postEnvelope",
+          "request": "p",
+          "responseType": "{ backendId?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/companies/save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 165,
+          "name": "modifyCompanies",
+          "transport": "postEnvelope",
+          "request": "p",
+          "responseType": "{ backendId?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/companies/show",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 158,
+          "name": "listCompanies",
+          "transport": "postEnvelope",
+          "request": "{ ...q, viewId: ALL_VIEW }",
+          "responseType": "ListResult<CompanyRow>"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/companies/tags",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 168,
+          "name": "batchCompanyTags",
+          "transport": "postEnvelope",
+          "request": "p",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/company-info",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm-company.ts",
+          "line": 53,
+          "name": "getCrmCompany",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "CompanyRow | null | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/company-people",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm-company.ts",
+          "line": 59,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "{\n        id,\n        current,\n        pageSize,\n      }",
+          "responseType": "PageResult<ContactRow> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/company-search",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/follow.ts",
+          "line": 27,
+          "name": "searchCompanies",
+          "transport": "postEnvelope",
+          "request": "{\n      keyword,\n    }",
+          "responseType": "Record<string, unknown>[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/company/add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm-company.ts",
+          "line": 9,
+          "name": "createCompany",
+          "transport": "postEnvelope",
+          "request": "values",
+          "responseType": "CompanyRow | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/company/save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/company-detail.ts",
+          "line": 42,
+          "name": "saveCompanyTags",
+          "transport": "postEnvelope",
+          "request": "{ id, tags }",
+          "responseType": "unknown"
+        },
+        {
+          "file": "packages/api-client/src/crm-company.ts",
+          "line": 72,
+          "name": "saveCrmCompany",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/contact-info",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 149,
+          "name": "getContact",
+          "transport": "postEnvelope",
+          "request": "{ cid }",
+          "responseType": "ContactRow"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/contact/add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm-contact.ts",
+          "line": 7,
+          "name": "createContact",
+          "transport": "postEnvelope",
+          "request": "values",
+          "responseType": "ContactRow | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/contact/delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 155,
+          "name": "deleteContact",
+          "transport": "postEnvelope",
+          "request": "{ cid }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/contact/save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 153,
+          "name": "saveContactField",
+          "transport": "postEnvelope",
+          "request": "{ cid, [dataIndex]: value }",
+          "responseType": "unknown"
+        },
+        {
+          "file": "packages/api-client/src/crm-contact.ts",
+          "line": 71,
+          "name": "saveContact",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/contacts-black",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 147,
+          "name": "blacklistContacts",
+          "transport": "postEnvelope",
+          "request": "p",
+          "responseType": "{ backendId?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/contacts/delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 112,
+          "name": "deleteContacts",
+          "transport": "postEnvelope",
+          "request": "p",
+          "responseType": "{ backendId?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/contacts/exportSave",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/crm-export.ts",
+          "line": 28,
+          "name": "exportContacts",
+          "transport": "postEnvelope",
+          "request": "{\n    ...params,\n    fieldType,\n    exportType: EXPORT_FORMAT,\n  }",
+          "responseType": "{ id?: string } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/contacts/import-file",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/crm-import.ts",
+          "line": 37,
+          "name": "importFile",
+          "transport": "postEnvelope",
+          "request": "{\n      ...file,\n      ...(entity === 'company' ? { dataType: 'company' } : {}),\n    }",
+          "responseType": "ImportPreview | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/contacts/import-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/crm-import.ts",
+          "line": 184,
+          "name": "importSave",
+          "transport": "postEnvelope",
+          "request": "importBody(d, entity)",
+          "responseType": "{ backendId?: string } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/contacts/import-status",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/crm-import.ts",
+          "line": 227,
+          "name": "importStatus",
+          "transport": "postEnvelope",
+          "request": "{\n    iid,\n  }",
+          "responseType": "Record<string, unknown> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/contacts/save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 121,
+          "name": "modifyContacts",
+          "transport": "postEnvelope",
+          "request": "p",
+          "responseType": "{ backendId?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/contacts/sequence-add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 143,
+          "name": "addContactsToSequences",
+          "transport": "postEnvelopeFull",
+          "request": "p",
+          "responseType": "{ backendId?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/contacts/show",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 108,
+          "name": "listContacts",
+          "transport": "postEnvelope",
+          "request": "{ ...q, viewId: ALL_VIEW }",
+          "responseType": "ListResult<ContactRow>"
+        },
+        {
+          "file": "packages/api-client/src/crm-contact.ts",
+          "line": 11,
+          "name": "result",
+          "transport": "postEnvelope",
+          "request": "{\n      viewId: 'all',\n      keyword: '',\n      logic: 'and',\n      current: 1,\n      pageSize: 10, // Backend list DTO requires at least 10, even for an exact match.\n      filters: [{ property: 'email', operator: 'eq', value: email, valueType: 'text' }],\n      sort: { create_time: -1, _id: -1 },\n    }",
+          "responseType": "ListResult<ContactRow>"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/contacts/tags",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 124,
+          "name": "batchContactTags",
+          "transport": "postEnvelope",
+          "request": "p",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/contacts/verify",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 116,
+          "name": "verifyContacts",
+          "transport": "postEnvelope",
+          "request": "p",
+          "responseType": "{ backendId?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/email-info",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 609,
+          "name": "getEmailContact",
+          "transport": "postEnvelope",
+          "request": "{ email }",
+          "responseType": "EmailContact | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/export-quota",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/crm-export.ts",
+          "line": 87,
+          "name": "exportQuota",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "Partial<ExportQuota> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/export-status",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/crm-export.ts",
+          "line": 126,
+          "name": "exportStatus",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "Record<string, unknown> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/export/histories-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/crm-export.ts",
+          "line": 194,
+          "name": "deleteExportRecords",
+          "transport": "postEnvelope",
+          "request": "{ ids }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/export/history",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/crm-export.ts",
+          "line": 178,
+          "name": "listExportHistory",
+          "transport": "postEnvelope",
+          "request": "{\n    current: q.current,\n    pageSize: q.pageSize,\n    sort: q.sort,\n    // 此接口的 TableDataInput/controller 读取单数 filter，与批量动作的 filters 不同。\n    filter: q.owners.length > 0 ? { owners: q.owners } : {},\n  }",
+          "responseType": "PageResult<Record<string, unknown>> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/export/history-remark",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/crm-export.ts",
+          "line": 190,
+          "name": "renameExportRecord",
+          "transport": "postEnvelope",
+          "request": "{ id, remark: remark.trim() }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/import/histories-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/crm-import.ts",
+          "line": 313,
+          "name": "deleteImportHistory",
+          "transport": "postEnvelope",
+          "request": "{ iids: ids }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/import/history",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/crm-import.ts",
+          "line": 301,
+          "name": "listImportHistory",
+          "transport": "postEnvelope",
+          "request": "{\n    current: q.current,\n    pageSize: q.pageSize,\n    sort: q.sort,\n    filter: q.owners?.length ? { owners: q.owners } : {},\n  }",
+          "responseType": "PageResult<Record<string, unknown>> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/mail-to-options",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 552,
+          "name": "mailToOptions",
+          "transport": "postEnvelope",
+          "request": "{\n    keyword: escapeRegExp(keyword),\n  }",
+          "responseType": "MailToOption[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/people-search",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/follow.ts",
+          "line": 18,
+          "name": "searchContacts",
+          "transport": "postEnvelope",
+          "request": "{\n      keyword,\n    }",
+          "responseType": "Record<string, unknown>[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/recycle-companies",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 194,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "{\n      current: q.current,\n      pageSize: q.pageSize,\n      filter: mapRecycleFilter(q, 'companies'),\n      sort: companyRecycleSort(q.sort),\n    }",
+          "responseType": "ListResult<CompanyRow>"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/recycle-companies-restore",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 211,
+          "name": "restoreRecycleCompanies",
+          "transport": "postEnvelope",
+          "request": "{\n      selectKeys: p.selectKeys,\n      selectOption: p.selectOption,\n      selectTotal: p.selectTotal,\n      filter: mapRecycleFilter(p, 'companies'),\n      sort: companyRecycleSort(p.selectSort),\n      replace: p.replace ?? false,\n      verify: false,\n    }",
+          "responseType": "{ backendId?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/recycle/restore",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 183,
+          "name": "restoreRecycleContacts",
+          "transport": "postEnvelope",
+          "request": "{\n      selectKeys: p.selectKeys,\n      selectOption: p.selectOption,\n      selectTotal: p.selectTotal,\n      filter: mapRecycleFilter(p, 'contacts'),\n      sort: p.selectSort,\n      replace: p.replace ?? false,\n      verify: p.verify ?? false,\n    }",
+          "responseType": "{ backendId?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/recycle/show",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 174,
+          "name": "listRecycleContacts",
+          "transport": "postEnvelope",
+          "request": "{\n      current: q.current,\n      pageSize: q.pageSize,\n      filter: mapRecycleFilter(q, 'contacts'),\n      sort: q.sort,\n    }",
+          "responseType": "ListResult<ContactRow>"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/tags-add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/tags.ts",
+          "line": 54,
+          "name": "addTag",
+          "transport": "postEnvelope",
+          "request": "{\n    type,\n    name: d.name.trim(),\n    color: d.color,\n    parent: d.parent,\n    description: d.description,\n  }",
+          "responseType": "{ id?: string } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/tags-all-stats",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/tags.ts",
+          "line": 139,
+          "name": "tagStats",
+          "transport": "postEnvelope",
+          "request": "{ type }",
+          "responseType": "{ id?: string; parent?: string; count?: number }[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/tags-dir-add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/tags.ts",
+          "line": 82,
+          "name": "addTagFolder",
+          "transport": "postEnvelope",
+          "request": "{\n    type,\n    name: d.name.trim(),\n    description: d.description,\n  }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/tags-dirs-sort",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/tags.ts",
+          "line": 116,
+          "name": "sortTagFolders",
+          "transport": "postEnvelope",
+          "request": "{ ids: folderIds }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/tags-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/tags.ts",
+          "line": 21,
+          "name": "listTags",
+          "transport": "postEnvelope",
+          "request": "{ type }",
+          "responseType": "Record<string, unknown>[] | undefined"
+        },
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 51,
+          "name": "listMailTags",
+          "transport": "postEnvelope",
+          "request": "{ type: 'mail' }",
+          "responseType": "MailTag[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/tags-one-stats",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/tags.ts",
+          "line": 149,
+          "name": "tagStatOne",
+          "transport": "postEnvelope",
+          "request": "{ type, id }",
+          "responseType": "{ count?: number } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/tags-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/tags.ts",
+          "line": 63,
+          "name": "saveTag",
+          "transport": "postEnvelope",
+          "request": "{\n    type,\n    id: d.id,\n    name: d.name.trim(),\n    color: d.color,\n    parent: d.parent,\n    description: d.description,\n  }",
+          "responseType": "unknown"
+        },
+        {
+          "file": "apps/web/src/api/tags.ts",
+          "line": 90,
+          "name": "saveTagFolder",
+          "transport": "postEnvelope",
+          "request": "{\n    type,\n    id: d.id,\n    name: d.name.trim(),\n    description: d.description,\n  }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/tags-some-stats",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/tags.ts",
+          "line": 154,
+          "name": "tagStatSome",
+          "transport": "postEnvelope",
+          "request": "{ type, ids }",
+          "responseType": "{ count?: number }[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/contacts/tags-sort",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/tags.ts",
+          "line": 112,
+          "name": "sortTags",
+          "transport": "postEnvelope",
+          "request": "{ dirId, ids: tagIds }",
+          "responseType": "unknown"
+        },
+        {
+          "file": "apps/web/src/api/tags.ts",
+          "line": 133,
+          "name": "moveTags",
+          "transport": "postEnvelope",
+          "request": "{ dirId: toDir, ids: idsInTarget }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/domain/base-info",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 128,
+          "name": "res",
+          "transport": "fetchJson",
+          "request": "{\n    method: 'POST',\n    // 字段名是 domain,但后端要能同时吃域名字符串和公司 id —— 旧项目变量就叫 domainOrId\n    body: JSON.stringify({ domain: domainOrId, ...charge }),\n  }",
+          "responseType": "{\n    success: boolean;\n    message?: string;\n    data?: CompanyDetail & { dailyUsedUp?: boolean; monthlyUsedUp?: boolean };\n  }"
+        }
+      ]
+    },
+    {
+      "path": "/domain/resolve-domain-name",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/refine.ts",
+          "line": 192,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "{ domain?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/domain/similar-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 147,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "{ domain }",
+          "responseType": "{ list?: SimilarCompany[] } | SimilarCompany[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/invite-link-audit",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-teams.ts",
+          "line": 233,
+          "name": "auditJoinRequest",
+          "transport": "postEnvelopeFull",
+          "request": "{ userid, action }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/invite-link-join",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-join.ts",
+          "line": 84,
+          "name": "joinByInvite",
+          "transport": "postEnvelopeFull",
+          "request": "{\n    corpId,\n    inviteCode,\n  }",
+          "responseType": "{ status?: string } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/invite-link-renew",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-teams.ts",
+          "line": 154,
+          "name": "renewInviteLink",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/invite-link-requst",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-teams.ts",
+          "line": 224,
+          "name": "listJoinRequests",
+          "transport": "pagedPost",
+          "request": "{ ...clampPage(q), ...({}) }",
+          "responseType": "JoinRequest"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/invite-link-status",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-join.ts",
+          "line": 69,
+          "name": "getInviteInfo",
+          "transport": "postEnvelope",
+          "request": "{ corpId, inviteCode }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/invite-setting-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-teams.ts",
+          "line": 142,
+          "name": "saveInviteSetting",
+          "transport": "postEnvelopeFull",
+          "request": "{\n    inviteRole: s.inviteRole,\n    inviteAudit: s.inviteAudit,\n    expireTime: s.expireTime,\n  }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/members/delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-members.ts",
+          "line": 234,
+          "name": "deleteMember",
+          "transport": "postEnvelopeFull",
+          "request": "{ userid }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/members/disable",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-members.ts",
+          "line": 221,
+          "name": "toggleMemberStatus",
+          "transport": "postEnvelope",
+          "request": "{ userid }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/members/modify",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-members.ts",
+          "line": 202,
+          "name": "modifyMember",
+          "transport": "postEnvelope",
+          "request": "{ userid, nickname: nickname.trim() }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/members/show",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-members.ts",
+          "line": 164,
+          "name": "listMembers",
+          "transport": "pagedPost",
+          "request": "{ ...clampPage({\n      ...q,\n      filter: {\n        ...(q.filter?.keyword?.trim()\n          ? { nickname: { $regex: q.filter.keyword.trim().replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&') } }\n          : {}),\n        ...(q.filter?.status ? { status: q.filter.status } : {}),\n        ...(q.filter?.teamIds\n          ? {\n              teams: {\n                $in: [\n                  ...new Set(q.filter.teamIds.filter((id) => typeof id === 'string' && id !== '0')),\n                ],\n              },\n            }\n          : q.filter?.teamId\n            ? { teams: q.filter.teamId }\n            : {}),\n      },\n      sort: q.sort ?? { create_time: -1 },\n    }), ...({}) }",
+          "responseType": "MemberRow"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/my-organies",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/workspace.ts",
+          "line": 7,
+          "name": "raw",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "Record<string, unknown>[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/organize-create",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise.ts",
+          "line": 112,
+          "name": "res",
+          "transport": "postEnvelopeFull",
+          "request": "{\n    name: d.name.trim(),\n    scale: d.scale,\n  }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/organize-exist",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise.ts",
+          "line": 131,
+          "name": "res",
+          "transport": "postEnvelopeFull",
+          "request": "{ uid: orgId }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/organize-users",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 401,
+          "name": "listOrgUsers",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "OrgUser[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/permissions-tree",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-roles.ts",
+          "line": 39,
+          "name": "raw",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "Record<string, unknown>[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/permissions/manage",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-roles.ts",
+          "line": 179,
+          "name": "saveRole",
+          "transport": "postEnvelopeFull",
+          "request": "{\n    action: 'update',\n    role_id: roleId,\n    role_name: roleName.trim(),\n    permissions,\n  }",
+          "responseType": "unknown"
+        },
+        {
+          "file": "apps/web/src/api/enterprise-roles.ts",
+          "line": 188,
+          "name": "createRole",
+          "transport": "postEnvelopeFull",
+          "request": "{\n    action: 'add',\n    role_name: roleName.trim(),\n  }",
+          "responseType": "{ id?: string }"
+        },
+        {
+          "file": "apps/web/src/api/enterprise-roles.ts",
+          "line": 195,
+          "name": "deleteRole",
+          "transport": "postEnvelopeFull",
+          "request": "{\n    action: 'delete',\n    role_id: roleId,\n  }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/permissions/show",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-roles.ts",
+          "line": 81,
+          "name": "getRolePermissions",
+          "transport": "postEnvelope",
+          "request": "{ roleId }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/profile-show",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise.ts",
+          "line": 159,
+          "name": "r",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "Record<string, unknown>"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/quota-status",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-quota.ts",
+          "line": 54,
+          "name": "getOrgQuota",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/quota/manage",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-quota.ts",
+          "line": 61,
+          "name": "saveOrgQuota",
+          "transport": "postEnvelopeFull",
+          "request": "{\n    quotaStatus: q.limited,\n    quotaPeriod: q.period,\n    quotaCount: q.limited ? Math.max(0, Math.trunc(q.limit)) : 0,\n  }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/quota/modify",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-quota.ts",
+          "line": 131,
+          "name": "saveMemberQuota",
+          "transport": "postEnvelopeFull",
+          "request": "{\n    userid,\n    quotaCustom: custom,\n    quotaCount: custom ? Math.max(0, Math.trunc(limit)) : 0,\n  }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/quota/show",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-quota.ts",
+          "line": 108,
+          "name": "listQuotas",
+          "transport": "pagedPost",
+          "request": "{ ...clampPage({\n      ...q,\n      // filter 会被后端原样并进 mongo 查询,只白名单这一个\n      filter: q.keyword?.trim()\n        ? { nickname: { $regex: q.keyword.trim().replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&') } }\n        : {},\n      sort: q.sort ?? { create_time: -1 },\n    }), ...({}) }",
+          "responseType": "QuotaRow"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/role-user-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-roles.ts",
+          "line": 212,
+          "name": "listRoleMembers",
+          "transport": "pagedPost",
+          "request": "{ ...clampPage({ ...q }), ...({ roleId }) }",
+          "responseType": "MemberRow"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/role/change",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-members.ts",
+          "line": 245,
+          "name": "changeMemberRole",
+          "transport": "postEnvelopeFull",
+          "request": "{ userid, role_id: roleId }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/roles-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-members.ts",
+          "line": 276,
+          "name": "raw",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "Record<string, unknown>[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/subordinate-users",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/crm-export.ts",
+          "line": 204,
+          "name": "listSubordinateUsers",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "Record<string, unknown>[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/teams-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 409,
+          "name": "listOrgTeams",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "OrgTeam[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/teams/change",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-members.ts",
+          "line": 249,
+          "name": "changeMemberTeams",
+          "transport": "postEnvelopeFull",
+          "request": "{ userid, teams }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/teams/manage",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-teams.ts",
+          "line": 116,
+          "name": "manageTeam",
+          "transport": "postEnvelopeFull",
+          "request": "body",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/enterprise/teams/show",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/enterprise-members.ts",
+          "line": 323,
+          "name": "raw",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "Record<string, unknown>[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/expenses/billing/show",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/expenses.ts",
+          "line": 159,
+          "name": "listBilling",
+          "transport": "postEnvelope",
+          "request": "q",
+          "responseType": "PageResult<BillingRow>"
+        }
+      ]
+    },
+    {
+      "path": "/expenses/cdkey/redeem-code",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/expenses.ts",
+          "line": 14,
+          "name": "redeemCode",
+          "transport": "postEnvelope",
+          "request": "{ cdkey: cdkey.trim() }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/expenses/give-get",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/topbar.ts",
+          "line": 112,
+          "name": "claimGive",
+          "transport": "postEnvelope",
+          "request": "{ type }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/expenses/give-status",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/topbar.ts",
+          "line": 111,
+          "name": "getGiveStatus",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "GiveStatus"
+        }
+      ]
+    },
+    {
+      "path": "/expenses/orders/show",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/expenses.ts",
+          "line": 115,
+          "name": "listOrders",
+          "transport": "postEnvelope",
+          "request": "q",
+          "responseType": "PageResult<OrderRow>"
+        }
+      ]
+    },
+    {
+      "path": "/expenses/orders/show-count",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/expenses.ts",
+          "line": 118,
+          "name": "countOrders",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "Record<string, number>"
+        }
+      ]
+    },
+    {
+      "path": "/expenses/pay/order-cancel",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/expenses.ts",
+          "line": 121,
+          "name": "cancelOrder",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/expenses/pay/order-create",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/expenses.ts",
+          "line": 66,
+          "name": "createRechargeOrder",
+          "transport": "postEnvelope",
+          "request": "{\n    goodsCount: 1,\n    ...params,\n  }",
+          "responseType": "{ order_id?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/expenses/pay/order-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/expenses.ts",
+          "line": 124,
+          "name": "deleteOrder",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/expenses/pay/order-info",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/expenses.ts",
+          "line": 72,
+          "name": "getRechargeOrder",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "RechargeOrderInfo"
+        }
+      ]
+    },
+    {
+      "path": "/expenses/sell-goods",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/expenses.ts",
+          "line": 54,
+          "name": "getSellGoods",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "SellGoodsResult"
+        }
+      ]
+    },
+    {
+      "path": "/expenses/user-extra",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/expenses.ts",
+          "line": 95,
+          "name": "getRechargeExtra",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "{ commission?: number }"
+        }
+      ]
+    },
+    {
+      "path": "/fields/company-fields",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 429,
+          "name": "listCompanyFields",
+          "transport": "postEnvelope",
+          "request": "{\n    belongTo: 'company',\n    saveType: 'read',\n  }",
+          "responseType": "FieldOption[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/fields/contacts-fields",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 423,
+          "name": "listContactFields",
+          "transport": "postEnvelope",
+          "request": "{\n    belongTo: 'contact',\n    saveType: 'read',\n  }",
+          "responseType": "FieldOption[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/fields/delete-columns-config",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm-company.ts",
+          "line": 46,
+          "name": "resetCompanyListFields",
+          "transport": "postEnvelope",
+          "request": "{\n      belongTo: 'company',\n      saveType: 'show',\n    }",
+          "responseType": "unknown"
+        },
+        {
+          "file": "packages/api-client/src/crm-contact.ts",
+          "line": 64,
+          "name": "resetContactListFields",
+          "transport": "postEnvelope",
+          "request": "{\n      belongTo: 'contacts',\n      saveType: 'show',\n    }",
+          "responseType": "unknown"
+        },
+        {
+          "file": "apps/web/src/api/crm-detail-fields.ts",
+          "line": 20,
+          "name": "resetDetailFieldIndices",
+          "transport": "postEnvelope",
+          "request": "{ belongTo, saveType: 'update' }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/fields/field-index-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm-company.ts",
+          "line": 12,
+          "name": "columns",
+          "transport": "postEnvelope",
+          "request": "{\n      belongTo: 'company',\n      saveType: 'create',\n    }",
+          "responseType": "string[]"
+        },
+        {
+          "file": "packages/api-client/src/crm-company.ts",
+          "line": 29,
+          "name": "columns",
+          "transport": "postEnvelope",
+          "request": "{\n      belongTo: 'company',\n      saveType: 'show',\n    }",
+          "responseType": "string[]"
+        },
+        {
+          "file": "packages/api-client/src/crm-contact.ts",
+          "line": 40,
+          "name": "getContactCreateFields",
+          "transport": "postEnvelope",
+          "request": "{\n      belongTo: 'contacts',\n      saveType: 'create',\n    }",
+          "responseType": "string[]"
+        },
+        {
+          "file": "packages/api-client/src/crm-contact.ts",
+          "line": 54,
+          "name": "getContactListFields",
+          "transport": "postEnvelope",
+          "request": "{ belongTo: 'contacts', saveType: 'show' }",
+          "responseType": "string[]"
+        },
+        {
+          "file": "apps/web/src/api/crm-detail-fields.ts",
+          "line": 7,
+          "name": "columns",
+          "transport": "postEnvelope",
+          "request": "{\n    belongTo,\n    saveType: 'update',\n  }",
+          "responseType": "string[]"
+        }
+      ]
+    },
+    {
+      "path": "/fields/field-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 79,
+          "name": "listFields",
+          "transport": "postEnvelope",
+          "request": "{\n      belongTo: fieldListBelongTo(viewType),\n      saveType,\n    }",
+          "responseType": "FieldItem[]"
+        }
+      ]
+    },
+    {
+      "path": "/fields/field/create",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/fields.ts",
+          "line": 13,
+          "name": "createField",
+          "transport": "postEnvelope",
+          "request": "fieldBody(d)",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/fields/field/delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/fields.ts",
+          "line": 19,
+          "name": "deleteField",
+          "transport": "postEnvelope",
+          "request": "{\n      belongTo: f.belongTo,\n      dataIndex: f.dataIndex,\n    }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/fields/field/update",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/fields.ts",
+          "line": 16,
+          "name": "updateField",
+          "transport": "postEnvelope",
+          "request": "fieldBody(d)",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/fields/get-config",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 85,
+          "name": "config",
+          "transport": "postEnvelope",
+          "request": "{\n        belongTo: scope,\n        saveType: 'show',\n      }",
+          "responseType": "{ fields?: ColumnWidthSettings } | null"
+        }
+      ]
+    },
+    {
+      "path": "/fields/save-columns-config",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm-company.ts",
+          "line": 22,
+          "name": "saveCompanyCreateFields",
+          "transport": "postEnvelope",
+          "request": "{\n      belongTo: 'company',\n      saveType: 'create',\n      columns,\n    }",
+          "responseType": "unknown"
+        },
+        {
+          "file": "packages/api-client/src/crm-company.ts",
+          "line": 39,
+          "name": "saveCompanyListFields",
+          "transport": "postEnvelope",
+          "request": "{\n      belongTo: 'company',\n      saveType: 'show',\n      columns,\n    }",
+          "responseType": "unknown"
+        },
+        {
+          "file": "packages/api-client/src/crm-contact.ts",
+          "line": 46,
+          "name": "saveContactCreateFields",
+          "transport": "postEnvelope",
+          "request": "{\n      belongTo: 'contacts',\n      saveType: 'create',\n      columns,\n    }",
+          "responseType": "unknown"
+        },
+        {
+          "file": "packages/api-client/src/crm-contact.ts",
+          "line": 57,
+          "name": "saveContactListFields",
+          "transport": "postEnvelope",
+          "request": "{\n      belongTo: 'contacts',\n      saveType: 'show',\n      columns,\n    }",
+          "responseType": "unknown"
+        },
+        {
+          "file": "apps/web/src/api/crm-detail-fields.ts",
+          "line": 17,
+          "name": "saveDetailFieldIndices",
+          "transport": "postEnvelope",
+          "request": "{ belongTo, saveType: 'update', columns }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/fields/save-fields-config",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 97,
+          "name": "saveColumnWidths",
+          "transport": "postEnvelope",
+          "request": "{\n      belongTo: scope ?? (viewType === 'contacts' ? 'contact' : fieldListBelongTo(viewType)),\n      saveType: 'show',\n      fields: Object.fromEntries(Object.entries(widths).map(([key, width]) => [key, { width }])),\n    }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/file/get-auth",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/upload.ts",
+          "line": 10,
+          "name": "res",
+          "transport": "postEnvelopeFull",
+          "request": "{ type }",
+          "responseType": "UploadAuth"
+        }
+      ]
+    },
+    {
+      "path": "/file/import-file",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/crm-import.ts",
+          "line": 37,
+          "name": "importFile",
+          "transport": "postEnvelope",
+          "request": "{\n      ...file,\n      ...(entity === 'company' ? { dataType: 'company' } : {}),\n    }",
+          "responseType": "ImportPreview | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/file/import-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/crm-import.ts",
+          "line": 184,
+          "name": "importSave",
+          "transport": "postEnvelope",
+          "request": "importBody(d, entity)",
+          "responseType": "{ backendId?: string } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/file/save-log",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/upload.ts",
+          "line": 21,
+          "name": "res",
+          "transport": "postEnvelopeFull",
+          "request": "log",
+          "responseType": "UploadedFile"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/account-items",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/sending.ts",
+          "line": 397,
+          "name": "listMailAccounts",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "MailAccountItem[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/attachment-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/attachment-library.ts",
+          "line": 27,
+          "name": "deleteLibraryAttachment",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/attachment-items",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/attachment-library.ts",
+          "line": 14,
+          "name": "listLibraryAttachments",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "(Omit<LibraryAttachment, 'id'> & { _id?: string; id?: string })[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/attachment-options",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 578,
+          "name": "listAttachmentOptions",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "AttachmentOption[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/attachment-preview",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/attachment-library.ts",
+          "line": 53,
+          "name": "getLibraryAttachmentPreview",
+          "transport": "postEnvelope",
+          "request": "{\n    id,\n  }",
+          "responseType": "{ text?: string; base64?: string; mime?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/attachment-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/attachment-library.ts",
+          "line": 21,
+          "name": "registerLibraryAttachment",
+          "transport": "postEnvelope",
+          "request": "{\n    id: file.id,\n    name: file.name,\n    showname: file.name,\n  }",
+          "responseType": "{ id?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/sender-add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/sending.ts",
+          "line": 457,
+          "name": "addSender",
+          "transport": "postEnvelope",
+          "request": "{\n    name: v.name.trim(),\n    fromName: v.fromName.trim(),\n    domain: v.domain,\n  }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/sender-check",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/sending.ts",
+          "line": 454,
+          "name": "checkSenderName",
+          "transport": "postEnvelope",
+          "request": "{ name, domain }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/sender-domains",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/sending.ts",
+          "line": 448,
+          "name": "listSenderDomains",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "string[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/sender-items",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/sending.ts",
+          "line": 488,
+          "name": "listSenders",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "SenderItem[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/sender-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/sending.ts",
+          "line": 434,
+          "name": "listSenderRows",
+          "transport": "postEnvelope",
+          "request": "{\n    current: q.current,\n    pageSize: q.pageSize,\n    filter: q.keyword ? { keyword: q.keyword } : {},\n    sort: q.sort ?? DEFAULT_SORT,\n  }",
+          "responseType": "PageResult<Record<string, unknown>> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/sender-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/sending.ts",
+          "line": 465,
+          "name": "saveSender",
+          "transport": "postEnvelope",
+          "request": "{ id, fromName: fromName.trim() }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/sign-add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 378,
+          "name": "addSignature",
+          "transport": "postEnvelope",
+          "request": "signBody(d)",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/sign-default-set",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 388,
+          "name": "setSignatureDefault",
+          "transport": "postEnvelope",
+          "request": "{ id, type, value }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/sign-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 384,
+          "name": "deleteSignature",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/sign-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 344,
+          "name": "listSignatures",
+          "transport": "postEnvelope",
+          "request": "{\n    current: q.current,\n    pageSize: q.pageSize,\n    sort: {},\n    filter: {},\n  }",
+          "responseType": "PageResult<SignatureRow & { _id?: string }> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/sign-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 381,
+          "name": "saveSignature",
+          "transport": "postEnvelope",
+          "request": "{ ...signBody(d), id: d.id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/snippets-content-add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 304,
+          "name": "addSnippet",
+          "transport": "postEnvelope",
+          "request": "{\n    name: d.name.trim(),\n    foid: d.foid,\n    html: d.html,\n  }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/snippets-content-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 319,
+          "name": "deleteSnippet",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/snippets-content-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 311,
+          "name": "saveSnippet",
+          "transport": "postEnvelope",
+          "request": "{\n    name: d.name.trim(),\n    foid: d.foid,\n    html: d.html,\n    id: d.id,\n  }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/snippets-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 322,
+          "name": "deleteSnippets",
+          "transport": "postEnvelope",
+          "request": "{ ids }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/snippets-folder-add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 286,
+          "name": "addSnippetFolder",
+          "transport": "postEnvelope",
+          "request": "{\n    name,\n  }",
+          "responseType": "{ id?: string; _id?: string } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/snippets-folder-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 294,
+          "name": "deleteSnippetFolder",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/snippets-folder-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 281,
+          "name": "listSnippetFolders",
+          "transport": "postEnvelope",
+          "request": "{\n    owner: 'mine',\n  }",
+          "responseType": "{ _id?: string; name?: string }[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/snippets-folder-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 291,
+          "name": "saveSnippetFolder",
+          "transport": "postEnvelope",
+          "request": "{ id, name }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/snippets-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 271,
+          "name": "listSnippets",
+          "transport": "postEnvelope",
+          "request": "{\n    current: q.current,\n    pageSize: q.pageSize,\n    // 常用语接口从 filter 读取归属和目录；0 表示不按目录筛选。\n    filter: { owner: 'mine', foid: q.foid },\n    sort: q.sort,\n    keyword: q.keyword,\n  }",
+          "responseType": "PageResult<SnippetRow & { _id?: string }> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/snippets-move",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 325,
+          "name": "moveSnippets",
+          "transport": "postEnvelope",
+          "request": "{ ids, foid }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/snippets-text-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 480,
+          "name": "listSnippetTexts",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "(SnippetText & { _id?: string })[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/template-add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 187,
+          "name": "addTemplate",
+          "transport": "postEnvelope",
+          "request": "templateBody(d)",
+          "responseType": "{ id?: string } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/template-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 207,
+          "name": "deleteTemplate",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/template-folder-add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 148,
+          "name": "addTemplateFolder",
+          "transport": "postEnvelope",
+          "request": "{\n    name,\n  }",
+          "responseType": "{ id?: string; _id?: string } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/template-folder-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 156,
+          "name": "deleteTemplateFolder",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/template-folder-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 153,
+          "name": "saveTemplateFolder",
+          "transport": "postEnvelope",
+          "request": "{ id, name }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/template-info",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 194,
+          "name": "getTemplate",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "(Partial<TemplateRow> & Partial<ComposeTemplate>) | null | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/template-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 190,
+          "name": "saveTemplate",
+          "transport": "postEnvelope",
+          "request": "{ ...templateBody(d), id: d.id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/template-score",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 224,
+          "name": "scoreTemplate",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "SpamResult | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/templates-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 210,
+          "name": "deleteTemplates",
+          "transport": "postEnvelope",
+          "request": "{ ids }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/templates-folder-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 138,
+          "name": "listTemplateFolders",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "{ _id?: string; name?: string; userid?: string }[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/templates-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 1301,
+          "name": "page",
+          "transport": "postEnvelope",
+          "request": "{\n        filter: {},\n        current,\n        pageSize,\n        sort: { _id: 1 },\n        owner: 'everyone',\n      }",
+          "responseType": "PageResult<MailTemplate> | undefined"
+        },
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 127,
+          "name": "listTemplates",
+          "transport": "postEnvelope",
+          "request": "{\n    current: q.current,\n    pageSize: q.pageSize,\n    filter: q.templatesOnly ? { folder: { $ne: true } } : {},\n    sort: q.sort,\n    keyword: q.keyword,\n    ...(q.foid ? { foid: q.foid } : {}),\n    owner: q.owner,\n  }",
+          "responseType": "PageResult<TemplateRow & { _id?: string }> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mailbox/templates-update",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 214,
+          "name": "moveTemplates",
+          "transport": "postEnvelope",
+          "request": "{ ids, foid }",
+          "responseType": "unknown"
+        },
+        {
+          "file": "apps/web/src/api/content.ts",
+          "line": 217,
+          "name": "shareTemplates",
+          "transport": "postEnvelope",
+          "request": "{ ids, ...share }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mails/account-assign",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/sending.ts",
+          "line": 312,
+          "name": "assignMailAccount",
+          "transport": "postEnvelope",
+          "request": "{ maid: id, owner }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mails/accounts-add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/sending.ts",
+          "line": 267,
+          "name": "addMailAccount",
+          "transport": "postEnvelope",
+          "request": "mailAccountBody(d, { skipError })",
+          "responseType": "MailVerifyResult | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mails/accounts-check",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/sending.ts",
+          "line": 290,
+          "name": "result",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "MailVerifyResult | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mails/accounts-config",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/sending.ts",
+          "line": 193,
+          "name": "d",
+          "transport": "postEnvelope",
+          "request": "{\n    maid: id,\n  }",
+          "responseType": "Record<string, unknown> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mails/accounts-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/sending.ts",
+          "line": 308,
+          "name": "deleteMailAccount",
+          "transport": "postEnvelope",
+          "request": "{ maid: id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mails/accounts-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/mail.ts",
+          "line": 89,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "{\n        owners,\n      }",
+          "responseType": "MailNode[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mails/accounts-poste-config",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/sending.ts",
+          "line": 328,
+          "name": "probeMailConfig",
+          "transport": "postEnvelope",
+          "request": "{ email }",
+          "responseType": "PosteConfig | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mails/accounts-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/sending.ts",
+          "line": 297,
+          "name": "saveMailAccount",
+          "transport": "postEnvelope",
+          "request": "{\n      ...body,\n      re_status: verify ? 'success' : 'unkown',\n      se_status: verify ? 'success' : 'unkown',\n      re_error: '',\n      se_error: '',\n    }",
+          "responseType": "MailVerifyResult | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mails/accounts-show",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/sending.ts",
+          "line": 118,
+          "name": "res",
+          "transport": "postEnvelopeFull",
+          "request": "{\n    current: q.current,\n    pageSize: q.pageSize,\n    filter: q.keyword ? { keyword: q.keyword } : {},\n    sort: q.sort ?? DEFAULT_SORT,\n  }",
+          "responseType": "Record<string, unknown>[]"
+        }
+      ]
+    },
+    {
+      "path": "/mails/cancel-timer",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 113,
+          "name": "cancelMailTimer",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mails/change-timer",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 124,
+          "name": "changeMailTimer",
+          "transport": "postEnvelopeFull",
+          "request": "{ id, timeStart }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mails/dev-history-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/contact-history.ts",
+          "line": 38,
+          "name": "result",
+          "transport": "postEnvelope",
+          "request": "{\n    current: q.current,\n    pageSize: q.pageSize,\n    sort: q.sort,\n    filter: { cid: q.cid },\n  }",
+          "responseType": "| {\n        list?: ContactDevelopmentRecord[];\n        total?: number;\n      }\n    | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mails/mail-drop",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 167,
+          "name": "dropMail",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mails/mail-history-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 694,
+          "name": "listMailHistory",
+          "transport": "postEnvelope",
+          "request": "{\n      current: q.current,\n      pageSize: q.pageSize,\n      sort: q.sort ?? {},\n      filter: {\n        email: q.email,\n        rangeType: q.rangeType,\n        owners: q.owners,\n        ...(q.timestamp ? { timestamp: q.timestamp } : {}),\n      },\n    }",
+          "responseType": "{ list?: MailHistoryRow[]; total?: number } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mails/mail-move",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/mail.ts",
+          "line": 80,
+          "name": "moveMail",
+          "transport": "postEnvelope",
+          "request": "{ id, boxName }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mails/mail-open",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/mail.ts",
+          "line": 119,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "{\n        id,\n      }",
+          "responseType": "MailDetail | null | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mails/mail-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 466,
+          "name": "saveDraft",
+          "transport": "postEnvelope",
+          "request": "{\n    ...composeBody(d),\n    text: displayHtmlToText(d.html),\n  }",
+          "responseType": "{ id?: string } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mails/mail-sorting-report",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 241,
+          "name": "reportSorting",
+          "transport": "postEnvelope",
+          "request": "{ mailId }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mails/mails-address-black",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 308,
+          "name": "setAddressBlack",
+          "transport": "postEnvelope",
+          "request": "{ ...scope, ...v }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mails/mails-address-tags",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 295,
+          "name": "setAddressTags",
+          "transport": "postEnvelope",
+          "request": "{ ...scope, tags, action }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mails/mails-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/mail.ts",
+          "line": 59,
+          "name": "deleteMails",
+          "transport": "postEnvelope",
+          "request": "scope",
+          "responseType": "{ deletedCount?: unknown; totalCount?: unknown } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mails/mails-dir-clear",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 322,
+          "name": "clearDir",
+          "transport": "postEnvelope",
+          "request": "v",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mails/mails-dir-seen",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 318,
+          "name": "markDirSeen",
+          "transport": "postEnvelope",
+          "request": "v",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mails/mails-drop",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 274,
+          "name": "dropMails",
+          "transport": "postEnvelope",
+          "request": "scope",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mails/mails-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/mail.ts",
+          "line": 29,
+          "name": "result",
+          "transport": "postEnvelope",
+          "request": "{\n          current,\n          pageSize: 100,\n          sort: { timestamp: -1, _id: -1 },\n          owners: [],\n          filter: {\n            maid: target.maid,\n            parent: acrossFolders ? '/' : (target.parent ?? ''),\n            ...(acrossFolders ? {} : { boxName: target.boxName }),\n            keyword: escapeRegExp(\n              (typeof target.subject === 'string' ? target.subject : '').slice(0, 256),\n            ),\n          },\n        }",
+          "responseType": "MailListResult"
+        },
+        {
+          "file": "packages/api-client/src/mail.ts",
+          "line": 96,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "mailListBody(query)",
+          "responseType": "Partial<MailListResult> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mails/mails-mark-seen",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/mail.ts",
+          "line": 17,
+          "name": "markMailsSeen",
+          "transport": "postEnvelope",
+          "request": "scope",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mails/mails-mark-unseen",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/mail.ts",
+          "line": 18,
+          "name": "markMailsUnseen",
+          "transport": "postEnvelope",
+          "request": "scope",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mails/mails-tags",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 284,
+          "name": "setMailsTags",
+          "transport": "postEnvelope",
+          "request": "{ ...scope, tags }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mails/reports-add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 312,
+          "name": "reportMails",
+          "transport": "postEnvelope",
+          "request": "{ ...scope, options }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/mails/sendmail-add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 440,
+          "name": "sendMail",
+          "transport": "postEnvelope",
+          "request": "composeBody(d)",
+          "responseType": "SendTicket | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mails/sendmail-status",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 453,
+          "name": "getSendStatus",
+          "transport": "postEnvelope",
+          "request": "{ sendId }",
+          "responseType": "Partial<SendStatus> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/mails/track-info",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 630,
+          "name": "getTrackInfo",
+          "transport": "postEnvelope",
+          "request": "{ sid: ssid }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/marketing/task-details",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 429,
+          "name": "getMassTaskDetail",
+          "transport": "postEnvelope",
+          "request": "{ gtid }",
+          "responseType": "MassTaskDetail | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/marketing/task-html",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 513,
+          "name": "getMailHtml",
+          "transport": "postEnvelope",
+          "request": "{ id: htmlId }",
+          "responseType": "{ html?: string } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/marketing/task-logs",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 499,
+          "name": "listRecipients",
+          "transport": "postEnvelope",
+          "request": "{\n    current: q.current,\n    pageSize: q.pageSize,\n    ...(q.keyword ? { keyword: q.keyword } : {}),\n    sort: { create_time: -1 },\n    filter: {\n      gtid: q.gtid,\n      status: q.status,\n      ...(q.status === 'notsent' && q.reason ? { reason: q.reason } : {}),\n    },\n  }",
+          "responseType": "PageResult<RecipientRow> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/marketing/task-preview",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 1332,
+          "name": "previewMail",
+          "transport": "postEnvelope",
+          "request": "{\n    cid,\n    contentsIds,\n    contentsId,\n  }",
+          "responseType": "MailPreview | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/marketing/task-rename",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 161,
+          "name": "renameMassTask",
+          "transport": "postEnvelope",
+          "request": "{ gtid, name }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/marketing/tasks/show",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 117,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "{\n    current: q.current,\n    pageSize: q.pageSize,\n    filter: {\n      status: q.status,\n      // 值为空的条件整条不发 —— 发空串后端会当成\"必须匹配空\"\n      ...(q.keyword ? { keyword: q.keyword } : {}),\n    },\n  }",
+          "responseType": "PageResult<MassTask> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/marketing/tasks/show-count",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 135,
+          "name": "massTaskCounts",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "Record<string, number> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/marketing/tracks/logs-black",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 244,
+          "name": "trackBulkBlack",
+          "transport": "postEnvelope",
+          "request": "{\n    ...scope,\n    filter: trackFilter(query),\n    // 黑名单读取 selectSort,标签读取 sort;都与列表的事件时间倒序一致。\n    selectSort: { time: -1 },\n    sort: { time: -1 },\n    ...body,\n  }",
+          "responseType": "{ backendId: string }"
+        }
+      ]
+    },
+    {
+      "path": "/marketing/tracks/logs-tags",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 258,
+          "name": "trackBulkTags",
+          "transport": "postEnvelope",
+          "request": "{\n    ...scope,\n    filter: trackFilter(query),\n    sort: { time: -1 },\n    ...body,\n  }",
+          "responseType": "{ id: string }"
+        }
+      ]
+    },
+    {
+      "path": "/marketing/tracks/show",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 220,
+          "name": "listTracks",
+          "transport": "postEnvelope",
+          "request": "{\n    current: q.current,\n    pageSize: q.pageSize,\n    sort: { time: -1 },\n    filter: trackFilter(q),\n  }",
+          "responseType": "PageResult<TrackRow> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/notifications/message-config",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/personal.ts",
+          "line": 109,
+          "name": "getNotificationConfig",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "{ noticeConfig?: NotificationConfig; wechatOfficialSubscribed?: boolean | null }"
+        }
+      ]
+    },
+    {
+      "path": "/notifications/message-config-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/personal.ts",
+          "line": 117,
+          "name": "saveNotificationConfig",
+          "transport": "postEnvelope",
+          "request": "{ id, type, on }",
+          "responseType": "void"
+        }
+      ]
+    },
+    {
+      "path": "/notifications/message-details",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/notifications.ts",
+          "line": 60,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "{ msgId }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/notifications/messages-count",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/topbar.ts",
+          "line": 233,
+          "name": "getMessageCount",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "MessageCount"
+        }
+      ]
+    },
+    {
+      "path": "/notifications/messages-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/notifications.ts",
+          "line": 74,
+          "name": "deleteMessages",
+          "transport": "postEnvelope",
+          "request": "{ type, msgIds: messageIds(ids) }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/notifications/messages-read",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/notifications.ts",
+          "line": 72,
+          "name": "markMessagesRead",
+          "transport": "postEnvelope",
+          "request": "{ type, msgIds: messageIds(ids) }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/notifications/messages/show",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/notifications.ts",
+          "line": 47,
+          "name": "result",
+          "transport": "postEnvelopeFull",
+          "request": "{\n    current,\n    pageSize,\n    filter: type === 'all' ? {} : { type },\n    sort: { create_time: -1 },\n  }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/oauth/device/decision",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/authorization.ts",
+          "line": 31,
+          "name": "decideAuthorization",
+          "transport": "postEnvelope",
+          "request": "{\n      userCode,\n      approve,\n      workspaceId,\n    }",
+          "responseType": "{ status: 'approved' | 'denied' }"
+        }
+      ]
+    },
+    {
+      "path": "/oauth/device/info",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/authorization.ts",
+          "line": 29,
+          "name": "getAuthorizationInfo",
+          "transport": "postEnvelope",
+          "request": "{ userCode }",
+          "responseType": "AuthorizationInfo"
+        }
+      ]
+    },
+    {
+      "path": "/oauth/grants/list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/authorization.ts",
+          "line": 41,
+          "name": "listAuthorizedApps",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "AuthorizedApp[]"
+        }
+      ]
+    },
+    {
+      "path": "/oauth/grants/revoke",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/authorization.ts",
+          "line": 43,
+          "name": "revokeAuthorizedApp",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "{ revoked: boolean }"
+        }
+      ]
+    },
+    {
+      "path": "/operation/backend-progress",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm-recycle.ts",
+          "line": 7,
+          "name": "getRestoreProgress",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "RecycleRestoreProgress | null"
+        }
+      ]
+    },
+    {
+      "path": "/operation/backend-task-abort",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/topbar.ts",
+          "line": 213,
+          "name": "abortTask",
+          "transport": "postEnvelope",
+          "request": "ref",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/operation/backend-task-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/topbar.ts",
+          "line": 215,
+          "name": "deleteTask",
+          "transport": "postEnvelope",
+          "request": "ref",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/operation/backend-task-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/topbar.ts",
+          "line": 146,
+          "name": "queryFn",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "BackendTask[]"
+        }
+      ]
+    },
+    {
+      "path": "/operation/backend-task-start",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/topbar.ts",
+          "line": 209,
+          "name": "startTask",
+          "transport": "postEnvelope",
+          "request": "ref",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/operation/backend-task-status",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/topbar.ts",
+          "line": 178,
+          "name": "batch",
+          "transport": "postEnvelope",
+          "request": "{\n              type: task.type,\n              id: task.id,\n            }",
+          "responseType": "BackendTask"
+        }
+      ]
+    },
+    {
+      "path": "/operation/backend-task-stop",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/topbar.ts",
+          "line": 211,
+          "name": "stopTask",
+          "transport": "postEnvelope",
+          "request": "ref",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/partner/cash-out",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/partner.ts",
+          "line": 62,
+          "name": "listCashRecords",
+          "transport": "postEnvelope",
+          "request": "q",
+          "responseType": "PageResult<CashRecord>"
+        }
+      ]
+    },
+    {
+      "path": "/partner/invite-bind",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/growth-tasks.ts",
+          "line": 27,
+          "name": "bindInviteCode",
+          "transport": "postEnvelope",
+          "request": "{ inviteCode: inviteCode.trim() }",
+          "responseType": "{ pid: string }"
+        }
+      ]
+    },
+    {
+      "path": "/partner/invite-commission",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/partner.ts",
+          "line": 60,
+          "name": "listCommissionRecords",
+          "transport": "postEnvelope",
+          "request": "q",
+          "responseType": "PageResult<CommissionRecord>"
+        }
+      ]
+    },
+    {
+      "path": "/partner/invite-info",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/partner.ts",
+          "line": 56,
+          "name": "getInviteInfo",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "InviteInfo"
+        }
+      ]
+    },
+    {
+      "path": "/partner/invite-record",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/partner.ts",
+          "line": 58,
+          "name": "listInviteRecords",
+          "transport": "postEnvelope",
+          "request": "q",
+          "responseType": "PageResult<InviteRecord>"
+        }
+      ]
+    },
+    {
+      "path": "/partner/invite-reward",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/growth-tasks.ts",
+          "line": 24,
+          "name": "claimInviteReward",
+          "transport": "postEnvelope",
+          "request": "{ type }",
+          "responseType": "void"
+        }
+      ]
+    },
+    {
+      "path": "/partner/invite-status",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/growth-tasks.ts",
+          "line": 21,
+          "name": "getInviteStatus",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/payment/cash-out",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/partner.ts",
+          "line": 96,
+          "name": "requestCash",
+          "transport": "postEnvelope",
+          "request": "cashSchema.parse(value)",
+          "responseType": "void"
+        }
+      ]
+    },
+    {
+      "path": "/payment/qr-order-check",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/expenses.ts",
+          "line": 76,
+          "name": "result",
+          "transport": "fetchJson",
+          "request": "{\n    method: 'POST',\n    body: JSON.stringify({ id, host: window.location.host }),\n  }",
+          "responseType": "Envelope<{ done?: boolean }>"
+        }
+      ]
+    },
+    {
+      "path": "/profile/inference-product-add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/refine.ts",
+          "line": 274,
+          "name": "addInferenceProduct",
+          "transport": "postEnvelope",
+          "request": "{ product_name }",
+          "responseType": "InferenceProduct"
+        }
+      ]
+    },
+    {
+      "path": "/profile/inference-product-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/refine.ts",
+          "line": 283,
+          "name": "deleteInferenceProduct",
+          "transport": "postEnvelope",
+          "request": "{ product_id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/profile/inference-product-details",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/refine.ts",
+          "line": 277,
+          "name": "getInferenceProfile",
+          "transport": "postEnvelope",
+          "request": "{ product_id }",
+          "responseType": "InferenceProfile"
+        }
+      ]
+    },
+    {
+      "path": "/profile/inference-product-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/refine.ts",
+          "line": 266,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "InferenceProduct[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/profile/inference-product-Rename",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/refine.ts",
+          "line": 287,
+          "name": "renameInferenceProduct",
+          "transport": "postEnvelope",
+          "request": "{ product_id, name }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/profile/inference-product-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/refine.ts",
+          "line": 280,
+          "name": "saveInferenceProfile",
+          "transport": "postEnvelope",
+          "request": "{ product_id, ...patch }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/profile/inference-segment-generate",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/refine.ts",
+          "line": 297,
+          "name": "generateSegments",
+          "transport": "postEnvelope",
+          "request": "{ product_id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/profile/inference-segment-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/refine.ts",
+          "line": 290,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "{\n    product_id,\n  }",
+          "responseType": "SegmentItem[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/profile/product-add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/products.ts",
+          "line": 153,
+          "name": "addProduct",
+          "transport": "postEnvelope",
+          "request": "productBody(d)",
+          "responseType": "Record<string, unknown> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/profile/product-default",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/products.ts",
+          "line": 165,
+          "name": "setDefaultProduct",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/profile/product-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/products.ts",
+          "line": 161,
+          "name": "deleteProduct",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/profile/product-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/products.ts",
+          "line": 75,
+          "name": "listProducts",
+          "transport": "postEnvelope",
+          "request": "{\n    current: q.current,\n    pageSize: q.pageSize,\n    // 不转小写:大小写规则交给后端\n    keyword: q.keyword.trim(),\n    sort: q.sort,\n  }",
+          "responseType": "PageResult<Record<string, unknown>> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/profile/product-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/products.ts",
+          "line": 158,
+          "name": "saveProduct",
+          "transport": "postEnvelope",
+          "request": "productBody(d)",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/record/log-add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/follow.ts",
+          "line": 62,
+          "name": "addFollowRecord",
+          "transport": "postEnvelope",
+          "request": "followBody(d)",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/record/log-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/follow.ts",
+          "line": 59,
+          "name": "deleteFollowRecord",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/record/log-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/follow.ts",
+          "line": 40,
+          "name": "listFollowRecords",
+          "transport": "postEnvelope",
+          "request": "{\n      current: q.current,\n      pageSize: q.pageSize,\n      keyword: q.keyword.trim(),\n      sort: { create_time: -1 as const },\n      filter: {\n        // 这两个在**列表接口里是单个字符串**,提交接口里才是数组\n        ...(q.subject.kind === 'contact'\n          ? { contactIds: q.subject.id }\n          : { companyIds: q.subject.id }),\n        // The backend uses this array as a type match, so [] matches nothing.\n        // Expand the UI's “all” selection like the legacy project does.\n        type: q.types.length ? q.types : [...FOLLOW_TYPES],\n      },\n    }",
+          "responseType": "PageResult<Record<string, unknown>> | undefined"
+        },
+        {
+          "file": "packages/api-client/src/follow.ts",
+          "line": 75,
+          "name": "logs",
+          "transport": "postEnvelope",
+          "request": "{\n        current: 1,\n        pageSize: 2,\n        keyword: '',\n        sort: { create_time: 1 },\n        filter: { contactIds: cid, type: [d.type], ...filter },\n      }",
+          "responseType": "PageResult<Record<string, unknown>>"
+        }
+      ]
+    },
+    {
+      "path": "/record/log-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/follow.ts",
+          "line": 149,
+          "name": "saveFollowRecord",
+          "transport": "postEnvelope",
+          "request": "followBody(d)",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/record/task-add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/tasks.ts",
+          "line": 102,
+          "name": "addTask",
+          "transport": "postEnvelope",
+          "request": "taskBody(d)",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/record/task-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/tasks.ts",
+          "line": 107,
+          "name": "deleteTask",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/record/task-info",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/tasks.ts",
+          "line": 94,
+          "name": "record",
+          "transport": "postEnvelope",
+          "request": "{\n      id,\n    }",
+          "responseType": "Record<string, unknown> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/record/task-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/follow.ts",
+          "line": 103,
+          "name": "tasks",
+          "transport": "postEnvelope",
+          "request": "{\n      current: 1,\n      pageSize: 2,\n      viewId: 'all',\n      filter: {},\n      keyword: '',\n      logic: 'and',\n      sort: { create_time: 1, _id: 1 },\n      filters: [\n        { property: 'contactIds', valueType: 'select', operator: 'include', values: [cid] },\n        { property: 'type', valueType: 'text', operator: 'eq', value: d.taskType },\n        { property: 'creator', valueType: 'text', operator: 'eq', value: author },\n        { property: 'timestamp', valueType: 'digit', operator: 'eq', value: d.taskTime },\n        { property: 'body', valueType: 'text', operator: 'eq', value: d.body },\n        { property: 'create_time', valueType: 'digit', operator: 'gte', value: created },\n      ],\n    }",
+          "responseType": "PageResult<Record<string, unknown>>"
+        },
+        {
+          "file": "packages/api-client/src/tasks.ts",
+          "line": 21,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "{ ...q, viewId: 'all', filter: {} }",
+          "responseType": "{\n      list?: Record<string, unknown>[];\n      total?: number;\n      current?: number;\n    }"
+        }
+      ]
+    },
+    {
+      "path": "/record/task-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/tasks.ts",
+          "line": 105,
+          "name": "saveTask",
+          "transport": "postEnvelope",
+          "request": "{ ...taskBody(d), id: d.id }",
+          "responseType": "unknown"
+        },
+        {
+          "file": "packages/api-client/src/tasks.ts",
+          "line": 112,
+          "name": "setTaskStatus",
+          "transport": "postEnvelope",
+          "request": "{ id, title, status }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/record/tasks-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/tasks.ts",
+          "line": 90,
+          "name": "deleteCrmTasks",
+          "transport": "postEnvelope",
+          "request": "{ ...params, viewId: 'all', filter: {} }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/refine/company-black",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/refine.ts",
+          "line": 188,
+          "name": "blacklistRefineCompanies",
+          "transport": "postEnvelope",
+          "request": "p",
+          "responseType": "{ backendId?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/refine/company-info-by-name",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 52,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "{ name }",
+          "responseType": "Partial<PreviewResult> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/refine/company-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/refine.ts",
+          "line": 148,
+          "name": "res",
+          "transport": "fetchJson",
+          "request": "{\n      method: 'POST',\n      body: JSON.stringify({\n        keyword,\n        current: q.current,\n        pageSize: q.pageSize,\n        logic: q.logic ?? 'and',\n        filters: q.filters ?? [],\n        sort: {},\n        // 无关键词时强制传 {} —— 照旧项目 `filter: keyword ? filter : {}`。\n        // 空搜索带着匹配度条件发过去会把「浏览全库」变成「筛过的全库」\n        filter: keyword ? { matchScore: match } : {},\n        ...(q.refineTaskId ? { refineTaskId: q.refineTaskId } : {}),\n        ...(q.isCharge ? { isCharge: true } : {}),\n        ...(q.autoCharge ? { autoCharge: true } : {}),\n      }),\n    }",
+          "responseType": "{ success: boolean; message?: string; data?: CompanySearchData }"
+        }
+      ]
+    },
+    {
+      "path": "/refine/company-list-by-name",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 43,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "{ name }",
+          "responseType": "{ list?: PreviewCompany[]; domain?: string } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/refine/company-rating",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/rating.ts",
+          "line": 309,
+          "name": "createRating",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "{ taskId?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/refine/company-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 222,
+          "name": "saveContacts",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "{ id?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/refine/task-create",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 236,
+          "name": "createTask",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "{ taskId?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/refine/task-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 248,
+          "name": "deleteTask",
+          "transport": "postEnvelope",
+          "request": "{ taskId }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/refine/task-info",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 242,
+          "name": "getTaskInfo",
+          "transport": "postEnvelope",
+          "request": "{ taskId }",
+          "responseType": "RefineTask"
+        }
+      ]
+    },
+    {
+      "path": "/refine/task-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 233,
+          "name": "listRefineTasks",
+          "transport": "postEnvelope",
+          "request": "q",
+          "responseType": "PageResult<RefineTask>"
+        }
+      ]
+    },
+    {
+      "path": "/refine/task-rename",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 245,
+          "name": "renameTask",
+          "transport": "postEnvelope",
+          "request": "{ taskId, name }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/refine/task-status",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 239,
+          "name": "getTaskStatus",
+          "transport": "postEnvelope",
+          "request": "{ taskId }",
+          "responseType": "{ status?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/refine/tasks-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 251,
+          "name": "deleteTasks",
+          "transport": "postEnvelope",
+          "request": "{ taskIds }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/reports/analytics-cards-data",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/reports.ts",
+          "line": 108,
+          "name": "getAnalyticsCards",
+          "transport": "postEnvelope",
+          "request": "q",
+          "responseType": "Record<string, Partial<MetricCard>> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/reports/count-history-data",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/reports.ts",
+          "line": 144,
+          "name": "getCreditHistory",
+          "transport": "postEnvelope",
+          "request": "q",
+          "responseType": "Partial<CreditHistory> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/reports/member-table-data",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/reports.ts",
+          "line": 157,
+          "name": "getMemberTable",
+          "transport": "postEnvelope",
+          "request": "q",
+          "responseType": "Record<string, unknown>[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/reports/new-mail-total-data",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/reports.ts",
+          "line": 131,
+          "name": "getMailTotals",
+          "transport": "postEnvelope",
+          "request": "q",
+          "responseType": "Partial<MailTotals> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/reports/object-chart-data",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/reports.ts",
+          "line": 119,
+          "name": "getMetricSeries",
+          "transport": "postEnvelope",
+          "request": "q",
+          "responseType": "DayPoint[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/reports/overview-card-data",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/reports.ts",
+          "line": 97,
+          "name": "getOverviewCard",
+          "transport": "postEnvelope",
+          "request": "q",
+          "responseType": "Partial<MetricCard> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/search/linkedin-company-cancel-black",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 461,
+          "name": "blockLinkedin",
+          "transport": "postEnvelope",
+          "request": "scope",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/search/linkedin-company-rating",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/rating.ts",
+          "line": 309,
+          "name": "createRating",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "{ taskId?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/search/linkedin-company-save-black",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 461,
+          "name": "blockLinkedin",
+          "transport": "postEnvelope",
+          "request": "scope",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/search/linkedin-company-v2-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/prospect.ts",
+          "line": 432,
+          "name": "searchLinkedin",
+          "transport": "postEnvelope",
+          "request": "linkedinBody(q)",
+          "responseType": "LinkedinResult"
+        }
+      ]
+    },
+    {
+      "path": "/search/linkedin-company-v2-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 222,
+          "name": "saveContacts",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "{ id?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/search/map-data-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/clouds.ts",
+          "line": 284,
+          "name": "deleteCloudData",
+          "transport": "postEnvelopeFull",
+          "request": "batchBody(scope, q)",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/search/map-data-export",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/crm-export.ts",
+          "line": 44,
+          "name": "exportMapData",
+          "transport": "postEnvelope",
+          "request": "{\n    ...params,\n    fieldType,\n    exportType: EXPORT_FORMAT,\n  }",
+          "responseType": "{ id?: string } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/search/map-data-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/clouds.ts",
+          "line": 238,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "Record<string, unknown> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/search/map-data-search",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/clouds.ts",
+          "line": 318,
+          "name": "searchMapData",
+          "transport": "postEnvelope",
+          "request": "batchBody(scope, q)",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/search/map-data-tags",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/clouds.ts",
+          "line": 310,
+          "name": "tagCloudData",
+          "transport": "postEnvelopeFull",
+          "request": "{\n    ...batchBody(scope, q),\n    tagAction,\n    tagValues,\n  }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/search/tasks/ai-rating-chat-info",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/rating.ts",
+          "line": 244,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "{ chat_id: chatId }",
+          "responseType": "{ data?: RatingReport } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/activity-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 1065,
+          "name": "listSeqActivity",
+          "transport": "postEnvelope",
+          "request": "{\n    seqId: q.seqId,\n    current: q.current,\n    pageSize: q.pageSize,\n    filter: {\n      ...(q.type?.length ? { type: Array.isArray(q.type) ? q.type : [q.type] } : {}),\n    },\n    sort: { createAt: q.order === 'asc' ? 1 : -1 },\n  }",
+          "responseType": "PageResult<SeqActivity> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/contact-add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 906,
+          "name": "r",
+          "transport": "postEnvelope",
+          "request": "{\n    seqId,\n    views: by.views ?? [],\n    tags: by.tags ?? [],\n  }",
+          "responseType": "{ add?: number } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/contact-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 875,
+          "name": "listSeqContacts",
+          "transport": "postEnvelope",
+          "request": "{\n    seqId: q.seqId,\n    current: q.current,\n    pageSize: q.pageSize,\n    filter: seqContactFilter(q),\n    sort: { [q.sortBy ?? 'create_time']: q.order === 'asc' ? 1 : -1 },\n  }",
+          "responseType": "PageResult<SeqContact> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/contacts-status-change",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 945,
+          "name": "changeSeqContactStatus",
+          "transport": "postEnvelopeFull",
+          "request": "{\n    ...seqScopeBody(s),\n    status,\n  }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/contacts-tags",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 960,
+          "name": "tagSeqContacts",
+          "transport": "postEnvelopeFull",
+          "request": "{ ...seqScopeBody(s), action, tags }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/email-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 1021,
+          "name": "listSeqEmails",
+          "transport": "postEnvelope",
+          "request": "{\n    seqId: q.seqId,\n    current: q.current,\n    pageSize: q.pageSize,\n    filter: seqEmailFilter(q),\n    sort: { create_time: q.order === 'asc' ? 1 : -1 },\n  }",
+          "responseType": "PageResult<SeqEmail> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/email-tags",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 1031,
+          "name": "tagSeqEmails",
+          "transport": "postEnvelopeFull",
+          "request": "{\n    seqId: s.seqId,\n    selectKeys: s.selectKeys,\n    selectOption: s.selectOption,\n    selectTotal: s.selectTotal,\n    filter: seqEmailFilter(s),\n    sort: { create_time: s.order === 'asc' ? 1 : -1 },\n    action,\n    tags,\n  }",
+          "responseType": "{ backendId?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/report-data",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 1091,
+          "name": "getSeqReport",
+          "transport": "postEnvelope",
+          "request": "{\n    seqId,\n    beginDate,\n    endDate,\n  }",
+          "responseType": "SeqReport | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/sequence-active",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 328,
+          "name": "setSequenceActive",
+          "transport": "postEnvelope",
+          "request": "{ id, active }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/sequence-copy",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 364,
+          "name": "copySequence",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/sequence-create",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 344,
+          "name": "createSequence",
+          "transport": "postEnvelopeFull",
+          "request": "{ name, channel }",
+          "responseType": "{ id?: string } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/sequence-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 367,
+          "name": "deleteSequence",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/sequence-details",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 559,
+          "name": "getSequence",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "Sequence | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/sequence-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 315,
+          "name": "listSequences",
+          "transport": "postEnvelope",
+          "request": "{\n    current: q.current,\n    pageSize: q.pageSize,\n    filter: {\n      status: 'total',\n      ...(q.keyword ? { keyword: q.keyword } : {}),\n      ...(q.channels?.length ? { channels: q.channels } : {}),\n    },\n    sort: { create_time: -1 },\n  }",
+          "responseType": "PageResult<Sequence> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/sequence-options",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 361,
+          "name": "listSequenceOptions",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "SeqOption[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/sequence-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 370,
+          "name": "renameSequence",
+          "transport": "postEnvelope",
+          "request": "{ id, name }",
+          "responseType": "unknown"
+        },
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 820,
+          "name": "saveSequenceSettings",
+          "transport": "postEnvelope",
+          "request": "{ ...body }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/sequence-summary",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 571,
+          "name": "getSequenceSummary",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "SeqSummary | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/step-create",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 721,
+          "name": "createStep",
+          "transport": "postEnvelope",
+          "request": "stepBody(seqId, d)",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/step-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 732,
+          "name": "deleteStep",
+          "transport": "postEnvelope",
+          "request": "{ seqId, id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/step-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 618,
+          "name": "listSteps",
+          "transport": "postEnvelope",
+          "request": "{ seqId }",
+          "responseType": "SeqStep[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/step-move",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 663,
+          "name": "reorderSteps",
+          "transport": "postEnvelope",
+          "request": "{ seqId, orders, moveStep, newStep }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/step-move-down",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 624,
+          "name": "moveStep",
+          "transport": "postEnvelope",
+          "request": "{\n    seqId,\n    id,\n  }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/step-move-up",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 624,
+          "name": "moveStep",
+          "transport": "postEnvelope",
+          "request": "{\n    seqId,\n    id,\n  }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/step-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 725,
+          "name": "saveStep",
+          "transport": "postEnvelope",
+          "request": "{ ...stepBody(seqId, d), id: d.id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/template-active",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 655,
+          "name": "setStepTemplateActive",
+          "transport": "postEnvelope",
+          "request": "{ stepId, id, active }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/sequences/template-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 657,
+          "name": "deleteStepTemplate",
+          "transport": "postEnvelope",
+          "request": "{ stepId, id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/settings/fields/show",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/fields.ts",
+          "line": 8,
+          "name": "listAllFields",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "Record<string, unknown>[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/settings/sequence/schedule-add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/sending.ts",
+          "line": 705,
+          "name": "addSchedule",
+          "transport": "postEnvelope",
+          "request": "scheduleBody(d)",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/settings/sequence/schedule-default",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/sending.ts",
+          "line": 715,
+          "name": "setDefaultSchedule",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/settings/sequence/schedule-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/sending.ts",
+          "line": 711,
+          "name": "deleteSchedule",
+          "transport": "postEnvelope",
+          "request": "{ id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/settings/sequence/schedule-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/sending.ts",
+          "line": 638,
+          "name": "listScheduleRows",
+          "transport": "postEnvelope",
+          "request": "{\n      current: q.current,\n      pageSize: q.pageSize,\n      keyword: q.keyword ?? '',\n      filter: {},\n      sort: q.sort ?? DEFAULT_SORT,\n    }",
+          "responseType": "PageResult<Record<string, unknown>> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/settings/sequence/schedule-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/sending.ts",
+          "line": 708,
+          "name": "saveSchedule",
+          "transport": "postEnvelope",
+          "request": "{ ...scheduleBody(d), id: d.id }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/settings/tags-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/tags.ts",
+          "line": 103,
+          "name": "deleteTags",
+          "transport": "postEnvelope",
+          "request": "{ ids, type }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/settings/tags/contact-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/tags.ts",
+          "line": 99,
+          "name": "deleteTag",
+          "transport": "postEnvelope",
+          "request": "{ id, type }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/tasks/get-mass-config",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 1358,
+          "name": "getMassConfig",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "MassConfig | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/tasks/mass-count",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 1202,
+          "name": "massCount",
+          "transport": "postEnvelope",
+          "request": "{\n    logic: d.logic,\n    match: d.match,\n    exclude: d.exclude,\n    mode: d.mode,\n    filters: d.filters,\n    keyword: d.keyword,\n    selectOption: d.selectOption,\n    selectSort: d.selectSort,\n    selectKeys: d.selectKeys,\n    selectTotal: d.selectTotal,\n  }",
+          "responseType": "MassCountResult | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/tasks/mass-info",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 1224,
+          "name": "getMassTaskInput",
+          "transport": "postEnvelope",
+          "request": "{ gtid }",
+          "responseType": "Record<string, unknown> | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/tasks/mass-revoke",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 151,
+          "name": "massTaskAction",
+          "transport": "postEnvelope",
+          "request": "{ gtid }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/tasks/mass/add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 1432,
+          "name": "addMassTask",
+          "transport": "postEnvelope",
+          "request": "massSubmitBody(d)",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/tasks/mass/delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 151,
+          "name": "massTaskAction",
+          "transport": "postEnvelope",
+          "request": "{ gtid }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/tasks/mass/drop",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 151,
+          "name": "massTaskAction",
+          "transport": "postEnvelope",
+          "request": "{ gtid }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/tasks/mass/multi-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 155,
+          "name": "massTaskBulk",
+          "transport": "postEnvelope",
+          "request": "{ gtids }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/tasks/mass/multi-drop",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 155,
+          "name": "massTaskBulk",
+          "transport": "postEnvelope",
+          "request": "{ gtids }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/tasks/mass/start",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 151,
+          "name": "massTaskAction",
+          "transport": "postEnvelope",
+          "request": "{ gtid }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/tasks/mass/stop",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 151,
+          "name": "massTaskAction",
+          "transport": "postEnvelope",
+          "request": "{ gtid }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/tasks/save-mass-config",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 1360,
+          "name": "saveMassConfig",
+          "transport": "postEnvelope",
+          "request": "{ ...c }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/ticket/all-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/topbar.ts",
+          "line": 79,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "{\n    sort: {},\n    pageSize: 100,\n    current: 1,\n    filter: { type: 'coupon' },\n  }",
+          "responseType": "{ list?: Coupon[] } | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/ticket/new-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/topbar.ts",
+          "line": 49,
+          "name": "claimNewCoupons",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "GrantedCoupon[]"
+        }
+      ]
+    },
+    {
+      "path": "/ticket/unused-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/expenses.ts",
+          "line": 91,
+          "name": "getRechargeCoupons",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "RechargeCoupon[]"
+        }
+      ]
+    },
+    {
+      "path": "/tools/email-address-check",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/marketing.ts",
+          "line": 1383,
+          "name": "checkEmailAddress",
+          "transport": "postEnvelope",
+          "request": "{ email }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/tools/lang-translate",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/mail.ts",
+          "line": 811,
+          "name": "out",
+          "transport": "postEnvelope",
+          "request": "{\n    source: 'auto',\n    target: v.target,\n    textList,\n  }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/user/login",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 134,
+          "name": "loginByPassword",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "AuthSession"
+        }
+      ]
+    },
+    {
+      "path": "/user/login/by-email",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 140,
+          "name": "loginByEmail",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "AuthSession"
+        }
+      ]
+    },
+    {
+      "path": "/user/login/by-phone",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 137,
+          "name": "loginByPhone",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "AuthSession"
+        }
+      ]
+    },
+    {
+      "path": "/user/login/call-captcha",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 124,
+          "name": "sendVoiceCaptcha",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/user/login/email-captcha",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 128,
+          "name": "sendEmailCaptcha",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/user/login/phone-captcha",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 107,
+          "name": "sendPhoneCaptcha",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/user/login/weapp",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 32,
+          "name": "loginByWeapp",
+          "transport": "postEnvelope",
+          "request": "{ code, inviteCode }",
+          "responseType": "WeappLoginResult"
+        }
+      ]
+    },
+    {
+      "path": "/user/login/weapp-bind",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 36,
+          "name": "res",
+          "transport": "fetchJson",
+          "request": "{\n      method: 'POST',\n      headers: { accesstoken: session.accesstoken, uid: session.uid ?? '' },\n      body: JSON.stringify({ code, host: host() }),\n    }",
+          "responseType": "Envelope<{ bound: boolean }>"
+        }
+      ]
+    },
+    {
+      "path": "/user/login/weapp-phone",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 176,
+          "name": "bindWeappPhone",
+          "transport": "postEnvelope",
+          "request": "{ ...body }",
+          "responseType": "AuthSession"
+        }
+      ]
+    },
+    {
+      "path": "/user/login/weapp-phone-captcha",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 174,
+          "name": "sendWeappPhoneCaptcha",
+          "transport": "postEnvelope",
+          "request": "{ ...body }",
+          "responseType": "{ sent: boolean }"
+        }
+      ]
+    },
+    {
+      "path": "/user/login/weapp-web/cancel",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 168,
+          "name": "cancelWeappWebLogin",
+          "transport": "postEnvelope",
+          "request": "{ ...ticket }",
+          "responseType": "WeappWebInfo"
+        }
+      ]
+    },
+    {
+      "path": "/user/login/weapp-web/check",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 166,
+          "name": "checkWeappWebLogin",
+          "transport": "postEnvelope",
+          "request": "{ ...ticket }",
+          "responseType": "WeappWebCheck"
+        }
+      ]
+    },
+    {
+      "path": "/user/login/weapp-web/decision",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 172,
+          "name": "decideWeappWebLogin",
+          "transport": "postEnvelope",
+          "request": "{ sceneId, confirm, code }",
+          "responseType": "WeappWebInfo"
+        }
+      ]
+    },
+    {
+      "path": "/user/login/weapp-web/info",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 170,
+          "name": "getWeappWebInfo",
+          "transport": "postEnvelope",
+          "request": "{ sceneId }",
+          "responseType": "WeappWebInfo"
+        }
+      ]
+    },
+    {
+      "path": "/user/login/weapp-web/qrcode",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 164,
+          "name": "getWeappWebQrcode",
+          "transport": "postEnvelope",
+          "request": "{}",
+          "responseType": "WeappWebQrcode"
+        }
+      ]
+    },
+    {
+      "path": "/user/login/weapp-web/scan-decision",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 154,
+          "name": "decideWeappWebScan",
+          "transport": "postEnvelope",
+          "request": "{\n        sceneId,\n        confirm,\n        code,\n        inviteCode,\n      }",
+          "responseType": "WeappWebScanDecision"
+        }
+      ]
+    },
+    {
+      "path": "/user/login/weapp-web/scan-info",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 152,
+          "name": "getWeappWebScanInfo",
+          "transport": "postEnvelope",
+          "request": "{ sceneId }",
+          "responseType": "WeappWebInfo"
+        }
+      ]
+    },
+    {
+      "path": "/user/login/weapp-web/scan-phone",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 163,
+          "name": "confirmWeappWebPhone",
+          "transport": "postEnvelope",
+          "request": "{ ...body }",
+          "responseType": "WeappWebInfo"
+        }
+      ]
+    },
+    {
+      "path": "/user/login/weapp-web/scan-phone-captcha",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 161,
+          "name": "sendWeappWebPhoneCaptcha",
+          "transport": "postEnvelope",
+          "request": "{ ...body }",
+          "responseType": "{ sent: boolean }"
+        }
+      ]
+    },
+    {
+      "path": "/user/login/wechat-check",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 72,
+          "name": "checkWechatScan",
+          "transport": "fetchJson",
+          "request": "{\n        method: 'POST',\n        body: JSON.stringify({ scene_id: sceneId, host: host() }),\n      }",
+          "responseType": "Envelope<WechatCheckWire>"
+        }
+      ]
+    },
+    {
+      "path": "/user/login/wechat-qrcode",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 45,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "{\n      inviteCode,\n    }",
+          "responseType": "WechatQrcodeWire"
+        }
+      ]
+    },
+    {
+      "path": "/user/regist/call-captcha",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 124,
+          "name": "sendVoiceCaptcha",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/user/regist/phone-captcha-send",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 107,
+          "name": "sendPhoneCaptcha",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/user/regist/phone-user",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 143,
+          "name": "registerPhoneUser",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "AuthSession"
+        }
+      ]
+    },
+    {
+      "path": "/user/regist/wechat-and-phone",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 58,
+          "name": "bindWechatPhone",
+          "transport": "postEnvelope",
+          "request": "{\n      phone: body.phone,\n      phoneCode: body.phoneCode,\n      captcha: body.captcha,\n      // 真实后端字段名是 scene_id\n      scene_id: body.sceneId,\n    }",
+          "responseType": "AuthSession"
+        }
+      ]
+    },
+    {
+      "path": "/user/regist/wechat-phone-captcha",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 107,
+          "name": "sendPhoneCaptcha",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/user/reset/call-captcha",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 124,
+          "name": "sendVoiceCaptcha",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/user/reset/email-captcha",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 128,
+          "name": "sendEmailCaptcha",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/user/reset/email-password",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 149,
+          "name": "resetPasswordByEmail",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/user/reset/phone-captcha",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 107,
+          "name": "sendPhoneCaptcha",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/user/reset/phone-password",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/auth.ts",
+          "line": 146,
+          "name": "resetPasswordByPhone",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/user/wechat-web-callback",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "apps/web/src/api/personal.ts",
+          "line": 88,
+          "name": "completeWechatSync",
+          "transport": "postEnvelope",
+          "request": "{ code, state }",
+          "responseType": "{ uid?: string; url?: string }"
+        }
+      ]
+    },
+    {
+      "path": "/views/view-add",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 59,
+          "name": "addView",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "ViewItem"
+        }
+      ]
+    },
+    {
+      "path": "/views/view-config",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 51,
+          "name": "getViewConfig",
+          "transport": "postEnvelope",
+          "request": "{ viewId, type }",
+          "responseType": "ViewConfig"
+        },
+        {
+          "file": "apps/web/src/api/refine.ts",
+          "line": 47,
+          "name": "getViewConfig",
+          "transport": "postEnvelope",
+          "request": "{ type: VIEW_TYPE_COMPANY, viewId }",
+          "responseType": "ViewConfig"
+        }
+      ]
+    },
+    {
+      "path": "/views/view-delete",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 72,
+          "name": "deleteView",
+          "transport": "postEnvelope",
+          "request": "{ viewId, type }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/views/view-fields",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 76,
+          "name": "listFilterFields",
+          "transport": "postEnvelope",
+          "request": "{ type }",
+          "responseType": "FieldItem[]"
+        }
+      ]
+    },
+    {
+      "path": "/views/view-rename",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 69,
+          "name": "renameView",
+          "transport": "postEnvelope",
+          "request": "{ viewId, type, name }",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/views/view-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 66,
+          "name": "saveView",
+          "transport": "postEnvelope",
+          "request": "body",
+          "responseType": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "/views/views-list",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 35,
+          "name": "listViewGroups",
+          "transport": "postEnvelope",
+          "request": "{ type }",
+          "responseType": "ViewGroups"
+        },
+        {
+          "file": "apps/web/src/api/refine.ts",
+          "line": 44,
+          "name": "listViews",
+          "transport": "postEnvelope",
+          "request": "{ type: VIEW_TYPE_COMPANY }",
+          "responseType": "ViewGroups"
+        }
+      ]
+    },
+    {
+      "path": "/views/views-pin",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 38,
+          "name": "data",
+          "transport": "postEnvelope",
+          "request": "{ type }",
+          "responseType": "ViewItem[] | undefined"
+        }
+      ]
+    },
+    {
+      "path": "/views/views-pin-save",
+      "method": "POST",
+      "calls": [
+        {
+          "file": "packages/api-client/src/crm.ts",
+          "line": 45,
+          "name": "savePinnedViews",
+          "transport": "postEnvelope",
+          "request": "{\n      viewType,\n      viewIds: viewIds.length ? viewIds : [ALL_VIEW],\n    }",
+          "responseType": "unknown"
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "apps/web/src/api/account.ts": "f5e966da8e1e7bd11ef7866918877d6cdf3257a996c6fd093cd62026d390b722",
+    "apps/web/src/api/attachment-library.ts": "505d7c3159163a7fb222aecde54b929510af1c853fbe40f43dd5d57ae0cfa2f8",
+    "apps/web/src/api/auth.ts": "0aa38da71ec1004205188d484b939a97965db829eb8687fb64310e2d30f0d966",
+    "apps/web/src/api/authorization.ts": "ea2976ca05ac7211333c34ede077f2f1199953f9f58385a52194d8e16c98cf71",
+    "apps/web/src/api/blacklist.ts": "e43642f16d3bafd4c35b9c0fe8800a92ba90c6c85d8183b497ce92bf8a4c9dca",
+    "apps/web/src/api/client.ts": "c70f262193138fdbf557d117ccc8a7d79019a712bc3c8db56b3c6c12251f5538",
+    "apps/web/src/api/clouds.ts": "9971169b787967233b5129f8b7035a10d3c194e8f80e5dccdbeafc87e8565d5e",
+    "apps/web/src/api/company-detail.ts": "b3800b4e7365f181c38a8e681347c19e52d5a43afc5224fc071c0235f21c491e",
+    "apps/web/src/api/contact-history.ts": "ef84a4ddc80615091aab9cc531f745d8c7c3ef92c3b3b525d8cb753c02b164ab",
+    "apps/web/src/api/content.ts": "47a7caefeab8ca8453f43842e6669d7d2a52e9aafd7fa99da00b1d9f5e699660",
+    "apps/web/src/api/crm-company.ts": "d78d235112b6a0143fbee0e09959c6be6576a11da2bb5877ed1dda675a2478b1",
+    "apps/web/src/api/crm-contact.ts": "06578ef94b7e01f1447db7b91410a9da3a24bc2b5b6ed5cccc4f67e90736878e",
+    "apps/web/src/api/crm-detail-fields.ts": "a7b1712af9a4183c969504106bd5f4a3996a3c2185fd1eda2de482faeb39ed48",
+    "apps/web/src/api/crm-export.ts": "c217b48cc21818ca77afd49c34754662517fbadd3b7e587cdb89a8a813b2ec22",
+    "apps/web/src/api/crm-import.ts": "4083e2d2575b63db8a874ced65fa53ddb371080f0fab11fb6b07b3a5d246ba27",
+    "apps/web/src/api/crm-recycle.ts": "31eb8abfe2c461d5ccac309d01a41efa8798d5906fa7c4613ed2a3a95011097e",
+    "apps/web/src/api/crm.ts": "9da829628cc6fa4696b17d359b2b2f0df3677d0923f497875e76604835624659",
+    "apps/web/src/api/enterprise-join.ts": "03268120a6d3b78428fba243dcfc5db381da998c77fc8960f7a6fcc2aa778ec5",
+    "apps/web/src/api/enterprise-members.ts": "51a306fcb0c606a4e890ed72ffc3989163ed5bc33aaa6e414609820923757a9f",
+    "apps/web/src/api/enterprise-quota.ts": "bf0d30bdec926e3b6dafbf65160e977cfb1cf68eb47b3ff78f7adda0c06b86a2",
+    "apps/web/src/api/enterprise-roles.ts": "b1e0d6160b62e4596b3858377d6b0a1b54e1679a159b7287c8768b2e21eff4fc",
+    "apps/web/src/api/enterprise-teams.ts": "cc15bd25cb3bddd4ecc8d5593f92a757293fa4dd1e179cd1229b4042f092ce9f",
+    "apps/web/src/api/enterprise.ts": "0d00ebc64875c33a87f18b5533eda2bff3eb6870974f3996df0d7cd0573a9449",
+    "apps/web/src/api/expenses.ts": "c924048327b1fab912ce4aa1f9a2f6745369fca415d479081d0d7060eb7e6447",
+    "apps/web/src/api/fields.ts": "9a5d39aed2378ed258cb6e087988041fa15ab5ab53d6b7011af63171865f176d",
+    "apps/web/src/api/follow.ts": "2539ca5caedb243da7cbca168a5fce51c4c4cb0dc7a0a7cca937490fc1d4b742",
+    "apps/web/src/api/growth-tasks.ts": "6f82644b72385a4f87e4d57dd7a2a4c7a06bcdfacc73a5696212b3f471dd9de1",
+    "apps/web/src/api/hooks.ts": "5cf3fc61a7a072678868d1670189d4bc7e34e9f4638e78c2e4e3f5ec18cc0285",
+    "apps/web/src/api/mail-eml.ts": "96895c437755dfa878abe31a85975acdafe47ae3e621172f0bb1c58479cd1a8f",
+    "apps/web/src/api/mail-file-url.ts": "aed509b7b2e5b70ef6b00f0142adc7092e032ff973412ce7e82251cf5023cbba",
+    "apps/web/src/api/mail-translate-html.ts": "326640f96b822093fc02f905f4215c12fbceebbf1bc456e297223f76fdc5f3f1",
+    "apps/web/src/api/mail.ts": "de00356948d19494e8d409b4a071229260c0118d559527dd1287f9aabd9eb3dd",
+    "apps/web/src/api/marketing.ts": "668c8e9edae54e5a3cac627100bd204f6877f209f3172b1e5a8000a9917669e7",
+    "apps/web/src/api/notifications.ts": "60feffa92af32fe593d32ab7454b25573ada46f68d3cdc483b15b4ce25e81bcf",
+    "apps/web/src/api/partner.ts": "9b7efa68a075afa152e0fad2ecc99a0638d6b059770dcae1dc149d5774ed22d8",
+    "apps/web/src/api/permissions.ts": "7bd8208566cd82b4ccca05cf9ce96b13da5ca96ef80285f7e3cc5819a979218c",
+    "apps/web/src/api/personal.ts": "3961f9c78e6293efb31c8ad1b4485e4aeadc187c48c2c7e82a3d455d89747349",
+    "apps/web/src/api/products.ts": "02f80e159ba437492533e62034230bab0d31a913a9d54c48785df12cce4213ad",
+    "apps/web/src/api/prospect.ts": "a0e683594d99f0bbe237a5f99e161f9e0ae6c30f5b7a06a8cae9a7ebd5c26e2e",
+    "apps/web/src/api/rating.ts": "6434f13309e40e0b690a193c95136c937580dfc90cb75eab666b16e29bd0f23d",
+    "apps/web/src/api/refine.ts": "c403b537fd0fdce39b330d173b354f909f48564bd63451e79fd98b2149d1333a",
+    "apps/web/src/api/reports.ts": "043571020263a9875518ff44c1ab7fde4a50cf29eb47e286b1fb82866d4fd1df",
+    "apps/web/src/api/schema.ts": "06b93e05b09a4ade918c8b5abd08ae253f56beab4c2a22d8d4f25e499dbeb9b3",
+    "apps/web/src/api/sending.ts": "f6d33c7e25423fab7685e9da20146c3da27bf916c8979f25b63b02e541aabeb4",
+    "apps/web/src/api/tags.ts": "b91e0fce93bdcdf121bbab40801ab834cd6965bf6e6a85fe9d40b7eac62e9198",
+    "apps/web/src/api/tasks.ts": "fc8fb58d3e86dd81db53e0f7acb519434f727d0a44814e753fe16a21e0b1001d",
+    "apps/web/src/api/topbar.ts": "2c1ced7d6308ffab45646abb161b9ec35d2901951c8f5d68b8bd1e203267de6b",
+    "apps/web/src/api/upload.ts": "b8cc01100f7f012d000a26b39fa8bc8aa30b6b03f07234573c8c052aafc0fb65",
+    "apps/web/src/components/rich-text-editor/reader.ts": "e34944b388175c56b773336a63bc53e126631ab4cf7c9d7c537d4f60c2ba7f47",
+    "apps/web/src/components/rich-text-editor/themes/default.ts": "b9257fbee054a39dc0e8085f3a9bb99db43c1edaa715c0d4bf5bb389e23bc6c1",
+    "apps/web/src/components/rich-text-editor/utils/sanitize.ts": "5509adab21bd62e8ddec6bcd0fe56b65048c8c6068923f8ab2692aa7587a93d0",
+    "apps/web/src/data/countries.ts": "5a8b40c8b3b2a467ae0850e0e53294817d4168d79b38673a46208bc951314903",
+    "apps/web/src/data/sentinels.ts": "3f34bb74739c29a99f512148c85734153e096d6b5197204f41fd465fc357f4e9",
+    "apps/web/src/stores/auth.ts": "983e2fd79eeae34b42b4a08ec976ea404bc0ef7db2d5ed0c2ce8a6c4b5edfaab",
+    "packages/api-client/src/account.ts": "38990253bf351f2843c717ac5f1893ee227bb35c91cff6a87bef6d929989336c",
+    "packages/api-client/src/auth.ts": "0312fcdda56eabe3626852e233d5458c3622bca423b66d331e75e983dc47378d",
+    "packages/api-client/src/client.ts": "d1f94b2160e7f7b024ba7b8e01b33ea45657d8fe114a4b46aa29fc55a3b27870",
+    "packages/api-client/src/crm-company.ts": "b8db0f361bdae41ed673f25aa0ee2b4f7169ea06801eb69e726e06e51beeb181",
+    "packages/api-client/src/crm-contact.ts": "2b254a65a03c7cdbdc8d989c0ab68cbcfc1f175bd8c37e7dc5b2f3fbb884d9c5",
+    "packages/api-client/src/crm-recycle.ts": "c70c79fe5a9848aa21fa2d93081b45b6b47ed1124a47b3b67244a8f77e150b52",
+    "packages/api-client/src/crm.ts": "e41982bbc6e5b7a7ff62f1d6c6fb2f0e5ab0546ca68d90fc8a3e2fd5b9433382",
+    "packages/api-client/src/fields.ts": "13d81d4f45546e90e72194046fed223f76ae1108d7b1a673d2ea6340102006f8",
+    "packages/api-client/src/follow.ts": "95e97ecec9a79acbfb1d84f3b7c53a14247b563c6068af3b91ccb3c898576ddc",
+    "packages/api-client/src/mail.ts": "665671cadab4ea551af12a6d67423b4f55ea9bb5dfd74fae919b97d5eb25d710",
+    "packages/api-client/src/permissions.ts": "690e42923ccba1ee57a18adb24c1f8f9a405bc31675d74b36426ca55df3b6d6a",
+    "packages/api-client/src/personal.ts": "90912ad8e50eef8a783a272bad1af97f09ad94011064b147b18b522e79bab2cb",
+    "packages/api-client/src/tasks.ts": "c491c1e65726520fcbb9555ceb6a5071e6f57b10dfb84a18408639878c37caec",
+    "packages/api-client/src/workspace.ts": "e4e4ab7eccee7bc96436215ea311ca72968612b26bde460b01fd0c46ce857e70",
+    "packages/core/src/account.ts": "8b7a06b68eeecf25c1329f38c2def0c630c5f56b264bcbc4b6b8fee1307ab08a",
+    "packages/core/src/auth.ts": "ced87c75d6e5d5e57a2d87a82f41ca14f4a4bb583e8fd72560d13de97adae5fa",
+    "packages/core/src/common.ts": "d9a47290803d4c4405e3549367d45ce7f76ca89a1cf946a18f01f750dcd1f5aa",
+    "packages/core/src/crm-company.ts": "3e6125528f28e53094524744c3c323f0babae5163f92ee5737edb2affc343c13",
+    "packages/core/src/crm-recycle.ts": "07cef0eac097e848af908d356eb43c761fc7ba0a5fe844f5f6325c43c5b5c941",
+    "packages/core/src/crm.ts": "6b6334dd12cc03e8f0570f6b89346935e59f9f53989ecdbfcb476f5bcb7ea0ad",
+    "packages/core/src/customer-mobile.ts": "2edcdd9f92eb29464ba0fe4c1fef915337a77982a8e19496fe9ac1f8ca3b05c8",
+    "packages/core/src/fields.ts": "332866844d45118df15f659e84b57c0b47087835ee994fd199bd0d912b100d48",
+    "packages/core/src/follow.ts": "b48b1c12010a20fe3d782bc26432ab1457837b347297b16e876f362bfd5c0e1a",
+    "packages/core/src/identity.ts": "45ab186dabdbc233a166261bd0ab96e4f575d5777356350b33e7760e62de7874",
+    "packages/core/src/mail-address.ts": "a3b3a530aba99934473b7a8ffcc2418c486327020750fc778be96d5da4110764",
+    "packages/core/src/mail-content.ts": "9237fcb45049688008e6cac22907c1e5714044479699d09dc2cbcc9c8af843c0",
+    "packages/core/src/mail-drafts.ts": "542d148a89f3c49f0d61dc73326134e3230f08e8048be50aa236df25fe9ffb62",
+    "packages/core/src/mail-editor.ts": "25617c2e7674f567cedcaa068e5cf97f1a445375058920e6fc7dc3539ea0120e",
+    "packages/core/src/mail-mobile.ts": "a98e2744e15d603f9dca2991a815d7d749696692e6e76f70935c81cf3d061c8f",
+    "packages/core/src/mail-reply.ts": "1eff12c5d156ed8ec5b801828719edd824080e26343ea5666b823ec00cfb9aae",
+    "packages/core/src/mail.ts": "91f09f81d298f398047c4d23329a113b9a6755c816205c06636c8587f0b7c1d9",
+    "packages/core/src/pagination.ts": "058fd50146f21a43c3b140e05051c184988e80f317cddca123a55dd6eb8d7d8a",
+    "packages/core/src/permissions.ts": "a380808c4361ef8f95355538442edcbd3b691356950f57f45eaf758566e762ec",
+    "packages/core/src/personal.ts": "3a4b29d3afa489e7f02a9face8ba81a1715e2cd86561bbe1f7c28188778a4e1a",
+    "packages/core/src/tags.ts": "2c9547cfcff6589414ab333afe39a16e9aa4b1220c7eea5065a88150c8f124a0",
+    "packages/core/src/tasks.ts": "b0e2e81f735c9bebc785cfc905c899f96272d0faea03fe80c524539bfb558444",
+    "packages/core/src/text.ts": "2fa29de9f214584f072afe630207ccb738d9e82ec896ad89d1243527a51aac4c",
+    "packages/core/src/upload.ts": "3499e4cd391a12f45d6deca22edc42a052bd0bbab56b12833288bfc17c9b84b4",
+    "packages/core/src/workspace.ts": "8e218f4ec3c3203d67a4473b18519112709ed65332b3e1d129261e57e088f95f"
+  }
+}

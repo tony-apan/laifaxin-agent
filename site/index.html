@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>来发信 Agent 接入 — 让 AI 直接操作来发信</title>
+<meta name="description" content="来发信开放服务：把一句话发给你的 AI Agent，即可安装来发信 Skill，搜客户、管联系人、处理邮件与营销任务。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤝</text></svg>">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:#1a2332; background:#f6f8fb; line-height:1.6; }
+  .wrap { max-width:880px; margin:0 auto; padding:48px 20px 64px; }
+  header { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+  .logo { font-size:34px; }
+  h1 { font-size:30px; font-weight:700; }
+  .badge { background:#e8f0fe; color:#1a56db; font-size:12px; padding:3px 10px; border-radius:999px; font-weight:600; }
+  .intro { font-size:17px; color:#3d4b61; max-width:640px; margin-bottom:32px; }
+  .card { background:#fff; border:1px solid #e2e8f2; border-radius:14px; padding:24px; margin-bottom:20px; box-shadow:0 1px 3px rgba(16,42,80,.05); }
+  .card h2 { font-size:18px; margin-bottom:8px; }
+  .card p { color:#3d4b61; font-size:15px; }
+  .prompt-box { background:#f0f3f9; border-radius:10px; padding:16px 18px; font-size:15px; margin:14px 0; word-break:break-all; }
+  .btn { display:inline-block; border:none; cursor:pointer; font-size:15px; font-weight:600; padding:11px 22px; border-radius:9px; text-decoration:none; transition:opacity .15s; }
+  .btn:hover { opacity:.88; }
+  .btn-dark { background:#111827; color:#fff; width:100%; text-align:center; }
+  .btn-primary { background:#1a56db; color:#fff; }
+  .btn-ghost { background:#fff; color:#1a2332; border:1px solid #cbd5e4; }
+  .btn-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+  .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin-top:14px; }
+  .step { background:#f8fafc; border:1px solid #e2e8f2; border-radius:10px; padding:14px; }
+  .step b { display:block; margin-bottom:4px; }
+  .step span { font-size:13.5px; color:#3d4b61; }
+  code { background:#eef2f7; padding:1px 6px; border-radius:5px; font-size:13px; word-break:break-all; }
+  .meta { font-size:13px; color:#64748b; margin-top:10px; }
+  footer { margin-top:36px; font-size:13px; color:#64748b; text-align:center; }
+  footer a, .card a { color:#1a56db; text-decoration:none; }
+  footer a:hover, .card a:hover { text-decoration:underline; }
+  .copied { color:#15803d; font-size:13px; margin-left:10px; display:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">🤝</div>
+    <h1>来发信 Agent 接入</h1>
+    <span class="badge">开放服务</span>
+  </header>
+  <p class="intro">来发信开放服务，是为 AI Agent 打造的来发信操作通道。装好之后，你的 Agent 就能直接在你的来发信账号里搜客户、管联系人、处理邮件和营销任务——你只管下指令、看结果。</p>
+
+  <div class="card">
+    <h2>Agent 一键接入</h2>
+    <p>将以下提示词发送到你的 Agent 对话窗口，根据引导完成安装和授权。</p>
+    <div class="prompt-box" id="promptText">请阅读 https://agent.laifa.xin/doc/skill-setup.md 文档，按照步骤为我安装并配置来发信 Skill。</div>
+    <button class="btn btn-dark" onclick="copyPrompt()">📋 复制提示词</button><span class="copied" id="copiedTip">已复制，去粘贴给你的 Agent 吧</span>
+  </div>
+
+  <div class="card">
+    <h2>接入后能做什么</h2>
+    <div class="steps">
+      <div class="step"><b>① 搜客户</b><span>AI 数据库、领英、域名搜索，筛选后一键保存到联系人</span></div>
+      <div class="step"><b>② 管客户</b><span>联系人与公司、标签、跟进记录、导入导出</span></div>
+      <div class="step"><b>③ 处理邮件</b><span>收件箱阅读、写信、回复转发、定时发送与追踪</span></div>
+      <div class="step"><b>④ 做营销</b><span>邮件群发、智能跟进计划、营销报告</span></div>
+    </div>
+    <p class="meta">授权采用网页设备授权：Agent 不接触你的密码，凭据只保存在你本机，可随时在来发信网页端「个人设置 → 安全设置 → 已授权应用」撤销。</p>
+  </div>
+
+  <div class="card">
+    <h2>手动下载</h2>
+    <p>也可以先下载 Skill 包，再让 Agent 从本机文件安装。当前版本 <b>v6.1.28</b>，需要 Python 3.10+ 与能执行本机脚本的 Agent 宿主。</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="/releases/laifaxin-v6.1.28.zip">⬇ 本站下载（推荐）</a>
+      <a class="btn btn-ghost" href="https://github.com/tony-apan/laifaxin-agent/releases" target="_blank" rel="noopener">GitHub 镜像</a>
+      <a class="btn btn-ghost" href="/doc/skill-setup.md">安装文档</a>
+    </div>
+    <p class="meta">SHA256：<code>00faebdc95599b56bfd76d57f425f4c867654609b148c3ef76e6743ef08b8e9f</code><br>本站与 GitHub 镜像字节一致、校验和相同；GitHub 访问不稳定时，用本站下载即可，安装全程不依赖 GitHub。</p>
+  </div>
+
+  <footer>
+    来发信 Laifaxin · <a href="https://laifaxin.com" target="_blank" rel="noopener">网页端</a> · <a href="https://github.com/tony-apan/laifaxin-agent" target="_blank" rel="noopener">GitHub 仓库</a>
+  </footer>
+</div>
+<script>
+function copyPrompt() {
+  var text = document.getElementById('promptText').innerText;
+  function done() { var tip = document.getElementById('copiedTip'); tip.style.display = 'inline'; setTimeout(function(){ tip.style.display = 'none'; }, 2600); }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done).catch(function(){ fallback(); });
+  } else { fallback(); }
+  function fallback() {
+    var ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta); done();
+  }
+}
+</script>
+</body>
+</html>
