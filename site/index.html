@@ -26,6 +26,11 @@
   .btn:hover { background:#fff; color:#0f172a; }
   .copied { color:#15803d; font-size:14px; display:none; }
   .support { font-size:13.5px; color:#94a3b8; margin-top:16px; }
+  .trust-line { font-size:14px; color:#334155; margin-top:26px; padding-left:14px; border-left:2px solid #0f172a; max-width:640px; }
+  .facts { display:grid; grid-template-columns:repeat(4,1fr); gap:36px; padding:40px 0; border-bottom:1px solid #e5e7eb; }
+  .fact .k { font-size:12.5px; letter-spacing:.22em; color:#94a3b8; display:block; margin-bottom:8px; }
+  .fact .v { font-size:15px; font-weight:600; line-height:1.55; }
+  .fact .v small { display:block; font-weight:400; color:#64748b; font-size:13.5px; margin-top:2px; }
   section { padding:68px 0; border-bottom:1px solid #e5e7eb; }
   .sec-title { font-size:13px; letter-spacing:.32em; color:#94a3b8; margin-bottom:40px; }
   .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:44px; }
@@ -46,6 +51,7 @@
     .hero { padding:56px 0 48px; }
     section { padding:48px 0; }
     .steps { grid-template-columns:1fr; gap:34px; }
+    .facts { grid-template-columns:1fr 1fr; gap:26px; }
     .feats { grid-template-columns:1fr; }
     .feat:nth-child(2) { border-top:1px solid #eef2f7; padding-top:22px; }
   }
@@ -70,7 +76,15 @@
         <span class="copied" id="copiedTip">已复制，去粘贴给你的 AI 助手</span>
       </div>
       <p class="support">支持 Codex、Claude Code、Cursor、WorkBuddy 等主流 AI 助手。</p>
+      <p class="trust-line">授权在来发信官方网页完成，密码不经过 AI 助手；凭据只保存在你的电脑上，可随时撤销。</p>
     </div>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><span class="k">授 权 方 式</span><span class="v">官方网页授权<small>密码不经过 AI 助手</small></span></div>
+    <div class="fact"><span class="k">凭 据 位 置</span><span class="v">只存你的电脑<small>不上传，不经过第三方</small></span></div>
+    <div class="fact"><span class="k">有 效 期</span><span class="v">30 天<small>到期重新授权，可随时撤销</small></span></div>
+    <div class="fact"><span class="k">源 码</span><span class="v">全部公开<small>GitHub 仓库可自行审查</small></span></div>
   </div>
 
   <section>
@@ -111,7 +125,7 @@
 
   <footer>
     <span>来发信 Laifaxin · 开放服务</span>
-    <span><a href="https://github.com/tony-apan/laifaxin-agent" target="_blank" rel="noopener">GitHub 仓库</a></span>
+    <span>Skill v6.1.28 &nbsp;·&nbsp; <a href="https://github.com/tony-apan/laifaxin-agent" target="_blank" rel="noopener">GitHub 仓库</a></span>
   </footer>
 </div>
 <script>
