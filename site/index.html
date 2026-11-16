@@ -4,90 +4,114 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>来发信 Agent 接入 — 让 AI 直接操作来发信</title>
-<meta name="description" content="把一句话发给你的 AI 助手，它就能帮你在来发信里搜客户、管联系人、处理邮件。不用学新软件，不用记命令。">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤝</text></svg>">
+<meta name="description" content="把一句话发给你的 AI 助手，它就能在来发信里搜客户、管联系人、处理邮件。不用学新软件，不用记命令。">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:#1a2332; background:#f6f8fb; line-height:1.6; }
-  .wrap { max-width:880px; margin:0 auto; padding:48px 20px 64px; }
-  header { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
-  .logo { font-size:34px; }
-  h1 { font-size:30px; font-weight:700; }
-  .badge { background:#e8f0fe; color:#1a56db; font-size:12px; padding:3px 10px; border-radius:999px; font-weight:600; }
-  .intro { font-size:17px; color:#3d4b61; max-width:660px; margin-bottom:32px; }
-  .card { background:#fff; border:1px solid #e2e8f2; border-radius:14px; padding:24px; margin-bottom:20px; box-shadow:0 1px 3px rgba(16,42,80,.05); }
-  .card h2 { font-size:18px; margin-bottom:8px; }
-  .card p { color:#3d4b61; font-size:15px; }
-  .prompt-box { background:#f0f3f9; border-radius:10px; padding:16px 18px; font-size:15px; margin:14px 0; word-break:break-all; }
-  .btn { display:inline-block; border:none; cursor:pointer; font-size:15px; font-weight:600; padding:11px 22px; border-radius:9px; text-decoration:none; transition:opacity .15s; }
-  .btn:hover { opacity:.88; }
-  .btn-dark { background:#111827; color:#fff; width:100%; text-align:center; }
-  .tutorial { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; margin-top:16px; }
-  .tstep { background:#f8fafc; border:1px solid #e2e8f2; border-radius:12px; overflow:hidden; }
-  .tstep img { width:100%; display:block; aspect-ratio:4/3; object-fit:cover; }
-  .tstep .txt { padding:14px 16px 16px; }
-  .tstep .num { display:inline-block; background:#1a56db; color:#fff; font-size:12px; font-weight:700; border-radius:999px; padding:1px 9px; margin-bottom:6px; }
-  .tstep b { display:block; font-size:15.5px; margin-bottom:4px; }
-  .tstep span { font-size:13.5px; color:#3d4b61; }
-  .feats { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin-top:14px; }
-  .feat { background:#f8fafc; border:1px solid #e2e8f2; border-radius:10px; padding:14px; }
-  .feat b { display:block; margin-bottom:4px; }
-  .feat span { font-size:13.5px; color:#3d4b61; }
-  .meta { font-size:13px; color:#64748b; margin-top:12px; }
-  footer { margin-top:36px; font-size:13px; color:#64748b; text-align:center; }
-  footer a, .card a { color:#1a56db; text-decoration:none; }
-  footer a:hover, .card a:hover { text-decoration:underline; }
-  .copied { color:#15803d; font-size:13px; margin-left:10px; display:none; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:#0f172a; background:#fff; line-height:1.7; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1020px; margin:0 auto; padding:0 28px; }
+  .topbar { display:flex; justify-content:space-between; align-items:baseline; padding:26px 0 22px; border-bottom:1px solid #e5e7eb; }
+  .brand { font-size:19px; font-weight:700; letter-spacing:.02em; }
+  .brand small { font-weight:400; color:#64748b; font-size:13px; margin-left:10px; letter-spacing:.14em; }
+  .topbar a { color:#475569; text-decoration:none; font-size:14px; }
+  .topbar a:hover { color:#0f172a; }
+  .hero { padding:84px 0 72px; border-bottom:1px solid #e5e7eb; }
+  .eyebrow { font-size:13px; letter-spacing:.32em; color:#94a3b8; margin-bottom:26px; }
+  h1 { font-size:52px; line-height:1.18; font-weight:700; letter-spacing:-.01em; max-width:720px; }
+  .hero .sub { font-size:19px; color:#475569; max-width:620px; margin-top:24px; line-height:1.75; }
+  .prompt-wrap { margin-top:44px; max-width:720px; }
+  .prompt-label { font-size:13px; color:#64748b; margin-bottom:10px; }
+  .prompt-box { border:1px solid #0f172a; padding:20px 22px; font-size:16.5px; line-height:1.65; word-break:break-all; background:#fff; }
+  .copy-row { display:flex; align-items:center; gap:16px; margin-top:18px; }
+  .btn { appearance:none; border:1px solid #0f172a; background:#0f172a; color:#fff; font-size:15px; font-weight:600; letter-spacing:.06em; padding:13px 34px; cursor:pointer; border-radius:2px; transition:background .15s,color .15s; }
+  .btn:hover { background:#fff; color:#0f172a; }
+  .copied { color:#15803d; font-size:14px; display:none; }
+  .support { font-size:13.5px; color:#94a3b8; margin-top:16px; }
+  section { padding:68px 0; border-bottom:1px solid #e5e7eb; }
+  .sec-title { font-size:13px; letter-spacing:.32em; color:#94a3b8; margin-bottom:40px; }
+  .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:44px; }
+  .step .num { font-size:44px; font-weight:200; color:#cbd5e1; line-height:1; display:block; margin-bottom:18px; }
+  .step h3 { font-size:18px; font-weight:600; margin-bottom:8px; }
+  .step p { font-size:15px; color:#475569; }
+  .feats { display:grid; grid-template-columns:1fr 1fr; column-gap:64px; }
+  .feat { display:flex; gap:22px; padding:22px 0; border-top:1px solid #eef2f7; }
+  .feat:first-child, .feat:nth-child(2) { border-top:none; padding-top:0; }
+  .feat h3 { font-size:16.5px; font-weight:600; white-space:nowrap; min-width:76px; }
+  .feat p { font-size:15px; color:#475569; }
+  .security { font-size:14px; color:#64748b; max-width:720px; }
+  footer { padding:34px 0 44px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:13.5px; color:#94a3b8; }
+  footer a { color:#64748b; text-decoration:none; }
+  footer a:hover { color:#0f172a; }
+  @media (max-width:760px) {
+    h1 { font-size:36px; }
+    .hero { padding:56px 0 48px; }
+    section { padding:48px 0; }
+    .steps { grid-template-columns:1fr; gap:34px; }
+    .feats { grid-template-columns:1fr; }
+    .feat:nth-child(2) { border-top:1px solid #eef2f7; padding-top:22px; }
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <div class="logo">🤝</div>
-    <h1>来发信 Agent 接入</h1>
-    <span class="badge">开放服务</span>
-  </header>
-  <p class="intro">把一句话发给你的 AI 助手，它就能直接在你的来发信账号里搜客户、管联系人、处理邮件——你只管吩咐、看结果。不用学新软件，也不用记任何命令。</p>
-
-  <div class="card">
-    <h2>第一步：复制这句话</h2>
-    <p>点下面的按钮复制，再粘贴到你平时用的 AI 助手对话框里发送，剩下的它来办。</p>
-    <div class="prompt-box" id="promptText">请阅读 https://agent.laifa.xin/doc/skill-setup.md 文档，按照步骤为我安装并配置来发信 Skill。</div>
-    <button class="btn btn-dark" onclick="copyPrompt()">📋 复制这句话</button><span class="copied" id="copiedTip">已复制，去粘贴给你的 AI 助手吧</span>
-    <p class="meta">支持 Codex、Claude Code、Cursor、WorkBuddy 等主流 AI 助手。</p>
+  <div class="topbar">
+    <div class="brand">来发信<small>LAIFAXIN</small></div>
+    <a href="https://laifaxin.com" target="_blank" rel="noopener">来发信网页端 →</a>
   </div>
 
-  <div class="card">
-    <h2>三步用起来</h2>
-    <div class="tutorial">
-      <div class="tstep">
-        <img src="/assets/step1.webp" alt="把复制的话粘贴到 AI 助手对话框">
-        <div class="txt"><span class="num">第 1 步</span><b>把这句话发给 AI 助手</b><span>就是上面这句。发送之后，安装和设置都由助手自动完成，你不用动手。</span></div>
+  <div class="hero">
+    <div class="eyebrow">开 放 服 务 · A G E N T 接 入</div>
+    <h1>让 AI 助手，<br>替你操作来发信。</h1>
+    <p class="sub">把下面这句话发给你的 AI 助手，它就能在你的来发信账号里搜客户、管联系人、处理邮件。你只管交代工作，看结果。不用学新软件，不用记命令。</p>
+    <div class="prompt-wrap">
+      <div class="prompt-label">接入提示词</div>
+      <div class="prompt-box" id="promptText">请阅读 https://agent.laifa.xin/doc/skill-setup.md 文档，按照步骤为我安装并配置来发信 Skill。</div>
+      <div class="copy-row">
+        <button class="btn" onclick="copyPrompt()">复 制 这 句 话</button>
+        <span class="copied" id="copiedTip">已复制，去粘贴给你的 AI 助手</span>
       </div>
-      <div class="tstep">
-        <img src="/assets/step2.webp" alt="在网页上点允许授权">
-        <div class="txt"><span class="num">第 2 步</span><b>点一下「允许授权」</b><span>助手会给你一个链接。点开、登录来发信、核对页面上的用户码没错，点「允许授权」就行。全程不用告诉任何人你的密码。</span></div>
+      <p class="support">支持 Codex、Claude Code、Cursor、WorkBuddy 等主流 AI 助手。</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-title">使 用 方 式</div>
+    <div class="steps">
+      <div class="step">
+        <span class="num">01</span>
+        <h3>复制一句话</h3>
+        <p>将接入提示词发给你的 AI 助手。安装与配置由它自动完成，你不需要做任何设置。</p>
       </div>
-      <div class="tstep">
-        <img src="/assets/step3.webp" alt="连接成功后直接吩咐 AI 干活">
-        <div class="txt"><span class="num">第 3 步</span><b>连上了，直接吩咐它干活</b><span>看到「已连接来发信」，就可以像使唤助理一样说话了，比如：「帮我搜一批德国的照明行业客户」「帮我看看最近有哪些新邮件」。</span></div>
+      <div class="step">
+        <span class="num">02</span>
+        <h3>网页授权</h3>
+        <p>打开助手给出的链接，登录来发信，核对用户码后确认授权。你的密码不经过助手。</p>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <h3>开始使用</h3>
+        <p>连接成功后，像平常说话一样交代工作：「帮我搜一批德国的照明行业客户」「看看最近有哪些新邮件」。</p>
       </div>
     </div>
-    <p class="meta">安全说明：授权走来发信官方网页，AI 助手不接触你的账号密码；授权只存在你自己的电脑上，30 天有效，随时可以在来发信网页端「个人设置 → 安全设置 → 已授权应用」里撤销。</p>
-  </div>
+  </section>
 
-  <div class="card">
-    <h2>能帮你干什么</h2>
+  <section>
+    <div class="sec-title">能 做 什 么</div>
     <div class="feats">
-      <div class="feat"><b>🔍 搜客户</b><span>按国家、行业找海外客户公司和联系人，挑好的直接存进通讯录</span></div>
-      <div class="feat"><b>📇 管客户</b><span>联系人、公司、标签、跟进记录，整理归类不用自己动手</span></div>
-      <div class="feat"><b>✉️ 处理邮件</b><span>看收件箱、写开发信、回复转发，还能定时发送、看谁打开了</span></div>
-      <div class="feat"><b>📣 做跟进</b><span>批量发开发信、自动跟进没回复的客户，出报告给你看</span></div>
+      <div class="feat"><h3>搜客户</h3><p>按国家与行业检索海外企业与联系人，筛选之后保存到通讯录。</p></div>
+      <div class="feat"><h3>管客户</h3><p>联系人、公司、标签与跟进记录，统一整理，随时调取。</p></div>
+      <div class="feat"><h3>处理邮件</h3><p>阅读、撰写、回复与定时发送，邮件打开情况可以追踪。</p></div>
+      <div class="feat"><h3>做跟进</h3><p>批量开发信与自动跟进计划，执行结果形成报告。</p></div>
     </div>
-  </div>
+  </section>
+
+  <section>
+    <div class="sec-title">安 全 说 明</div>
+    <p class="security">授权经来发信官方网页完成，AI 助手不接触你的账号密码。授权凭据只保存在你自己的电脑上，30 天有效；可随时在来发信网页端「个人设置 → 安全设置 → 已授权应用」中撤销。</p>
+  </section>
 
   <footer>
-    来发信 Laifaxin · <a href="https://laifaxin.com" target="_blank" rel="noopener">网页端</a> · <a href="https://github.com/tony-apan/laifaxin-agent" target="_blank" rel="noopener">GitHub 仓库</a>
+    <span>来发信 Laifaxin · 开放服务</span>
+    <span><a href="https://github.com/tony-apan/laifaxin-agent" target="_blank" rel="noopener">GitHub 仓库</a></span>
   </footer>
 </div>
 <script>
