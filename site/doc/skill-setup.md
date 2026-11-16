@@ -4,11 +4,25 @@
 
 ## 快速开始（AI Agent）
 
-全程只访问两个站点：`agent.laifa.xin`（下载，本文件所在站）和 `api.laifaxin.com`（授权与业务接口）。不要让用户把密码、验证码或凭据粘贴到聊天里。
+全程只访问两个站点：`agent.laifa.xin`（安装）和 `api.laifaxin.com`（授权与业务接口）。不要让用户把密码、验证码或凭据粘贴到聊天里。运行环境需要 Python 3.10+ 跑业务脚本；没有脚本/网络能力的宿主只能提供业务建议，不要声称已连接。
 
-### 第 1 步 — 下载并安装 Skill
+### 第 1 步 — 安装 Skill（首选：一行命令）
 
-运行环境要求：Python 3.10+，宿主能执行本机脚本并联网。不满足时只提供业务建议，不要声称已连接。
+有 Node.js / npx 的环境，运行：
+
+```bash
+npx skills add https://agent.laifa.xin -g -y
+```
+
+它会自动发现本站的 Skill、校验完整性、安装到 `~/.agents/skills/laifaxin` 并链接到你当前宿主的 skills 目录，不要再手工下载或解压。若 npx 从 npm 拉取 skills 包超时，先运行 `npm config set registry https://registry.npmmirror.com` 再重试，或改走下面的备选手工安装。下文 `$LFX` 指：
+
+```bash
+LFX="$HOME/.agents/skills/laifaxin/scripts/laifaxin.py"
+```
+
+以后升级重复运行同一条命令，或运行 `npx skills update laifaxin -g -y`。
+
+### 第 1 步（备选）— 无 Node 环境时手工安装
 
 先定位你当前宿主的 skills 目录（Codex 约为 `~/.codex/skills`，Claude Code 约为 `~/.claude/skills`，WorkBuddy 约为 `~/.workbuddy/skills`）。自动探测：
 
@@ -20,9 +34,7 @@ done
 echo "$SKILLS_DIR"
 ```
 
-探测不到时停下来，向用户说明并请其提供本宿主的 skills 目录，不要猜路径、不要装到其他位置。
-
-下载、校验、解压（zip 内顶层目录为 `laifaxin/`，解压后应得到 `$SKILLS_DIR/laifaxin/SKILL.md`）：
+探测不到时停下来，向用户说明并请其提供本宿主的 skills 目录，不要猜路径、不要装到其他位置。然后下载、校验、解压（zip 内顶层目录为 `laifaxin/`，解压后应得到 `$SKILLS_DIR/laifaxin/SKILL.md`）：
 
 ```bash
 TMPDIR=$(mktemp -d)
@@ -34,9 +46,7 @@ rm -rf "$TMPDIR"
 LFX="$SKILLS_DIR/laifaxin/scripts/laifaxin.py"
 ```
 
-校验失败立即停止，不要继续安装。macOS 无 `sha256sum` 时用 `shasum -a 256 -c -`。更新到新版本时重复本步即可覆盖。
-
-GitHub 镜像（本站不可达时才用，字节与校验和与本站一致）：`https://github.com/tony-apan/laifaxin-agent/releases`
+校验失败立即停止，不要继续安装。macOS 无 `sha256sum` 时用 `shasum -a 256 -c -`。本站不可达时可用 GitHub 镜像（字节与校验和一致）：`https://github.com/tony-apan/laifaxin-agent/releases`
 
 ### 第 2 步 — 配置连接
 

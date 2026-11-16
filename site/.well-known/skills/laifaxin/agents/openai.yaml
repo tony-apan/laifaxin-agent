@@ -1,0 +1,3 @@
+interface:
+  display_name: "来发信开放服务"
+  short_description: "通过现有 Web 接口搜索客户、管理联系人、处理邮件与营销任务"

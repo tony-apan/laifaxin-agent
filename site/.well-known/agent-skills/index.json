@@ -1,0 +1,1 @@
+{"$schema":"https://schemas.agentskills.io/discovery/0.2.0/schema.json","skills":[{"description":"帮助来发信用户通过现有 Web 接口搜索和保存客户、管理联系人与公司、处理邮件、运行邮件营销、管理企业和系统设置、查询费用与报表。用于操作来发信账号内的业务，不用于开发或修改来发信源码。","digest":"sha256:f6c8770e8e18a412d660ccbc6b7e2bcd79d1d2ca9be740d268ae1e353e6897c0","name":"laifaxin","type":"archive","url":"laifaxin-v6.1.28.zip"}]}
