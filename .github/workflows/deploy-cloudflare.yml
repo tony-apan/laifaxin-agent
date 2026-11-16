@@ -1,0 +1,24 @@
+name: Deploy site to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - ".github/workflows/deploy-cloudflare.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy site/ to Cloudflare Pages (laifaxin-agent)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 643a48fa4b8bf13412f5f64d817f3798
+          command: pages deploy site --project-name=laifaxin-agent --branch=main

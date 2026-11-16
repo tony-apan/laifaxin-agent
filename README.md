@@ -12,13 +12,7 @@
 请阅读 https://agent.laifa.xin/doc/skill-setup.md 文档，按照步骤为我安装并配置来发信 Skill。
 ```
 
-技术用户也可以一行命令安装（自动发现、校验、落位）：
-
-```bash
-npx skills add https://agent.laifa.xin -g -y
-```
-
-安装全程走接入站，不依赖 GitHub 的访问速度；本仓库是真源与备用镜像，接入站内容由本仓库 `site/` 自动同步部署。
+安装全程走接入站，不依赖 GitHub 的访问速度；本仓库是真源与备用镜像，`site/` 的改动由 GitHub Actions 在推送后自动部署到接入站。（技术备注：Agent 在安装时经 skills CLI 发现协议自动完成下载、校验与落位，用户不需要执行任何命令。）
 
 ## 手动下载
 
