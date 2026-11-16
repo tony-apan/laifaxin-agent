@@ -81,6 +81,11 @@ python3 "$LFX" login --resume
 python3 "$LFX" status
 ```
 
+自检要点（先做完再报成功）：
+
+- `python3 "$LFX" catalog` 应返回接口目录（当前 417 个操作，webVersion 6.1.28）；`describe` 的参数是**端点路径**（如 `describe /account/info`），不是操作名，传操作名会报「不在契约中」。
+- `workspaces` 等只读命令偶发 `network_error` 多为瞬时网络问题，只读操作可重试一次；写操作不自动重试（按 Skill 内规则先查询结果）。
+
 `status` 返回 `ok` 后，只需输出以下内容（把 xxx 换成返回的实际账号与工作区）：
 
 - 已连接来发信，账号 xxx、工作区 xxx，可以开始用我处理客户与邮件了
