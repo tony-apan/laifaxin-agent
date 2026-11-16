@@ -12,8 +12,11 @@
   .topbar { display:flex; justify-content:space-between; align-items:baseline; padding:26px 0 22px; border-bottom:1px solid #e7dfd0; }
   .brand { font-size:19px; font-weight:700; letter-spacing:.02em; }
   .brand small { font-weight:400; color:#8a8175; font-size:13px; margin-left:10px; letter-spacing:.14em; }
-  .topbar a { color:#6b6357; text-decoration:none; font-size:14px; }
-  .topbar a:hover { color:#a02c18; }
+  .brand .sep { color:#d8c9a8; margin:0 10px; font-weight:300; }
+  .brand .svc { font-size:14px; font-weight:500; color:#6b6357; letter-spacing:.08em; }
+  .nav { display:flex; gap:30px; }
+  .nav a { color:#6b6357; text-decoration:none; font-size:14px; }
+  .nav a:hover { color:#a02c18; }
   .hero { padding:84px 0 72px; border-bottom:1px solid #e7dfd0; }
   .eyebrow { font-size:13px; letter-spacing:.32em; color:#b09a72; margin-bottom:26px; }
   h1 { font-size:52px; line-height:1.18; font-weight:700; letter-spacing:-.01em; max-width:720px; }
@@ -42,7 +45,19 @@
   .feat:first-child, .feat:nth-child(2) { border-top:none; padding-top:0; }
   .feat h3 { font-size:16.5px; font-weight:600; white-space:nowrap; min-width:76px; }
   .feat p { font-size:15px; color:#5c554c; }
+  .entries { display:grid; grid-template-columns:1fr 1fr; gap:44px; }
+  .entry .k { font-size:12.5px; letter-spacing:.22em; color:#b09a72; display:block; margin-bottom:10px; }
+  .entry a.name { font-size:21px; font-weight:700; color:#221d18; text-decoration:none; letter-spacing:.01em; }
+  .entry a.name:hover { color:#a02c18; }
+  .entry .url { font-size:13.5px; color:#a79c8c; margin-top:2px; }
+  .entry p { font-size:15px; color:#5c554c; margin-top:10px; }
   .security { font-size:14px; color:#6b6357; max-width:720px; }
+  .contact { display:grid; grid-template-columns:repeat(3,1fr); gap:36px; }
+  .contact .k { font-size:12.5px; letter-spacing:.22em; color:#b09a72; display:block; margin-bottom:8px; }
+  .contact .v { font-size:17px; font-weight:600; }
+  .contact .v a { color:#221d18; text-decoration:none; }
+  .contact .v a:hover { color:#a02c18; }
+  .contact .d { font-size:13.5px; color:#8a8175; margin-top:2px; }
   footer { padding:34px 0 44px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:13.5px; color:#a79c8c; }
   footer a { color:#8a8175; text-decoration:none; }
   footer a:hover { color:#a02c18; }
@@ -50,8 +65,12 @@
     h1 { font-size:36px; }
     .hero { padding:56px 0 48px; }
     section { padding:48px 0; }
+    .nav { gap:18px; }
+    .brand .svc { display:none; }
     .steps { grid-template-columns:1fr; gap:34px; }
     .facts { grid-template-columns:1fr 1fr; gap:26px; }
+    .entries { grid-template-columns:1fr; gap:34px; }
+    .contact { grid-template-columns:1fr; gap:26px; }
     .feats { grid-template-columns:1fr; }
     .feat:nth-child(2) { border-top:1px solid #efe7d7; padding-top:22px; }
   }
@@ -60,12 +79,16 @@
 <body>
 <div class="wrap">
   <div class="topbar">
-    <div class="brand">来发信<small>LAIFAXIN</small></div>
-    <a href="https://laifaxin.com" target="_blank" rel="noopener">来发信网页端 →</a>
+    <div class="brand">来发信<small>LAIFAXIN</small><span class="sep">|</span><span class="svc">开放服务</span></div>
+    <div class="nav">
+      <a href="https://web.laifaxin.com" target="_blank" rel="noopener">网页端</a>
+      <a href="https://github.com/tony-apan/laifaxin-agent" target="_blank" rel="noopener">GitHub</a>
+      <a href="#contact">联系我们</a>
+    </div>
   </div>
 
   <div class="hero">
-    <div class="eyebrow">开 放 服 务 · A G E N T 接 入</div>
+    <div class="eyebrow">A G E N T 接 入</div>
     <h1>让 AI 助手，<br>替你操作来发信。</h1>
     <p class="sub">把下面这句话发给你的 AI 助手，它就能在你的来发信账号里搜客户、管联系人、处理邮件。你只管交代工作，看结果。不用学新软件，不用记命令。</p>
     <div class="prompt-wrap">
@@ -119,13 +142,52 @@
   </section>
 
   <section>
+    <div class="sec-title">相 关 入 口</div>
+    <div class="entries">
+      <div class="entry">
+        <span class="k">直 接 使 用</span>
+        <a class="name" href="https://web.laifaxin.com" target="_blank" rel="noopener">来发信网页端 →</a>
+        <div class="url">web.laifaxin.com</div>
+        <p>不通过 AI 助手时，在浏览器里直接打开来发信：搜客户、发邮件、管联系人，功能与平时一致。</p>
+      </div>
+      <div class="entry">
+        <span class="k">源 码 与 版 本</span>
+        <a class="name" href="https://github.com/tony-apan/laifaxin-agent" target="_blank" rel="noopener">GitHub 仓库 →</a>
+        <div class="url">github.com/tony-apan/laifaxin-agent</div>
+        <p>Skill 全部源码、版本记录与本接入站的源文件都在这里，公开可查，自行审查。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
     <div class="sec-title">安 全 说 明</div>
     <p class="security">授权经来发信官方网页完成，AI 助手不接触你的账号密码。授权凭据只保存在你自己的电脑上，30 天有效；可随时在来发信网页端「个人设置 → 安全设置 → 已授权应用」中撤销。</p>
   </section>
 
+  <section id="contact">
+    <div class="sec-title">联 系 我 们</div>
+    <div class="contact">
+      <div>
+        <span class="k">客 服 电 话</span>
+        <div class="v"><a href="tel:17091913071">170 9191 3071</a></div>
+        <div class="d">来发信官方客服</div>
+      </div>
+      <div>
+        <span class="k">客 服 邮 箱</span>
+        <div class="v"><a href="mailto:help@zhijixinxi.com">help@zhijixinxi.com</a></div>
+        <div class="d">使用问题与合作咨询</div>
+      </div>
+      <div>
+        <span class="k">在 线 客 服</span>
+        <div class="v">网页端内联系</div>
+        <div class="d">打开来发信网页端，即可联系在线客服</div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <span>来发信 Laifaxin · 开放服务</span>
-    <span>Skill v6.1.28 &nbsp;·&nbsp; <a href="https://github.com/tony-apan/laifaxin-agent" target="_blank" rel="noopener">GitHub 仓库</a></span>
+    <span>Skill v6.1.28 &nbsp;·&nbsp; <a href="https://web.laifaxin.com" target="_blank" rel="noopener">网页端</a> &nbsp;·&nbsp; <a href="https://github.com/tony-apan/laifaxin-agent" target="_blank" rel="noopener">GitHub</a></span>
   </footer>
 </div>
 <script>

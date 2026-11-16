@@ -93,6 +93,6 @@ python3 "$LFX" status
 
 ## 管理端
 
-- 来发信网页端：https://laifaxin.com
+- 来发信网页端：https://web.laifaxin.com
 - 撤销授权：网页端「个人设置 → 安全设置 → 已授权应用」，或运行 `python3 "$LFX" logout`
 - 凭据只保存在用户本机 `~/.config/laifaxin-skill/`（权限 600），有效期 30 天，到期重新执行第 3 步。
