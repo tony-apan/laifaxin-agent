@@ -50,7 +50,7 @@
 
 当前版本 v6.1.28，从 [接入站](https://agent.laifa.xin/releases/laifaxin-v6.1.28.zip) 或 [GitHub Release](https://github.com/tony-apan/laifaxin-agent/releases) 下载 zip，解压到 Agent 的 skills 目录。
 
-SHA256：`00faebdc95599b56bfd76d57f425f4c867654609b148c3ef76e6743ef08b8e9f`（两处字节一致）
+SHA256：`a2be7247688362c7d9ff4e8a7d0c7ce3446255a01069a88226a29a00dfcb7201`（本站分发版：在官方包基础上仅补充了 workflows.md 的单发直发配方，客户端、接口目录与契约未改动）
 
 **版本与更新**
 
