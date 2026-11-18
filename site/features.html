@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>功能说明 — 来发信-外贸获客与开发信助手</title>
+<meta name="description" content="来发信官方技能能做什么：找海外客户、管客户、一对一写信发送、批量开发与智能跟进、账户费用查询。每项能力都配了可以直接跟 AI 助手说的话。">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:#14273a; background:#f7fafd; line-height:1.7; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1020px; margin:0 auto; padding:0 28px; }
+  .topbar { display:flex; justify-content:space-between; align-items:center; padding:22px 0 20px; border-bottom:1px solid #dfe9f2; }
+  .brand { display:flex; align-items:center; gap:11px; font-size:19px; font-weight:700; letter-spacing:.02em; white-space:nowrap; }
+  .brand img { width:30px; height:30px; display:block; }
+  .brand small { font-weight:400; color:#7d9dbd; font-size:13px; letter-spacing:.14em; }
+  .brand .sep { color:#c3dff5; font-weight:300; }
+  .brand .svc { font-size:14px; font-weight:500; color:#4a5a6a; letter-spacing:.08em; }
+  .brand a { color:inherit; text-decoration:none; display:flex; align-items:center; gap:11px; }
+  .nav { display:flex; gap:30px; }
+  .nav a { color:#4a5a6a; text-decoration:none; font-size:14px; white-space:nowrap; }
+  .nav a:hover { color:#1b6de0; }
+  .nav a.on { color:#1b6de0; font-weight:600; }
+  .page-hero { padding:48px 0 40px; border-bottom:1px solid #dfe9f2; }
+  .eyebrow { font-size:13px; letter-spacing:.32em; color:#7d9dbd; margin-bottom:16px; }
+  h1 { font-size:38px; line-height:1.25; font-weight:700; letter-spacing:-.01em; }
+  .page-hero .sub { font-size:17px; color:#4a5a6a; max-width:640px; margin-top:14px; }
+  section { padding:52px 0; border-bottom:1px solid #dfe9f2; }
+  .sec-title { font-size:13px; letter-spacing:.32em; color:#7d9dbd; margin-bottom:34px; }
+  .cap { padding:30px 0; border-top:1px solid #e6eff7; }
+  .cap:first-of-type { border-top:none; padding-top:0; }
+  .cap h3 { font-size:20px; font-weight:600; margin-bottom:8px; }
+  .cap h3 .no { color:#a8d2f5; font-weight:200; margin-right:12px; }
+  .cap p { font-size:15.5px; color:#4a5a6a; max-width:760px; }
+  .say { margin-top:16px; background:#fff; border:1px solid #dfe9f2; border-left:3px solid #1b6de0; padding:14px 18px; max-width:760px; }
+  .say .k { font-size:12.5px; letter-spacing:.18em; color:#7d9dbd; display:block; margin-bottom:6px; }
+  .say p { font-size:15px; color:#14273a; }
+  .security { font-size:14.5px; color:#5c6f82; max-width:760px; }
+  .security p + p { margin-top:10px; }
+  .cta { display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+  .btn { appearance:none; border:1px solid #1b6de0; background:#1b6de0; color:#fff; font-size:15px; font-weight:600; letter-spacing:.06em; padding:13px 34px; cursor:pointer; border-radius:2px; text-decoration:none; display:inline-block; }
+  .btn:hover { background:#155cb8; }
+  .cta .note { font-size:14px; color:#7d9dbd; }
+  footer { padding:34px 0 44px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:13.5px; color:#93a9bd; }
+  footer a { color:#7d9dbd; text-decoration:none; }
+  footer a:hover { color:#1b6de0; }
+  @media (max-width:760px) {
+    h1 { font-size:30px; }
+    .page-hero { padding:36px 0 30px; }
+    section { padding:40px 0; }
+    .topbar { flex-wrap:wrap; row-gap:12px; }
+    .nav { width:100%; gap:22px; flex-wrap:wrap; }
+    .brand .svc, .brand .sep { display:none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand"><a href="/"><img src="/assets/logo.png" alt="来发信标志">来发信<small>LAIFAXIN</small><span class="sep">|</span><span class="svc">开放服务</span></a></div>
+    <div class="nav">
+      <a href="/features.html" class="on">功能说明</a>
+      <a href="/versions.html">版本</a>
+      <a href="https://web.laifaxin.com" target="_blank" rel="noopener">网页端</a>
+      <a href="https://github.com/tony-apan/laifaxin-agent" target="_blank" rel="noopener">GitHub</a>
+      <a href="/#contact">联系我们</a>
+    </div>
+  </div>
+
+  <div class="page-hero">
+    <div class="eyebrow">功 能 说 明</div>
+    <h1>装上之后，AI 助手能替你做这些事</h1>
+    <p class="sub">不用学新软件，也不用记命令。你像平常说话一样交代，助手去你的来发信账号里办，办完把结果报给你。下面每一项都配了可以直接照着说的话。</p>
+  </div>
+
+  <section>
+    <div class="cap">
+      <h3><span class="no">01</span>找海外客户</h3>
+      <p>按国家、行业等条件检索海外企业和联系人，带邮箱等联系方式。筛完的结果按你的要求存进通讯录，不用再一页页翻网站、手动抄邮箱。</p>
+      <div class="say"><span class="k">你 可 以 这 样 说</span><p>「帮我找一批德国做汽车零部件的进口商，要带邮箱的联系人，先给我看 20 家，合适的存进通讯录。」</p></div>
+    </div>
+    <div class="cap">
+      <h3><span class="no">02</span>管客户</h3>
+      <p>联系人、公司、标签、跟进记录都在一处：哪个客户跟进到哪一步随时能查；批量整理、打标签、导入导出名单都可以交给助手办。</p>
+      <div class="say"><span class="k">你 可 以 这 样 说</span><p>「把上周存的这批客户打上『广交会』标签，再帮我看看谁还没有跟进过。」</p></div>
+    </div>
+    <div class="cap">
+      <h3><span class="no">03</span>写信与一对一发送</h3>
+      <p>阅读来信、起草、回复都可以。发开发信时可以一对一分别发送——每位收件人只看到自己，不会像群发那样所有人互相可见；还能定时发送、带附件，发出后可以看到客户有没有打开。</p>
+      <div class="say"><span class="k">你 可 以 这 样 说</span><p>「给这 12 位联系人每人写一封开发信，按各自公司的情况调整内容，明天上午 9 点定时发出，发完告诉我谁打开了。」</p></div>
+    </div>
+    <div class="cap">
+      <h3><span class="no">04</span>批量开发与智能跟进</h3>
+      <p>给一批客户发开发信、排跟进计划：按你定好的内容和节奏执行，没回复的自动再跟进。执行完给一份结果报告，发了多少、失败哪些、原因是什么，写得清清楚楚。</p>
+      <div class="say"><span class="k">你 可 以 这 样 说</span><p>「把新品目录发给标签是『老客户』的联系人，没回复的 5 天后自动跟进一次，结束后给我一份报告。」</p></div>
+    </div>
+    <div class="cap">
+      <h3><span class="no">05</span>账户与费用，心里有数</h3>
+      <p>当前账号、工作区、发信通道、点数和费用情况随时能问。花了多少、还剩多少，不用自己去后台翻。</p>
+      <div class="say"><span class="k">你 可 以 这 样 说</span><p>「这个月还剩多少点数？上周一共发了多少封，花了多少？」</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-title">安 全 与 把 关</div>
+    <div class="security">
+      <p>授权在来发信官方网页完成，AI 助手接触不到你的账号密码；凭据只保存在你自己的电脑上，30 天有效，可随时在网页端撤销。</p>
+      <p>发邮件、存联系人、启动跟进计划这类动作，只有你明确交代了才执行；你只说「写一封邮件」，助手就只起草给你看，不会直接发出去。每一步由你拍板。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-title">适 合 谁 · 需 要 什 么</div>
+    <div class="security">
+      <p>适合外贸业务员、SOHO 和小团队负责人。你需要一个来发信账号（没有可以先去网页端注册）和一款主流 AI 助手（Codex、Claude Code、Cursor、WorkBuddy 等）。技能本身免费，发送等操作按来发信账号的点数计费。</p>
+    </div>
+    <div class="cta" style="margin-top:26px;">
+      <a class="btn" href="/">回 首 页 装 技 能</a>
+      <span class="note">复制一句话给 AI 助手，安装、配置都由它完成。</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>来发信 Laifaxin · 开放服务</span>
+    <span><a href="/features.html">功能说明</a> &nbsp;·&nbsp; <a href="/versions.html">版本</a> &nbsp;·&nbsp; Skill v6.1.28 &nbsp;·&nbsp; <a href="https://web.laifaxin.com" target="_blank" rel="noopener">网页端</a> &nbsp;·&nbsp; <a href="https://github.com/tony-apan/laifaxin-agent" target="_blank" rel="noopener">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
