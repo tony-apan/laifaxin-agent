@@ -1,8 +1,8 @@
-# 来发信 · 开放服务
+# 来发信-外贸获客与开发信助手
 
 [![版本 v6.1.28](https://img.shields.io/badge/%E7%89%88%E6%9C%AC-v6.1.28-1B6DE0?style=flat-square)](https://github.com/tony-apan/laifaxin-agent/releases/tag/v6.1.28) [![接入站 agent.laifa.xin](https://img.shields.io/badge/%E6%8E%A5%E5%85%A5%E7%AB%99-agent.laifa.xin-1B6DE0?style=flat-square)](https://agent.laifa.xin) [![授权 官方网页](https://img.shields.io/badge/%E6%8E%88%E6%9D%83-%E5%AE%98%E6%96%B9%E7%BD%91%E9%A1%B5-1B6DE0?style=flat-square)](https://agent.laifa.xin/doc/skill-setup.md) [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-607D8B?style=flat-square)](#技术资料) [![依赖 零依赖](https://img.shields.io/badge/%E4%BE%9D%E8%B5%96-%E9%9B%B6%E4%BE%9D%E8%B5%96-607D8B?style=flat-square)](#技术资料)
 
-让 AI 助手替你操作来发信。把一句话发给你的 AI 助手，它就能在你的来发信账号里搜客户、管联系人、处理邮件。你只管交代工作，看结果。
+让 AI 助手帮你找海外客户、写开发信、发邮件、跟进客户，重复活交给它，每一步由你拍板。把一句话发给你的 AI 助手，它就能在你的来发信账号里开始干活。
 
 ## 接入
 
