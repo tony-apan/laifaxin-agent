@@ -35,7 +35,11 @@
   .cap p { font-size:15.5px; color:#4a5a6a; max-width:760px; }
   .say { margin-top:16px; background:#fff; border:1px solid #dfe9f2; border-left:3px solid #1b6de0; padding:14px 18px; max-width:760px; }
   .say .k { font-size:12.5px; letter-spacing:.18em; color:#7d9dbd; display:block; margin-bottom:6px; }
-  .say p { font-size:15px; color:#14273a; }
+  .say p { font-size:15px; color:#14273a; padding-right:86px; }
+  .say { position:relative; }
+  .copy-btn { position:absolute; top:12px; right:12px; appearance:none; border:1px solid #c3dff5; background:#f7fafd; color:#1b6de0; font-size:12.5px; padding:4px 12px; cursor:pointer; border-radius:2px; }
+  .copy-btn:hover { background:#e8f2fc; }
+  .copy-btn.done { color:#15803d; border-color:#bfe3cc; }
   .security { font-size:14.5px; color:#5c6f82; max-width:760px; }
   .security p + p { margin-top:10px; }
   .cta { display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
@@ -60,7 +64,7 @@
   <div class="topbar">
     <div class="brand"><a href="/"><img src="/assets/logo.png" alt="来发信标志">来发信<small>LAIFAXIN</small><span class="sep">|</span><span class="svc">开放服务</span></a></div>
     <div class="nav">
-      <a href="/features.html" class="on">功能说明</a>
+      <a href="/features.html" class="on">功能</a>
       <a href="/versions.html">版本</a>
       <a href="https://web.laifaxin.com" target="_blank" rel="noopener">网页端</a>
       <a href="https://github.com/tony-apan/laifaxin-agent" target="_blank" rel="noopener">GitHub</a>
@@ -78,27 +82,27 @@
     <div class="cap">
       <h3><span class="no">01</span>找海外客户</h3>
       <p>按国家、行业等条件检索海外企业和联系人，带邮箱等联系方式。筛完的结果按你的要求存进通讯录，不用再一页页翻网站、手动抄邮箱。</p>
-      <div class="say"><span class="k">你 可 以 这 样 说</span><p>「帮我找一批德国做汽车零部件的进口商，要带邮箱的联系人，先给我看 20 家，合适的存进通讯录。」</p></div>
+      <div class="say"><span class="k">你 可 以 这 样 说</span><p>「帮我找一批德国做汽车零部件的进口商，要带邮箱的联系人，先给我看 20 家，合适的存进通讯录。」</p><button class="copy-btn" type="button" onclick="copySay(this)">复制这句</button></div>
     </div>
     <div class="cap">
       <h3><span class="no">02</span>管客户</h3>
       <p>联系人、公司、标签、跟进记录都在一处：哪个客户跟进到哪一步随时能查；批量整理、打标签、导入导出名单都可以交给助手办。</p>
-      <div class="say"><span class="k">你 可 以 这 样 说</span><p>「把上周存的这批客户打上『广交会』标签，再帮我看看谁还没有跟进过。」</p></div>
+      <div class="say"><span class="k">你 可 以 这 样 说</span><p>「把上周存的这批客户打上『广交会』标签，再帮我看看谁还没有跟进过。」</p><button class="copy-btn" type="button" onclick="copySay(this)">复制这句</button></div>
     </div>
     <div class="cap">
       <h3><span class="no">03</span>写信与一对一发送</h3>
       <p>阅读来信、起草、回复都可以。发开发信时可以一对一分别发送——每位收件人只看到自己，不会像群发那样所有人互相可见；还能定时发送、带附件，发出后可以看到客户有没有打开。</p>
-      <div class="say"><span class="k">你 可 以 这 样 说</span><p>「给这 12 位联系人每人写一封开发信，按各自公司的情况调整内容，明天上午 9 点定时发出，发完告诉我谁打开了。」</p></div>
+      <div class="say"><span class="k">你 可 以 这 样 说</span><p>「给这 12 位联系人每人写一封开发信，按各自公司的情况调整内容，明天上午 9 点定时发出，发完告诉我谁打开了。」</p><button class="copy-btn" type="button" onclick="copySay(this)">复制这句</button></div>
     </div>
     <div class="cap">
       <h3><span class="no">04</span>批量开发与智能跟进</h3>
       <p>给一批客户发开发信、排跟进计划：按你定好的内容和节奏执行，没回复的自动再跟进。执行完给一份结果报告，发了多少、失败哪些、原因是什么，写得清清楚楚。</p>
-      <div class="say"><span class="k">你 可 以 这 样 说</span><p>「把新品目录发给标签是『老客户』的联系人，没回复的 5 天后自动跟进一次，结束后给我一份报告。」</p></div>
+      <div class="say"><span class="k">你 可 以 这 样 说</span><p>「把新品目录发给标签是『老客户』的联系人，没回复的 5 天后自动跟进一次，结束后给我一份报告。」</p><button class="copy-btn" type="button" onclick="copySay(this)">复制这句</button></div>
     </div>
     <div class="cap">
       <h3><span class="no">05</span>账户与费用，心里有数</h3>
       <p>当前账号、工作区、发信通道、点数和费用情况随时能问。花了多少、还剩多少，不用自己去后台翻。</p>
-      <div class="say"><span class="k">你 可 以 这 样 说</span><p>「这个月还剩多少点数？上周一共发了多少封，花了多少？」</p></div>
+      <div class="say"><span class="k">你 可 以 这 样 说</span><p>「这个月还剩多少点数？上周一共发了多少封，花了多少？」</p><button class="copy-btn" type="button" onclick="copySay(this)">复制这句</button></div>
     </div>
   </section>
 
@@ -123,8 +127,24 @@
 
   <footer>
     <span>来发信 Laifaxin · 开放服务</span>
-    <span><a href="/features.html">功能说明</a> &nbsp;·&nbsp; <a href="/versions.html">版本</a> &nbsp;·&nbsp; Skill v6.1.28 &nbsp;·&nbsp; <a href="https://web.laifaxin.com" target="_blank" rel="noopener">网页端</a> &nbsp;·&nbsp; <a href="https://github.com/tony-apan/laifaxin-agent" target="_blank" rel="noopener">GitHub</a></span>
+    <span><a href="/features.html">功能</a> &nbsp;·&nbsp; <a href="/versions.html">版本</a> &nbsp;·&nbsp; Skill v6.1.28 &nbsp;·&nbsp; <a href="https://web.laifaxin.com" target="_blank" rel="noopener">网页端</a> &nbsp;·&nbsp; <a href="https://github.com/tony-apan/laifaxin-agent" target="_blank" rel="noopener">GitHub</a></span>
   </footer>
 </div>
+<script>
+function copySay(btn) {
+  var box = btn.closest('.say');
+  var text = box.querySelector('p').innerText;
+  function done() { var old = btn.innerText; btn.innerText = '已复制'; btn.classList.add('done'); setTimeout(function(){ btn.innerText = old; btn.classList.remove('done'); }, 2200); }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done).catch(function(){ fallback(); });
+  } else { fallback(); }
+  function fallback() {
+    var ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta); done();
+  }
+}
+</script>
 </body>
 </html>
