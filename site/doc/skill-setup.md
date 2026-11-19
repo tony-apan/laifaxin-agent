@@ -39,7 +39,7 @@ echo "$SKILLS_DIR"
 ```bash
 TMPDIR=$(mktemp -d)
 curl -L -o "$TMPDIR/laifaxin.zip" "https://agent.laifa.xin/releases/laifaxin-v6.1.28.zip"
-echo "00faebdc95599b56bfd76d57f425f4c867654609b148c3ef76e6743ef08b8e9f  $TMPDIR/laifaxin.zip" | sha256sum -c -
+echo "708b7fab6f1b210f0f79a94a47a6b86394622f7a58fc2a8b044320d46442bb6d  $TMPDIR/laifaxin.zip" | sha256sum -c -
 mkdir -p "$SKILLS_DIR"
 unzip -o "$TMPDIR/laifaxin.zip" -d "$SKILLS_DIR"
 rm -rf "$TMPDIR"
