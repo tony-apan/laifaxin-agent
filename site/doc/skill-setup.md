@@ -38,15 +38,16 @@ echo "$SKILLS_DIR"
 
 ```bash
 TMPDIR=$(mktemp -d)
-curl -L -o "$TMPDIR/laifaxin.zip" "https://agent.laifa.xin/releases/laifaxin-v6.1.28.zip"
-echo "708b7fab6f1b210f0f79a94a47a6b86394622f7a58fc2a8b044320d46442bb6d  $TMPDIR/laifaxin.zip" | sha256sum -c -
+curl -L -o "$TMPDIR/laifaxin-v6.1.28.zip" "https://agent.laifa.xin/releases/laifaxin-v6.1.28.zip"
+curl -L -o "$TMPDIR/laifaxin-v6.1.28.zip.sha256" "https://agent.laifa.xin/releases/laifaxin-v6.1.28.zip.sha256"
+(cd "$TMPDIR" && sha256sum -c laifaxin-v6.1.28.zip.sha256)
 mkdir -p "$SKILLS_DIR"
-unzip -o "$TMPDIR/laifaxin.zip" -d "$SKILLS_DIR"
+unzip -o "$TMPDIR/laifaxin-v6.1.28.zip" -d "$SKILLS_DIR"
 rm -rf "$TMPDIR"
 LFX="$SKILLS_DIR/laifaxin/scripts/laifaxin.py"
 ```
 
-校验失败立即停止，不要继续安装。macOS 无 `sha256sum` 时用 `shasum -a 256 -c -`。本站不可达时可用 GitHub 镜像（链接直达 zip；下载后必须按上文给出的 SHA256 校验，校验不过不要安装）：`https://raw.githubusercontent.com/tony-apan/laifaxin-agent/main/site/releases/laifaxin-v6.1.28.zip`；镜像也不可达时停下来向用户说明，不要从其他来源找安装包。
+校验失败立即停止，不要继续安装。macOS 无 `sha256sum` 时用 `shasum -a 256 -c -`。本站不可达时可用 GitHub 镜像（链接直达 zip；镜像同目录附带同名 `.sha256` 校验文件，下载后按上文同样方法校验，校验不过不要安装）：`https://raw.githubusercontent.com/tony-apan/laifaxin-agent/main/site/releases/laifaxin-v6.1.28.zip`；镜像也不可达时停下来向用户说明，不要从其他来源找安装包。
 
 ### 第 2 步 — 配置连接
 
