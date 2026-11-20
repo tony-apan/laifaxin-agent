@@ -14,6 +14,8 @@
 
 支持 Codex、Claude Code、Cursor、WorkBuddy 等主流 AI 助手。一行安装需要 Node.js 环境；没有 Node.js 时可用手动安装（见下方「技术资料」）。
 
+也可以在技能市场里直接安装：[SkillHub](https://skillhub.cn/skills/org-t67ewudl/laifaxin)（腾讯技能社区）；用 WorkBuddy 的，在客户端技能市场里搜「来发信」即可。
+
 本仓库是本 Skill 的唯一真源：接入站由本仓库自动部署，安装全程走接入站完成，不依赖 GitHub 的访问速度。
 
 ## 使用方式
@@ -50,7 +52,7 @@
 
 当前版本 v6.1.28，从 [接入站](https://agent.laifa.xin/releases/laifaxin-v6.1.28.zip) 或 [GitHub Release](https://github.com/tony-apan/laifaxin-agent/releases) 下载 zip，解压到 Agent 的 skills 目录。
 
-SHA256 校验：以包同目录的 `laifaxin-v6.1.28.zip.sha256` 文件为准（本站分发版：在官方包基础上仅补充了 workflows.md 的单发直发配方，客户端、接口目录与契约未改动）
+SHA256：`708b7fab6f1b210f0f79a94a47a6b86394622f7a58fc2a8b044320d46442bb6d`（本站分发版：在官方包基础上仅补充了 workflows.md 的单发直发配方，客户端、接口目录与契约未改动）
 
 **版本与更新**
 
