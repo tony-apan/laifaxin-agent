@@ -26,7 +26,7 @@ npx --registry https://registry.npmmirror.com skills add https://agent.laifa.xin
 
 ### 没有 Node 时：手工安装
 
-1. 找到助手宿主的 skills 目录（Codex 为 `~/.codex/skills`，Claude Code 为 `~/.claude/skills`，WorkBuddy 为 `~/.workbuddy/skills`）。找不到就停下来问用户，不要猜路径。
+1. 找到助手宿主的 skills 目录（Codex 为 `~/.codex/skills`，Claude Code 为 `~/.claude/skills`，WorkBuddy 为 `~/.workbuddy/skills`；Cursor 等其他宿主优先走上面的 npx 安装、会自动链接，手工安装时按其官方说明找 skills 目录）。找不到就停下来问用户，不要猜路径。
 2. 下载安装包并校验，校验不一致就停，不要安装：
 
 ```bash
@@ -46,7 +46,7 @@ unzip -o /tmp/laifaxin.zip -d <skills 目录>
 
 改用官方仓里的同一份安装包：`https://raw.githubusercontent.com/tony-apan/laifaxin-agent/main/site/releases/laifaxin-v6.1.28.zip`。换源先告诉用户；下载后按上面的 SHA256 校验，一致才装。两个来源都打不开就停下来说明，不要从其他来源找包。
 
-手工安装与兜底安装的用户，升级时重新打开本页，按当期版本号下载新包覆盖安装，并核对本页当期给出的校验值（本页随版本更新）。
+手工安装与兜底安装的用户，升级时重新打开本页，按当期版本号下载新包，并核对本页当期给出的校验值（本页随版本更新）；解压前先删掉旧的 `laifaxin` 目录再解压，避免旧文件残留。
 
 ## 第 2 步：连接账号
 
