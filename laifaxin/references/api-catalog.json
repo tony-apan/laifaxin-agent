@@ -1161,7 +1161,7 @@
       "calls": [
         {
           "file": "apps/web/src/api/mail.ts",
-          "line": 609,
+          "line": 626,
           "name": "getEmailContact",
           "transport": "postEnvelope",
           "request": "{ email }",
@@ -1273,7 +1273,7 @@
       "calls": [
         {
           "file": "apps/web/src/api/mail.ts",
-          "line": 552,
+          "line": 569,
           "name": "mailToOptions",
           "transport": "postEnvelope",
           "request": "{\n    keyword: escapeRegExp(keyword),\n  }",
@@ -2485,7 +2485,7 @@
       "calls": [
         {
           "file": "apps/web/src/api/mail.ts",
-          "line": 578,
+          "line": 595,
           "name": "listAttachmentOptions",
           "transport": "postEnvelope",
           "request": "{}",
@@ -3201,7 +3201,7 @@
       "calls": [
         {
           "file": "apps/web/src/api/mail.ts",
-          "line": 694,
+          "line": 711,
           "name": "listMailHistory",
           "transport": "postEnvelope",
           "request": "{\n      current: q.current,\n      pageSize: q.pageSize,\n      sort: q.sort ?? {},\n      filter: {\n        email: q.email,\n        rangeType: q.rangeType,\n        owners: q.owners,\n        ...(q.timestamp ? { timestamp: q.timestamp } : {}),\n      },\n    }",
@@ -3243,7 +3243,7 @@
       "calls": [
         {
           "file": "apps/web/src/api/mail.ts",
-          "line": 466,
+          "line": 483,
           "name": "saveDraft",
           "transport": "postEnvelope",
           "request": "{\n    ...composeBody(d),\n    text: displayHtmlToText(d.html),\n  }",
@@ -3433,7 +3433,7 @@
       "calls": [
         {
           "file": "apps/web/src/api/mail.ts",
-          "line": 440,
+          "line": 457,
           "name": "sendMail",
           "transport": "postEnvelope",
           "request": "composeBody(d)",
@@ -3447,7 +3447,7 @@
       "calls": [
         {
           "file": "apps/web/src/api/mail.ts",
-          "line": 453,
+          "line": 470,
           "name": "getSendStatus",
           "transport": "postEnvelope",
           "request": "{ sendId }",
@@ -3461,7 +3461,7 @@
       "calls": [
         {
           "file": "apps/web/src/api/mail.ts",
-          "line": 630,
+          "line": 647,
           "name": "getTrackInfo",
           "transport": "postEnvelope",
           "request": "{ sid: ssid }",
@@ -5467,7 +5467,7 @@
       "calls": [
         {
           "file": "apps/web/src/api/mail.ts",
-          "line": 811,
+          "line": 828,
           "name": "out",
           "transport": "postEnvelope",
           "request": "{\n    source: 'auto',\n    target: v.target,\n    textList,\n  }",
@@ -6098,7 +6098,7 @@
     "apps/web/src/api/mail-eml.ts": "96895c437755dfa878abe31a85975acdafe47ae3e621172f0bb1c58479cd1a8f",
     "apps/web/src/api/mail-file-url.ts": "aed509b7b2e5b70ef6b00f0142adc7092e032ff973412ce7e82251cf5023cbba",
     "apps/web/src/api/mail-translate-html.ts": "326640f96b822093fc02f905f4215c12fbceebbf1bc456e297223f76fdc5f3f1",
-    "apps/web/src/api/mail.ts": "de00356948d19494e8d409b4a071229260c0118d559527dd1287f9aabd9eb3dd",
+    "apps/web/src/api/mail.ts": "42da0d7debcac27437844a589137f3f4062439d7cbaafea237490145be5d3915",
     "apps/web/src/api/marketing.ts": "668c8e9edae54e5a3cac627100bd204f6877f209f3172b1e5a8000a9917669e7",
     "apps/web/src/api/notifications.ts": "60feffa92af32fe593d32ab7454b25573ada46f68d3cdc483b15b4ce25e81bcf",
     "apps/web/src/api/partner.ts": "9b7efa68a075afa152e0fad2ecc99a0638d6b059770dcae1dc149d5774ed22d8",

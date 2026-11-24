@@ -239,6 +239,72 @@ class Client:
         return envelope
 
 
+STRICT_EMAIL_LOCAL = re.compile(r"[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+")
+STRICT_DOMAIN_LABEL = re.compile(r"[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?")
+
+
+def is_strict_email_address(address):
+    if not isinstance(address, str) or not address or len(address) > 254 or re.search(r"[\r\n\0\s]", address):
+        return False
+    parts = address.split("@")
+    if len(parts) != 2:
+        return False
+    local, domain = parts
+    if (not local or len(local) > 64 or local.startswith(".") or local.endswith(".")
+            or ".." in local or not STRICT_EMAIL_LOCAL.fullmatch(local)):
+        return False
+    if not domain or len(domain) > 253:
+        return False
+    labels = domain.split(".")
+    if len(labels) < 2 or any(not STRICT_DOMAIN_LABEL.fullmatch(label) for label in labels):
+        return False
+    tld = labels[-1]
+    return len(tld) >= 2 and (bool(re.fullmatch(r"[a-zA-Z]+", tld)) or tld.lower().startswith("xn--"))
+
+
+def valid_single_mail_address(raw):
+    if not isinstance(raw, str):
+        return False
+    trimmed = raw.strip()
+    if not trimmed or len(trimmed) > 320 or re.search(r"[\r\n\0]", trimmed):
+        return False
+    if "<" not in trimmed and ">" not in trimmed:
+        return is_strict_email_address(trimmed)
+    if not trimmed.endswith(">"):
+        return False
+    lt_index = trimmed.rfind("<")
+    if lt_index < 0:
+        return False
+    address = trimmed[lt_index + 1:-1].strip()
+    if not is_strict_email_address(address):
+        return False
+    raw_name = trimmed[:lt_index].strip()
+    if not raw_name:
+        return True
+    if raw_name.startswith('"') and raw_name.endswith('"') and len(raw_name) >= 2:
+        inner = raw_name[1:-1]
+        unescaped = []
+        i = 0
+        while i < len(inner):
+            ch = inner[i]
+            if ch == "\\":
+                if i + 1 >= len(inner):
+                    return False
+                i += 1
+                unescaped.append(inner[i])
+            elif ch == '"':
+                return False
+            else:
+                unescaped.append(ch)
+            i += 1
+        name = "".join(unescaped).strip()
+    elif re.search(r'[<>",;:]', raw_name):
+        return False
+    else:
+        name = raw_name
+    return len(name) <= 128
+
+
 def validate_sensitive_body(endpoint, body):
     if endpoint.startswith("/mails/mails-") and body.get("selectOption") == "all":
         filters = body.get("filter", {})
@@ -253,6 +319,15 @@ def validate_sensitive_body(endpoint, body):
             raise SkillError("正文图片需要先上传成功，并替换为服务端返回的 URL。")
         if not re.sub(r"<[^>]*>|&nbsp;", "", body["html"]).strip() and not re.search(r"<img\b", body["html"], re.I):
             raise SkillError("邮件正文不能为空。")
+        if "senderName" in body:
+            sender_name = body["senderName"]
+            if not isinstance(sender_name, str) or re.search(r"[\r\n\0]", sender_name) or len(sender_name.strip()) > 64:
+                raise SkillError("senderName 需为不超过 64 字符的单行字符串，不能包含换行或空字符。")
+        if "replyTo" in body:
+            reply_to = body["replyTo"]
+            if (not isinstance(reply_to, str) or re.search(r"[\r\n\0]", reply_to)
+                    or (reply_to.strip() and not valid_single_mail_address(reply_to))):
+                raise SkillError("replyTo 格式错误：需为单个回信邮箱（支持纯邮箱、<邮箱> 或「显示名 <邮箱>」），trim 后不超过 320 字符且不含换行或空字符。")
         if not isinstance(body.get("sendAtOnce"), bool):
             raise SkillError("需要明确 sendAtOnce，区分立即发送和定时发送。")
         if body["sendAtOnce"] is False:

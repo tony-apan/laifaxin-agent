@@ -348,6 +348,20 @@ export interface ComposeDraft {
   id?: string;
   /** 发信账号。**不含 @ 的走系统通道扣通用点数** */
   sender: string;
+  /**
+   * 本封邮件的发件人显示名称（仅 `/mails/sendmail-add` 支持，可选）。
+   * 规则：字符串，trim 后最长 64 字符，不能包含换行（`\r`/`\n`）或空字符（`\0`）；
+   * 留空或省略时使用账号默认名称。立即发送与定时发送均支持；定时重排期（传 `id`）未传或传空时会清空原值。
+   */
+  senderName?: string;
+  /**
+   * 本封邮件的自定义回信邮箱（仅 `/mails/sendmail-add` 支持，可选）。
+   * 规则：单个地址字符串，支持纯邮箱、`<邮箱>`、`显示名 <邮箱>` 或 `"显示名" <邮箱>`，
+   * trim 后最长 320 字符（显示名最长 128 字符，未加引号的显示名不能含 `< > " , ; :`），
+   * 不能包含换行或空字符，不支持逗号分隔多个地址；留空或省略时使用默认回信地址。
+   * 立即发送、定时发送（重排期未传或传空时清空）与 `single: true` 均支持。
+   */
+  replyTo?: string;
   maid: string;
   to: string[];
   cc: string[];
@@ -420,6 +434,9 @@ export function composeBody(d: ComposeDraft) {
   };
   if (d.cc.length) body.cc = d.cc.join(',');
   if (d.bcc.length) body.bcc = d.bcc.join(',');
+  // 本封邮件临时发件人名称与回信邮箱（`/mails/sendmail-add` 支持；留空或省略时使用默认配置）
+  if (d.senderName !== undefined) body.senderName = d.senderName;
+  if (d.replyTo !== undefined) body.replyTo = d.replyTo;
   // 优先级与已读回执只在自有邮箱分支才写进 SMTP header,系统通道下发了也没用
   if (d.priority) body.priority = d.priority;
   if (d.timeStart != null) body.timeStart = d.timeStart;
