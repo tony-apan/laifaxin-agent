@@ -30,8 +30,8 @@ npx --registry https://registry.npmmirror.com skills add https://agent.laifa.xin
 2. 下载安装包并校验，校验不一致就停，不要安装：
 
 ```bash
-curl -L -o /tmp/laifaxin.zip "https://agent.laifa.xin/releases/laifaxin-v6.1.28.zip"
-echo "708b7fab6f1b210f0f79a94a47a6b86394622f7a58fc2a8b044320d46442bb6d  /tmp/laifaxin.zip" | sha256sum -c -
+curl -L -o /tmp/laifaxin.zip "https://agent.laifa.xin/releases/laifaxin-v6.1.29.zip"
+echo "a6e65853b4a9db229ba746631ba5163f4deae253484e711b242cf886671f10bb  /tmp/laifaxin.zip" | sha256sum -c -
 ```
 
 macOS 没有 `sha256sum` 时用 `shasum -a 256 -c -`。
@@ -44,7 +44,7 @@ unzip -o /tmp/laifaxin.zip -d <skills 目录>
 
 ### 本站打不开时：GitHub 兜底
 
-改用官方仓里的同一份安装包：`https://raw.githubusercontent.com/tony-apan/laifaxin-agent/main/site/releases/laifaxin-v6.1.28.zip`。换源先告诉用户；下载后按上面的 SHA256 校验，一致才装。两个来源都打不开就停下来说明，不要从其他来源找包。
+改用官方仓里的同一份安装包：`https://raw.githubusercontent.com/tony-apan/laifaxin-agent/main/site/releases/laifaxin-v6.1.29.zip`。换源先告诉用户；下载后按上面的 SHA256 校验，一致才装。两个来源都打不开就停下来说明，不要从其他来源找包。
 
 手工安装与兜底安装的用户，升级时重新打开本页，按当期版本号下载新包，并核对本页当期给出的校验值（本页随版本更新）；解压前先删掉旧的 `laifaxin` 目录再解压，避免旧文件残留。
 

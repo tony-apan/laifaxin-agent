@@ -1,6 +1,6 @@
 # 来发信-外贸获客与开发信助手
 
-[![版本 v6.1.28](https://img.shields.io/badge/%E7%89%88%E6%9C%AC-v6.1.28-1B6DE0?style=flat-square)](https://github.com/tony-apan/laifaxin-agent/releases/tag/v6.1.28) [![接入站 agent.laifa.xin](https://img.shields.io/badge/%E6%8E%A5%E5%85%A5%E7%AB%99-agent.laifa.xin-1B6DE0?style=flat-square)](https://agent.laifa.xin) [![授权 官方网页](https://img.shields.io/badge/%E6%8E%88%E6%9D%83-%E5%AE%98%E6%96%B9%E7%BD%91%E9%A1%B5-1B6DE0?style=flat-square)](https://agent.laifa.xin/doc/skill-setup.md) [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-607D8B?style=flat-square)](#技术资料) [![依赖 零依赖](https://img.shields.io/badge/%E4%BE%9D%E8%B5%96-%E9%9B%B6%E4%BE%9D%E8%B5%96-607D8B?style=flat-square)](#技术资料)
+[![版本 v6.1.29](https://img.shields.io/badge/%E7%89%88%E6%9C%AC-v6.1.29-1B6DE0?style=flat-square)](https://github.com/tony-apan/laifaxin-agent/releases/tag/v6.1.29) [![接入站 agent.laifa.xin](https://img.shields.io/badge/%E6%8E%A5%E5%85%A5%E7%AB%99-agent.laifa.xin-1B6DE0?style=flat-square)](https://agent.laifa.xin) [![授权 官方网页](https://img.shields.io/badge/%E6%8E%88%E6%9D%83-%E5%AE%98%E6%96%B9%E7%BD%91%E9%A1%B5-1B6DE0?style=flat-square)](https://agent.laifa.xin/doc/skill-setup.md) [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-607D8B?style=flat-square)](#技术资料) [![依赖 零依赖](https://img.shields.io/badge/%E4%BE%9D%E8%B5%96-%E9%9B%B6%E4%BE%9D%E8%B5%96-607D8B?style=flat-square)](#技术资料)
 
 让 AI 助手帮你找海外客户、写开发信、发邮件、跟进客户，重复活交给它，每一步由你拍板。把一句话发给你的 AI 助手，它就能在你的来发信账号里开始干活。
 
@@ -50,7 +50,7 @@
 
 **手动安装**（无 Node.js 环境时的备选）
 
-当前版本 v6.1.28，从 [接入站](https://agent.laifa.xin/releases/laifaxin-v6.1.28.zip) 或 [GitHub Release](https://github.com/tony-apan/laifaxin-agent/releases) 下载 zip，解压到 Agent 的 skills 目录。
+当前版本 v6.1.29，从 [接入站](https://agent.laifa.xin/releases/laifaxin-v6.1.29.zip) 或 [GitHub Release](https://github.com/tony-apan/laifaxin-agent/releases) 下载 zip，解压到 Agent 的 skills 目录。
 
 SHA256：`708b7fab6f1b210f0f79a94a47a6b86394622f7a58fc2a8b044320d46442bb6d`（本站分发版：在官方包基础上仅补充了 workflows.md 的单发直发配方，客户端、接口目录与契约未改动）
 

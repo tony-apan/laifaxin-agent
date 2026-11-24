@@ -11,7 +11,7 @@ labels: feedback
 
 ## 基本信息
 
-- 技能版本：（例 v6.1.28，可在 SKILL.md 开头查到）
+- 技能版本：（例 v6.1.29，可在 SKILL.md 开头查到）
 - 你用的 AI 助手：（例 Codex / Claude Code / Cursor / WorkBuddy）
 - 来发信工作区类型：（个人版 / 企业版）
 
