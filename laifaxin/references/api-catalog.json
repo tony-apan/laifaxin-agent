@@ -1541,7 +1541,8 @@
           "request": "{ domain }",
           "responseType": "{ list?: SimilarCompany[] } | SimilarCompany[] | undefined"
         }
-      ]
+      ],
+      "note": "已禁用（2026-11-21 定版）：找相似/扩量改走 /refine/company-list 关键词搜索（种子域名或公司名作 keyword，带 current/pageSize 可翻页）。本条目仅作接口存档，不要调用。"
     },
     {
       "path": "/enterprise/invite-link-audit",
