@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 # 发版收尾机器闸：校验某个版本的发布包与全部公布面是否一致。
 # 用法：tools/verify-release.sh 6.1.28
-# 做三件事：
+# 做四件事：
 #   1) 从公网（接入站）下载 zip 与 .sha256，按 .sha256 校验 zip；
 #   2) 从 GitHub 镜像再下载一份 zip，确认与接入站同字节；
 #   3) 扫描公布面（安装文档、README、接入站首页）里有没有写死的、
-#      与真源不一致的 64 位校验码。
+#      与真源不一致的 64 位校验码；
+#   4) 真装验证（tools/verify-install.sh）：在干净环境实际运行官方一键
+#      安装命令全程，装齐且与当版 zip 逐字一致才算过——「装得上」与
+#      「包没坏」是两回事，本步专验前者（2026-11-26 根治新增）。
 # 任一不过，退出码非 0，不许宣布发布完成（见 RELEASING.md）。
 set -u
 V="${1:?用法: verify-release.sh <版本号，如 6.1.28>}"
@@ -54,6 +57,14 @@ check_surface() {
 check_surface "安装文档" "https://agent.laifa.xin/doc/skill-setup.md"
 check_surface "仓库README" "https://raw.githubusercontent.com/tony-apan/laifaxin-agent/main/README.md"
 check_surface "接入站首页" "https://agent.laifa.xin/"
+
+echo "== 4) 真装验证（干净环境跑一键安装全程） =="
+if "$(dirname "$0")/verify-install.sh" "$V"; then
+  echo "OK: 真装通过"
+else
+  echo "FAIL: 真装验证未过"
+  FAIL=1
+fi
 
 if [ "$FAIL" = 0 ]; then
   echo "== 全部通过：v$V 发布面一致 =="
