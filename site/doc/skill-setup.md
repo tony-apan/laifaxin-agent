@@ -72,3 +72,13 @@ python3 "$LFX" status
 ## 遇到问题
 
 客服邮箱 help@zhijixinxi.com，电话 17091913071。
+
+## 分发结构（事实）
+
+本站的发现索引发布在两处：https://agent.laifa.xin/.well-known/skills/index.json （V1）与 https://agent.laifa.xin/.well-known/agent-skills/index.json （V2）。两份索引由同一源码树机械生成；两种发现规范各自读取其中的对应字段，取用规则不互换。
+
+按 V1 索引取用时，文件的完整地址是 https://agent.laifa.xin/.well-known/skills/laifaxin/ 之后接索引登记的相对路径，其中 laifaxin 是技能名的字面值。例：索引登记的 SKILL.md，对应 https://agent.laifa.xin/.well-known/skills/laifaxin/SKILL.md 。
+
+按 V2 索引取用时，安装包的完整地址是 https://agent.laifa.xin/.well-known/agent-skills/ 之后接索引登记的安装包文件名。V2 索引内含该安装包的 sha256 摘要。
+
+校验码（事实）：V2 索引里的 sha256 摘要对应的是该索引所指的安装包文件本身，只用于核对那个包；releases 目录下安装包的校验码，以与它同目录发布的 .sha256 文件为准，文件名是安装包文件名后加 .sha256。两种布局的安装包内容逐字一致，但压缩包文件不同、校验值也不同，核对时按各自布局取用，不混用。

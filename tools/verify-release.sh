@@ -39,6 +39,29 @@ else
   FAIL=1
 fi
 
+echo "== 2b) V2 索引 digest 与 well-known 包一致性 =="
+if python3 - "$V" << 'PYEOF'
+import hashlib, json, sys, urllib.request
+v = sys.argv[1]
+def get(u):
+    req = urllib.request.Request(u, headers={"User-Agent": "laifaxin-verify/1.0"})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return r.read()
+idx = json.loads(get("https://agent.laifa.xin/.well-known/agent-skills/index.json"))["skills"][0]
+if idx["url"] != f"laifaxin-v{v}.zip":
+    print(f"FAIL: V2 索引指向 {idx['url']}，与待验版本 v{v} 不符"); sys.exit(1)
+data = get(f"https://agent.laifa.xin/.well-known/agent-skills/{idx['url']}")
+actual = "sha256:" + hashlib.sha256(data).hexdigest()
+if actual != idx["digest"]:
+    print(f"FAIL: V2 索引 digest {idx['digest']} 与包实际 {actual} 不一致"); sys.exit(1)
+print("OK: V2 索引 digest 与 well-known 包一致")
+PYEOF
+then
+  :
+else
+  FAIL=1
+fi
+
 echo "== 3) 公布面写死校验码扫描 =="
 check_surface() {
   # $1=名称 $2=URL；页面里出现的每个 64 位十六进制串都必须等于真源
