@@ -12,6 +12,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 LOG="$ROOT/docs/install-verifications.log"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
+mkdir -p "$(dirname "$LOG")"
 STAMP="$(date '+%Y-%m-%d %H:%M %Z')"
 record() { echo "$STAMP v$V $1" >> "$LOG"; echo "$1"; }
 
