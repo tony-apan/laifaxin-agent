@@ -1,1 +1,2 @@
 2026-11-26 06:51 UTC v6.1.30 PASS: 一键安装全程跑通，装齐 99 个文件且与 v6.1.30 zip 逐字一致
+2026-11-26 07:01 UTC v6.1.30 PASS: 一键安装全程跑通，装齐 99 个文件且与 v6.1.30 zip 逐字一致（skills CLI 1.9.0，索引 https://agent.laifa.xin/.well-known/skills/index.json，装入 ~/.agents/skills/laifaxin）

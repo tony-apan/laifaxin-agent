@@ -38,8 +38,15 @@ os.makedirs(home)
 env = dict(os.environ, HOME=home)
 proc = subprocess.run(["npx", "-y", "skills", "add", "https://agent.laifa.xin", "-g", "-y"],
                       capture_output=True, text=True, env=env, timeout=600)
+import glob
+cli_ver = "unknown"
+for pj in glob.glob(os.path.join(home, ".npm", "_npx", "*", "node_modules", "skills", "package.json")):
+    try:
+        cli_ver = json.load(open(pj)).get("version", "unknown")
+    except Exception:
+        pass
 if proc.returncode != 0:
-    print(f"FAIL: 一键安装退出码 {proc.returncode}: " + (proc.stdout + proc.stderr)[-300:].replace("\n", " "))
+    print(f"FAIL: 一键安装退出码 {proc.returncode}（skills CLI {cli_ver}，索引 https://agent.laifa.xin/.well-known/skills/index.json）: " + (proc.stdout + proc.stderr)[-300:].replace("\n", " "))
     sys.exit(0)
 base = os.path.join(home, ".agents", "skills", "laifaxin")
 installed = {}
@@ -53,9 +60,9 @@ if len(installed) != len(declared) or len(installed) != len(zipmap):
     sys.exit(0)
 diff = [k for k in zipmap if installed.get(k) != zipmap[k]] + [k for k in installed if k not in zipmap]
 if diff:
-    print(f"FAIL: 装到的内容与当版 zip 不一致: {diff[:5]}")
+    print(f"FAIL: 装到的内容与当版 zip 不一致: {diff[:5]}（skills CLI {cli_ver}，索引 https://agent.laifa.xin/.well-known/skills/index.json）")
     sys.exit(0)
-print(f"PASS: 一键安装全程跑通，装齐 {len(installed)} 个文件且与 v{v} zip 逐字一致")
+print(f"PASS: 一键安装全程跑通，装齐 {len(installed)} 个文件且与 v{v} zip 逐字一致（skills CLI {cli_ver}，索引 https://agent.laifa.xin/.well-known/skills/index.json，装入 ~/.agents/skills/laifaxin）")
 PYEOF
 )"
 record "$RESULT"
