@@ -15,8 +15,9 @@
 import hashlib
 import io
 import json
+import subprocess
 import sys
-import urllib.request
+import time
 import zipfile
 from concurrent.futures import ThreadPoolExecutor
 
@@ -24,9 +25,24 @@ BASE = "https://agent.laifa.xin"
 
 
 def get(url, timeout=30):
-    req = urllib.request.Request(url, headers={"User-Agent": "laifaxin-patrol/1.1"})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.status, r.read()
+    # 传输层用 curl：2026-11-27 实测 EdgeOne 对 Python urllib 客户端的响应会在
+    # 中途截断（curl/wget/node 均正常），巡检若继续用 urllib 会天天误报。
+    last = None
+    for attempt in range(3):
+        try:
+            proc = subprocess.run(
+                ["curl", "-sS", "-L", "--max-time", str(timeout),
+                 "-A", "laifaxin-patrol/1.2", "-w", "\n__HTTP__%{http_code}", url],
+                capture_output=True, timeout=timeout + 10)
+            body, _, tail = proc.stdout.rpartition(b"\n__HTTP__")
+            status = int(tail.decode().strip())
+            if proc.returncode != 0:
+                raise RuntimeError(f"curl exit {proc.returncode}: {proc.stderr.decode()[:120]}")
+            return status, body
+        except Exception as e:
+            last = e
+            time.sleep(2)
+    raise last
 
 
 def sha(b: bytes) -> str:
